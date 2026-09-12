@@ -378,7 +378,7 @@
   /* ---------- Tooltip ---------- */
   .hotspot-tip {
     position: absolute;
-    max-width: 300px;
+    max-width: 320px;
     background: #F9F6EE;
     border: 3px solid #404040;
     border-radius: 12px;
@@ -463,105 +463,121 @@
         alt="Engineering cycle timeline"
       />
 
-      <!-- Cycle 1 -->
+      <!-- ===== Cycle 1 ===== -->
       <button class="hotspot" style="left: 29.0%; top: 24.5%;"
-        data-title="Cycle 1 · Design"
-        data-text="Chose CKD as our target. Reviewed 5 candidate miRNAs and selected miR-21-5p and miR-192-5p as urinary biomarkers based on their upregulation in early-to-mid CKD."
+        data-title="Cycle 1 · Design — What and How Should We Detect?"
+        data-text="Justified why toehold switches are suitable as a detection method of CKD. Explored the choice of miRNAs and established a multi-miRNA system."
         aria-label="Cycle 1 Design"></button>
+
       <button class="hotspot" style="left: 36.0%; top: 24.2%;"
-        data-title="Cycle 1 · Build"
-        data-text="Used miRADAR (2024 Wageningen iGEM) to computationally design toehold switch candidates for both miRNAs."
+        data-title="Cycle 1 · Build — Constructing Toeholds"
+        data-text="Used miRADAR from 2024 WageningenUR to design toehold switches."
         aria-label="Cycle 1 Build"></button>
+
       <button class="hotspot" style="left: 39.0%; top: 38.1%;"
-        data-title="Cycle 1 · Test"
-        data-text="Validated each candidate in NUPACK at 37 °C (RNA mode, 1 μM toehold, 3 μM miRNA), checking bound-toehold concentration, unintended secondary structures and HMFE vs TMFE."
+        data-title="Cycle 1 · Test — NUPACK Analysis"
+        data-text="Used NUPACK to simulate reactions between toehold switches and miRNA."
         aria-label="Cycle 1 Test"></button>
+
       <button class="hotspot" style="left: 46.1%; top: 37.1%;"
-        data-title="Cycle 1 · Learn"
-        data-text="Selected Toeholds 6 & 7 for miR-192-5p and Toeholds 7 & 9 for miR-21-5p. Next: clone the switches and validate with an eGFP cell-free assay."
+        data-title="Cycle 1 · Learn — Validation Required"
+        data-text="Picked toehold candidates for further experimentation. Acknowledged that toehold switches may detect miRNA upregulation in CKD patients. Further actions involve cloning of plasmid and fluorescence reading."
         aria-label="Cycle 1 Learn"></button>
 
-      <!-- Cycle 2 -->
+      <!-- ===== Cycle 2 ===== -->
       <button class="hotspot" style="left: 49.4%; top: 23.7%;"
-        data-title="Cycle 2 · Design"
-        data-text="Chose plasmid pET-15b-EGFP: T7 promoter for strong inducible expression, eGFP reporter, T7 terminator and AmpR for ampicillin selection."
+        data-title="Cycle 2 · Design — Initiating Plasmid Cloning"
+        data-text="Selected plasmid to insert toehold switch for fluorescence result. Analysed plasmid and discovered suitable restriction sites for plasmid digestion."
         aria-label="Cycle 2 Design"></button>
+
       <button class="hotspot" style="left: 56.0%; top: 25.7%;"
-        data-title="Cycle 2 · Build"
-        data-text="Digested with XbaI (5'-TCTAGA-3') and NdeI (5'-CATATG-3'), gel-purified, ligated the toehold switch between promoter and reporter, then transformed into E. coli."
+        data-title="Cycle 2 · Build — Constructing Plasmids"
+        data-text="Conducted gel purification, ligation to insert toehold switch into our plasmid. Transformed plasmids and conducted miniprep to obtain ligated plasmids."
         aria-label="Cycle 2 Build"></button>
+
       <button class="hotspot" style="left: 59.4%; top: 37.8%;"
-        data-title="Cycle 2 · Test"
-        data-text="Colonies appeared for Toeholds 6 & 7. Initial miniprep was low, so we retransformed using larger tubes and longer incubation. Then ran the eGFP cell-free expression assay on a fluorometer."
+        data-title="Cycle 2 · Test — EGFP Cell Free Expression"
+        data-text="Used fluorometer to detect fluorescence intensity of EGFP. Analysed results and conducted statistical tests to validate the significance of data."
         aria-label="Cycle 2 Test"></button>
+
       <button class="hotspot" style="left: 66.5%; top: 35.4%;"
-        data-title="Cycle 2 · Learn"
-        data-text="Only a minimal fold change was observed — eGFP fluorescence is not user-readable without equipment. Decision: move to a colorimetric reporter (mCherry)."
+        data-title="Cycle 2 · Learn — Moving Beyond"
+        data-text="Results of EGFP cell free expression showed marginal change in fluorescence intensity. Discovered using another reporter protein to revalidate our ideas. Suggested mCherry as a suitable reporter protein for our project."
         aria-label="Cycle 2 Learn"></button>
 
-      <!-- Cycle 3 -->
+      <!-- ===== Cycle 3 ===== -->
       <button class="hotspot" style="left: 69.8%; top: 22.3%;"
-        data-title="Cycle 3 · Design"
-        data-text="Re-designed the plasmid to use mCherry, so that a positive sample would produce a colour visible under normal lighting — no specialised hardware required."
+        data-title="Cycle 3 · Design — New Reporter Protein"
+        data-text="Discovered cloning rationale of plasmid."
         aria-label="Cycle 3 Design"></button>
+
       <button class="hotspot" style="left: 76.3%; top: 24.7%;"
-        data-title="Cycle 3 · Build"
-        data-text="Cloned the mCherry plasmid using the same XbaI / NdeI insertion strategy between the T7 promoter and the reporter gene."
+        data-title="Cycle 3 · Build — Modifying Plasmids"
+        data-text="Conducted plasmid digestion and ligation to replace EGFP reporter gene to mCherry reporter gene. Repeated transformation and miniprep to obtain purified plasmids."
         aria-label="Cycle 3 Build"></button>
+
       <button class="hotspot" style="left: 79.0%; top: 37.6%;"
-        data-title="Cycle 3 · Test"
-        data-text="Ran the mCherry cell-free expression assay to check whether a colour change could be observed by eye."
+        data-title="Cycle 3 · Test — RFP Cell Free Expression"
+        data-text="Used fluorometer to detect fluorescence intensity of EGFP. Analysed results and conducted statistical tests to validate the significance of data."
         aria-label="Cycle 3 Test"></button>
+
       <button class="hotspot" style="left: 86.1%; top: 45.5%;"
-        data-title="Cycle 3 · Learn"
-        data-text="Two challenges identified: (1) a readout that can be easily observed, and (2) sufficient signal amplification at low miRNA concentrations. Pivot to Hybridization Chain Reaction (HCR)."
+        data-title="Cycle 3 · Learn — A New Detection Method?"
+        data-text="mCherry cell free expression, though produced colorimetric results, showed minimal change. Suspected that too many limiting factors of the result may hinder the accuracy of results."
         aria-label="Cycle 3 Learn"></button>
 
-      <!-- Cycle 4 -->
+      <!-- ===== Cycle 4 ===== -->
       <button class="hotspot" style="left: 84.5%; top: 83.1%;"
-        data-title="Cycle 4 · Design"
-        data-text="Adopted HCR — an enzyme-free signal-amplification method using two DNA hairpins (H1, H2) that polymerise into long nicked duplexes when the target miRNA is present."
+        data-title="Cycle 4 · Design — A New Chapter"
+        data-text="Tried to discover a new detection method to detect miRNA upregulation. Suggested using Hybridization Chain Reaction (HCR) as another detection method for CKD. Compared HCR with toehold switches."
         aria-label="Cycle 4 Design"></button>
+
       <button class="hotspot" style="left: 78.0%; top: 79.6%;"
-        data-title="Cycle 4 · Build"
-        data-text="Constructed H1 and H2 hairpins with G-rich InG4 sequences positioned in the loops. Validated all designs in NUPACK before ordering."
+        data-title="Cycle 4 · Build — Constructing Hairpins"
+        data-text="Conducted literature review and obtained hairpin base sequence. Conducted NUPACK analysis to validate the hairpins' feasibility."
         aria-label="Cycle 4 Build"></button>
+
       <button class="hotspot" style="left: 74.5%; top: 65.8%;"
-        data-title="Cycle 4 · Test"
-        data-text="First tested sensitivity with agarose gel and PAGE (inconclusive). Then ran a Thioflavin T (ThT) fluorescence assay, followed by the Hemin–TMBS colorimetric assay."
+        data-title="Cycle 4 · Test — Assessing Sensitivity of Hairpins"
+        data-text="Conducted agarose gel electrophoresis (AGE) yet no observable results is produced. Further conducted PAGE, yet failed due to technical issues and time constraints."
         aria-label="Cycle 4 Test"></button>
+
       <button class="hotspot" style="left: 68.3%; top: 69.2%;"
-        data-title="Cycle 4 · Learn"
-        data-text="ThT worked well for miR-21 but not miR-192. Hemin–TMBS gave a stronger visible signal — but the miR-192 H1 hairpin self-amplified even without target. Needs redesign."
+        data-title="Cycle 4 · Learn — New Ways to be Found"
+        data-text="As both AGE and PAGE failed, further methods involving fluorescence was discovered. Suggested to find ways to detect polymer formation through fluorescence. Discovered ThT could be suitable to produce fluorescence results that could validate the sensitivity of hairpins."
         aria-label="Cycle 4 Learn"></button>
 
-      <!-- Cycle 5 -->
+      <!-- ===== Cycle 5 ===== -->
       <button class="hotspot" style="left: 64.9%; top: 82.1%;"
-        data-title="Cycle 5 · Design"
-        data-text="Redesigned the miR-192 G4 hairpins: extend stems by 2–4 bp, add G·C-rich clamps at stem termini, reposition InG4 deeper in the loops."
+        data-title="Cycle 5 · Design — Using ThT Protein"
+        data-text="Discovered that modifications of hairpins is required to produce fluorescent results. Took reference from literature and modified DNA hairpins to include InG4 sequences, which could be used to produce fluorescent results."
         aria-label="Cycle 5 Design"></button>
+
       <button class="hotspot" style="left: 58.5%; top: 79.9%;"
-        data-title="Cycle 5 · Build"
-        data-text="Optimised toehold lengths to 18–22 nucleotides to raise the thermodynamic barrier against non-specific initiation, then re-validated in NUPACK."
+        data-title="Cycle 5 · Build — Inserting InG4 Sequences"
+        data-text="Ran NUPACK simulation to analyse the hairpins."
         aria-label="Cycle 5 Build"></button>
+
       <button class="hotspot" style="left: 55.0%; top: 66.0%;"
-        data-title="Cycle 5 · Test"
-        data-text="Testing the modified G4 hairpins with the Hemin + TMBS assay to confirm the self-amplification signal has been suppressed."
+        data-title="Cycle 5 · Test — ThT Experiments"
+        data-text="Conducted ThT fluorescence experiments and discovered self-amplification of DNA hairpin H1 in 192-5p. Analysed results and observed trends for 21-5p but not for 192-5p."
         aria-label="Cycle 5 Test"></button>
+
       <button class="hotspot" style="left: 48.6%; top: 69.2%;"
-        data-title="Cycle 5 · Learn"
-        data-text="Evaluating whether the stem extension and loop repositioning eliminated background self-amplification while retaining miRNA-triggered sensitivity."
+        data-title="Cycle 5 · Learn — Method Found Feasible"
+        data-text="ThT fluorescence experiment validated miRNA upregulation in miR-21-5p. Considered a colorimetric method and redesign of DNA hairpin H1 to increase accuracy of home kit."
         aria-label="Cycle 5 Learn"></button>
 
-      <!-- Final validation -->
+      <!-- ===== Final Validation ===== -->
       <button class="hotspot" style="left: 45.0%; top: 82.8%;"
-        data-title="Final Validation · Test"
-        data-text="Final run of the improved HCR hairpins against both miR-21 and miR-192 across a full concentration series."
-        aria-label="Final validation Test"></button>
+        data-title="Final · Test"
+        data-text="Compared Hemin-TMBS system to ThT fluorescence protein. Agreed that Hemin-TMBS would produce more observable results which would be beneficial for a home kit. Took reference from literature and modified DNA hairpins to include InG4 sequences. Ran NUPACK simulation to analyse the hairpins. Modified Potassium ion concentrations for G-quadruplex stabilisation. Conducted Hemin-TMBS experiment and analysed results."
+        aria-label="Final Test"></button>
+
       <button class="hotspot" style="left: 38.5%; top: 81.8%;"
-        data-title="Final Validation · Learn"
-        data-text="Overall conclusions on HCR sensitivity, specificity and future work towards a paper-based at-home CKD test kit."
-        aria-label="Final validation Learn"></button>
+        data-title="Final · Learn"
+        data-text="Hemin-TMBS may produce the most observable results. We may try to further improve our test kit by discovering other detection methods to improve our accuracy."
+        aria-label="Final Learn"></button>
 
       <!-- Shared tooltip -->
       <div class="hotspot-tip" id="hotspotTip" role="dialog" aria-modal="false" hidden>

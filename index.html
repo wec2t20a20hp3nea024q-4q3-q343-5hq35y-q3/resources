@@ -292,7 +292,7 @@
   .eng-section li { line-height: 1.7; color: #334155; margin-bottom: 0.4rem; }
 
   .eng-table {
-    width: 100%; border-collapse: collapse; margin: 1.2rem 0 1.8rem;
+    width: 100%; border-collapse: collapse; margin: 1.2rem auto 1.8rem;
     background: white; font-size: 0.92rem;
   }
   .eng-table th, .eng-table td {
@@ -301,13 +301,12 @@
   }
   .eng-table th { background: #404040; color: white; font-weight: 600; }
   .eng-table tr:nth-child(even) { background: #f8fafc; }
-  .eng-table td:first-child, .eng-table th:first-child { text-align: left; }
 
   .table-scroll {
     width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
     margin: 1.2rem 0 1.8rem;
   }
-  .table-scroll .eng-table { margin: 0; min-width: 560px; }
+  .table-scroll .eng-table { margin: 0 auto; min-width: 560px; }
 
   .eng-img { margin: 1.2rem 0; text-align: center; }
   .eng-img img {
@@ -667,10 +666,11 @@
 
   <h4>Why did we consider a multi-miRNA system?</h4>
   <p>
-    We acknowledged that using only one miRNA will not be sufficient to detect CKD. A multi-miRNA system uses several
-    miRNAs together, improving disease detection, boosting gene knockdown, and targeting complex biological pathways,
-    which is much better than using a single-miRNA panel, as miRNAs are not specific enough to detect only CKD.
-    The accuracy of a single-miRNA panel would be far lower than a multi-miRNA system.
+    We acknowledged that using only one miRNA will not be sufficient to detect CKD.
+    A multi-miRNA system uses several miRNAs together, improving disease detection, boosting gene knockdown, and
+    targeting complex biological pathways, which is much better than using a single-miRNA panel, as miRNAs are not
+    specific enough to detect only CKD, the accuracy of having a single-miRNA panel to detect CKD will be way lower
+    than having a multi-miRNA system.
   </p>
   <p>
     Since CKD is not a single disease, but the final common pathway of several underlying conditions, no miRNA is
@@ -685,8 +685,9 @@
 
   <h4>Which miRNAs did we choose?</h4>
   <p>
-    In our original screening we found 5 miRNAs related to CKD: miR-21-5p, miR-192-5p, miR-204-5p, miR-214-3p and
-    miR-193a-3p. However, our target miRNA needed to meet two criteria:
+    In our original screening we&rsquo;ve found 5 miRNAs related to CKD, with it being miR-21-5p, miR-192-5p,
+    miR-204-5p, miR-214-3p and miR-193a-3p. However, our target miRNA for this project needed to meet the following
+    2 criteria:
   </p>
   <ul>
     <li>Shows significant upregulation of concentration compared to healthy controls in the urine samples of CKD patients</li>
@@ -695,8 +696,9 @@
   <p>
     During the second stage of our literature review, we discovered that miR-204-5p and miR-214-3p appeared to be
     downregulated instead of being upregulated, making it difficult to detect via our current toehold design. Among the
-    remaining 3 miRNAs, miR-193a-3p is found to be only upregulated by 1.4-fold. Compared to miR-21-5p's 2–5× increase
-    and miR-192-5p's 3× increase, our final choice landed on miR-21-5p and miR-192-5p.
+    remaining 3 miRNAs, miR-193-3p is found to be only upregulated by 1.4-fold. Compared to miR-21-5p&rsquo;s 2-5 times
+    increase and miR-192-5p&rsquo;s 3 times increase, the choice is clear and our final choice landed on miR-21-5p and
+    miR-192-5p.
   </p>
 
   <h4>Limitations of current medical detection methods (eGFR and uACR)</h4>
@@ -707,68 +709,74 @@
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/egfr-estimated-glomerular-filtration-rate.avif" alt="Figure 1: eGFR" data-caption="Figure 1: eGFR (estimated Glomerular Filtration Rate). Source: NIDDK">
-      <p class="fig-caption">Figure 1: eGFR (estimated Glomerular Filtration Rate). Source: NIDDK</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/egfr-estimated-glomerular-filtration-rate.avif" alt="Fig 1: eGFR (estimated Glomerular Filtration Rate)" data-caption="Fig 1: eGFR (estimated Glomerular Filtration Rate). Source: National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)">
+      <p class="fig-caption">Fig 1: eGFR (estimated Glomerular Filtration Rate)<br>Source: National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/uacr-urine-albumin-creatinine-ratio.avif" alt="Figure 2: uACR" data-caption="Figure 2: uACR (Urine albumin-creatinine ratio). Source: National Kidney Foundation">
-      <p class="fig-caption">Figure 2: uACR (Urine albumin-creatinine ratio). Source: NKF</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/uacr-urine-albumin-creatinine-ratio.avif" alt="Fig 2: uACR (Urine albumin-creatinine ratio)" data-caption="Fig 2: uACR (Urine albumin-creatinine ratio). Source: National Kidney Foundation (NKF)">
+      <p class="fig-caption">Fig 2: uACR (Urine albumin-creatinine ratio)<br>Source: National Kidney Foundation (NKF)</p>
     </div>
   </div>
 
   <h4>What is a Toehold Switch?</h4>
   <p>
     A toehold switch is a type of detection method for the upregulation of miRNA. Our team has used a toehold switch
-    mechanism to create a test kit for CKD.
+    mechanism to create a test kit for CKD. Below are the mechanisms, advantages and disadvantages of using toehold
+    switches.
   </p>
 
   <h4>Mechanism of Toehold Switches</h4>
   <p>
-    Toehold switches are de-novo-designed synthetic riboregulators (custom-made RNA switches, from sketch, that turn
-    bacterial genes on/off) that activate gene expression in response to cognate RNAs with designed sequences. The
-    toehold switch has a ribosome-binding site (RBS) and a start codon hidden inside the hairpin. When there is no
-    trigger miRNA present, the ribosome cannot bind to the RBS, and hence no reporter protein will be produced. When
-    the specific trigger miRNA binds to the toehold at the 5&prime; end, it opens the hairpin by branch migration;
-    therefore, ribosomes can bind to the RBS, starting translation and producing reporter proteins.
+    Toehold switches are de-novo-designed synthetic riboregulators (custom-made RNA switches from sketch to turn
+    bacterial genes on/off) that activate gene expression in response to cognate RNAs with designed sequences.
+    The toehold switch miRNA has a ribosome-binding site (RBS) and a start codon hidden inside the hairpin. When
+    there is no trigger miRNA present, the ribosome cannot bind to the RBS, and hence no reporter protein will be
+    produced. However, when the specific trigger miRNA binds to the toehold at the 5&rsquo;end, it opens the hairpin by
+    branch migration; therefore, ribosomes can bind to the RBS, starting translation and producing reporter proteins.
   </p>
 
   <h4>Rationale for Selecting Toehold Switches</h4>
-  <ol>
-    <li><strong>High specificity:</strong> detects exact 22-nucleotide miRNA sequences.</li>
-    <li><strong>Non-invasive sampling:</strong> works with urine; a blood draw is not needed.</li>
-    <li><strong>Programmability:</strong> enabling precise gene regulation and simultaneous detection of multiple miRNA targets.</li>
-    <li><strong>Minimal crosstalk:</strong> each trigger usually interacts only with its matching switch.</li>
-    <li><strong>Low-cost format:</strong> can be deployed on paper test strips.</li>
-  </ol>
-  <p><strong>Limitation:</strong> weak signals at early disease stages; limited sensitivity for low-abundance miRNAs.</p>
-
-  <h3>Build: Constructing toehold switches by using miRADAR</h3>
+  <ul>
+    <li><strong>High specificity:</strong> detects exact 22-nucleotide miRNA sequences</li>
+    <li><strong>Non-invasive sampling:</strong> works with urine = blood draw not needed</li>
+    <li><strong>Programmability:</strong> Toehold switches are highly programmable, enabling precise gene regulation and simultaneous detection of multiple miRNA targets</li>
+    <li><strong>minimal crosstalk:</strong> Toehold switches can be designed with different sequences, so each trigger usually interacts only with its matching switch</li>
+    <li><strong>Low-cost format:</strong> Can be deployed on paper test strips</li>
+  </ul>
   <p>
-    miRADAR (from the 2024 Wageningen iGEM project) explores miRNAs as potential biomarkers. The system uses
-    RNA-responsive toehold switches to detect miRNAs and convert their presence into a measurable output. We
-    computationally designed toehold switches targeting associated miRNAs and experimentally evaluated their
-    performance. These experiments assessed whether computationally designed, miRNA-responsive toehold switches
-    could function as RNA sensors.
+    <strong>Limitations</strong><br>
+    <strong>Weak Signals at Early Disease Stages:</strong> Toehold switches may have limited sensitivity for detecting low-abundance miRNAs in early-stage disease
   </p>
 
-  <h3>Test: Using NUPACK to analyse our toehold switches</h3>
+  <h3>Build: Constructing toehold switches by using miRADAR</h3>
+  <h4>Introduction to miRADAR (from 2024 Wageningen iGEM project)</h4>
   <p>
-    For the dry lab component, we used miRADAR and NUPACK to generate and evaluate sample toehold switches for
-    miR-21-5p and miR-192-5p. Samples were validated in NUPACK at 37&nbsp;&deg;C (RNA mode), with toehold concentration
-    of 1&nbsp;&mu;M and miRNA concentration of 3&nbsp;&mu;M.
+    miRADAR explores the use of miRNAs as potential biomarkers for detection. As miRNA expression profiles may differ
+    between healthy individuals and people with MS, these small RNA molecules could provide useful molecular signals
+    for future diagnostic applications. The system uses RNA-responsive toehold switches to detect miRNAs and convert
+    their presence into a measurable output. Therefore, we computationally designed toehold switches targeting an
+    associated miRNA and experimentally evaluated their performance in the laboratory. These experiments assessed
+    whether computationally designed, miRNA-responsive toehold switches could function as RNA sensors.
+  </p>
+
+  <h3>Test: Using NUPACK to analyse our toehold switches.</h3>
+  <p>
+    For the dry lab component, we have made use of the miRADAR (from the 2024 Wageningen iGEM team) and the app
+    NUPACK, to generate and evaluate sample toehold switches for our miR-21-5p and miR-192-5p.
+  </p>
+  <p>
+    We have put all of the samples into NUPACK at 37 degree celsius for validating, with the RNA mode while toehold
+    concentration of 1 &mu;M and miRNA concentration of 3 &mu;M.
   </p>
   <p><strong>Criteria for choosing suitable toehold switches:</strong></p>
   <ol>
-    <li>A high concentration of bound toeholds is formed. This ensures that the miRNA can bind to the toehold switch
-      and unwind the hairpin stem to release the ribosome-binding site for the ribosome to bind and produce eGFP.</li>
-    <li>No / little unintended secondary structures are formed in the bound toeholds. Extra base-pairing after the RBS
-      could block the ribosome from reaching the coding sequence and cause false negatives.</li>
-    <li>HMFE vs TMFE: if TMFE is lower than HMFE, the toeholds would prioritise binding with another toehold switch
-      instead of forming hybrids with the miRNA.</li>
+    <li>A high concentration of bound toeholds is formed. This ensures that the miRNA is able to bind to the toehold switch and unwind the hairpin stem to release the ribosome binding site for ribosome to bind with and produce eGFP (enhanced green fluorescence protein)</li>
+    <li>No/Little unintended secondary structures are formed in the bound toeholds. When there are unintended secondary structures and base-pairing formed in the bound toeholds after the ribosome binding site, they would block the ribosome from reaching the protein coding sequence and produce the eGFP protein. Hence, false negative results may occur.</li>
+    <li>HMFE vs TMFE. HMFE (hybrid minimum free energy) and TMFE (toehold minimum free energy) are one of the main factors that we would have to assess. If the TMFE is lower than the HMFE, the toeholds would prioritize binding with another toehold switch, instead of producing hybrids to detect eGFP.</li>
   </ol>
 
-  <h4>miR-192 &mdash; Selecting Suitable Toehold Candidates</h4>
-  <p>Difference of HMFE and TMFE of miR-192 toehold candidates:</p>
+  <h4>miR-192 - Selecting Suitable Toehold Candidates</h4>
+  <p>Difference of HMFE and TMFE of miR-192 Toehold candidates:</p>
   <div class="table-scroll">
     <table class="eng-table">
       <thead>
@@ -788,63 +796,66 @@
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold2.avif" alt="Figure 3 left: Toehold 2 for miR-192-5p"
-           data-caption="Figure 3 (left): Bound toehold of Toehold 2 for miR-192-5p">
-      <p class="fig-caption">Figure 3 (left): Toehold 2 for miR-192-5p</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold2.avif" alt="Toehold 2 for miR-192-5p"
+           data-caption="Figure.3. graphs showcasing bound toeholds of Toehold 2 (left) and Toehold 3 (right) for miR-192">
+      <p class="fig-caption">Figure 3 (left): Toehold 2 for miR-192</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold3.avif" alt="Figure 3 right: Toehold 3 for miR-192-5p"
-           data-caption="Figure 3 (right): Bound toehold of Toehold 3 for miR-192-5p">
-      <p class="fig-caption">Figure 3 (right): Toehold 3 for miR-192-5p</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold3.avif" alt="Toehold 3 for miR-192-5p"
+           data-caption="Figure.3. graphs showcasing bound toeholds of Toehold 2 (left) and Toehold 3 (right) for miR-192">
+      <p class="fig-caption">Figure 3 (right): Toehold 3 for miR-192</p>
     </div>
   </div>
+  <p class="fig-caption" style="text-align:center;">Figure.3. graphs showcasing bound toeholds of Toehold 2 (left) and Toehold 3 (right) for miR-192</p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-6.avif" alt="Figure 4 left: Toehold 6 for miR-192"
-           data-caption="Figure 4 (left): Bound toehold of Toehold 6 for miR-192">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-6.avif" alt="Toehold 6 for miR-192"
+           data-caption="Figure.4, graphs showcasing bound toeholds of Toehold 6 (left) and Toehold 7 (right) for miR-192">
       <p class="fig-caption">Figure 4 (left): Toehold 6 for miR-192</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-7.avif" alt="Figure 4 right: Toehold 7 for miR-192"
-           data-caption="Figure 4 (right): Bound toehold of Toehold 7 for miR-192">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-7.avif" alt="Toehold 7 for miR-192"
+           data-caption="Figure.4, graphs showcasing bound toeholds of Toehold 6 (left) and Toehold 7 (right) for miR-192">
       <p class="fig-caption">Figure 4 (right): Toehold 7 for miR-192</p>
     </div>
   </div>
+  <p class="fig-caption" style="text-align:center;">Figure.4, graphs showcasing bound toeholds of Toehold 6 (left) and Toehold 7 (right) for miR-192</p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold8.avif" alt="Figure 5 left: Toehold 8 for miR-192"
-           data-caption="Figure 5 (left): Bound toehold of Toehold 8 for miR-192">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold8.avif" alt="Toehold 8 for miR-192"
+           data-caption="Figure. 5, graphs showcasing bound toeholds of Toehold 8 (left) and Toehold 10 (right) for miR-192">
       <p class="fig-caption">Figure 5 (left): Toehold 8 for miR-192</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold10.avif" alt="Figure 5 right: Toehold 10 for miR-192"
-           data-caption="Figure 5 (right): Bound toehold of Toehold 10 for miR-192">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold10.avif" alt="Toehold 10 for miR-192"
+           data-caption="Figure. 5, graphs showcasing bound toeholds of Toehold 8 (left) and Toehold 10 (right) for miR-192">
       <p class="fig-caption">Figure 5 (right): Toehold 10 for miR-192</p>
     </div>
   </div>
+  <p class="fig-caption" style="text-align:center;">Figure. 5, graphs showcasing bound toeholds of Toehold 8 (left) and Toehold 10 (right) for miR-192</p>
 
   <div class="eng-img">
-    <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold14.avif" alt="Figure 6: Toehold 14 for miR-192" data-caption="Figure 6: Bound toeholds of Toehold 14 for miR-192">
-    <p class="fig-caption">Figure 6: Bound toeholds of Toehold 14 for miR-192</p>
+    <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold14.avif" alt="Toehold 14 for miR-192" data-caption="Figure.6, graphs showcasing bound toeholds of Toehold 14 (left) for miR-192">
+    <p class="fig-caption">Figure.6, graphs showcasing bound toeholds of Toehold 14 (left) for miR-192</p>
   </div>
 
-  <p>After considering the above criteria, we selected <strong>Toehold 6 and Toehold 7</strong> for detection of miR-192-5p.</p>
+  <p>After considering the above criteria and comparing all the Toehold candidates, we have selected Toehold 6 and Toehold 7 for the detection of miR-192-5p.</p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-7a.avif" alt="Figure 7: Complex formation toehold 6 miR-192" data-caption="Figure 7: Concentrations of complex formation, toehold candidate 6 of miR-192-5p under NUPACK">
-      <p class="fig-caption">Figure 7: Complex formation of toehold candidate 6 of miR-192-5p (NUPACK)</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-7a.avif" alt="Complex formation toehold 6 miR-192" data-caption="Figure 7: Concentrations of complex formation of toehold candidates 6 and 7 of miR-192-5p under NUPACK simulation">
+      <p class="fig-caption">Figure 7: Concentrations of complex formation of toehold candidates 6 and 7 of miR-192-5p under NUPACK simulation</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-6a.avif" alt="Figure 8: Complex formation toehold 7 miR-192" data-caption="Figure 8: Concentrations of complex formation, toehold candidate 7 of miR-192-5p under NUPACK">
-      <p class="fig-caption">Figure 8: Complex formation of toehold candidate 7 of miR-192-5p (NUPACK)</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-6a.avif" alt="Complex formation toehold 7 miR-192" data-caption="Figure 7: Concentrations of complex formation of toehold candidates 6 and 7 of miR-192-5p under NUPACK simulation">
+      <p class="fig-caption">Figure 7: Concentrations of complex formation of toehold candidates 6 and 7 of miR-192-5p under NUPACK simulation</p>
     </div>
   </div>
 
-  <h4>miR-21 &mdash; Selecting Suitable Toehold Candidates</h4>
-  <p>Difference of HMFE and TMFE of miR-21 toehold candidates:</p>
+  <h4>miR-21 - Selecting Suitable Toehold Candidates</h4>
+  <p>Difference of HMFE AND TMFE of miR-21 Toehold candidates:</p>
   <div class="table-scroll">
     <table class="eng-table">
       <thead>
@@ -864,125 +875,169 @@
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-1.avif" alt="Figure 9 left: Toehold 1 for miR-21"
-           data-caption="Figure 9 (left): Hybrids of Toehold 1 for miR-21">
-      <p class="fig-caption">Figure 9 (left): Toehold 1 for miR-21</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-1.avif" alt="Toehold 1 for miR-21"
+           data-caption="Figure 8: graphs showcasing Hybrids of Toehold 1(left) and Toehold 2 (right) for miR-21">
+      <p class="fig-caption">Figure 8 (left): Toehold 1 for miR-21</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-2.avif" alt="Figure 9 right: Toehold 2 for miR-21"
-           data-caption="Figure 9 (right): Hybrids of Toehold 2 for miR-21">
-      <p class="fig-caption">Figure 9 (right): Toehold 2 for miR-21</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-2.avif" alt="Toehold 2 for miR-21"
+           data-caption="Figure 8: graphs showcasing Hybrids of Toehold 1(left) and Toehold 2 (right) for miR-21">
+      <p class="fig-caption">Figure 8 (right): Toehold 2 for miR-21</p>
     </div>
   </div>
+  <p class="fig-caption" style="text-align:center;">Figure 8: graphs showcasing Hybrids of Toehold 1(left) and Toehold 2 (right) for miR-21</p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-3.avif" alt="Figure 10 left: Toehold 3 for miR-21"
-           data-caption="Figure 10 (left): Hybrids of Toehold 3 for miR-21">
-      <p class="fig-caption">Figure 10 (left): Toehold 3 for miR-21</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-3.avif" alt="Toehold 3 for miR-21"
+           data-caption="Figure 9: graphs showcasing Hybrids of Toehold 3 (left) and Toehold 5 (right) for miR-21">
+      <p class="fig-caption">Figure 9 (left): Toehold 3 for miR-21</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-5.avif" alt="Figure 10 right: Toehold 5 for miR-21"
-           data-caption="Figure 10 (right): Hybrids of Toehold 5 for miR-21">
-      <p class="fig-caption">Figure 10 (right): Toehold 5 for miR-21</p>
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-5.avif" alt="Toehold 5 for miR-21"
+           data-caption="Figure 9: graphs showcasing Hybrids of Toehold 3 (left) and Toehold 5 (right) for miR-21">
+      <p class="fig-caption">Figure 9 (right): Toehold 5 for miR-21</p>
     </div>
   </div>
+  <p class="fig-caption" style="text-align:center;">Figure 9: graphs showcasing Hybrids of Toehold 3 (left) and Toehold 5 (right) for miR-21</p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-10.avif" alt="Figure 11 left: Toehold 10 for miR-21"
-           data-caption="Figure 11 (left): Hybrids of Toehold 10 for miR-21">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-7.avif" alt="Toehold 7 for miR-21"
+           data-caption="Figure 10: graphs showcasing Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21">
+      <p class="fig-caption">Figure 10 (left): Toehold 7 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-9.avif" alt="Toehold 9 for miR-21"
+           data-caption="Figure 10: graphs showcasing Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21">
+      <p class="fig-caption">Figure 10 (right): Toehold 9 for miR-21</p>
+    </div>
+  </div>
+  <p class="fig-caption" style="text-align:center;">Figure 10: graphs showcasing Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21</p>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-10.avif" alt="Toehold 10 for miR-21"
+           data-caption="Figure 11: graphs showcasing Hybrids of Toehold 10 (left) and Toehold 13 (right) for miR-21">
       <p class="fig-caption">Figure 11 (left): Toehold 10 for miR-21</p>
     </div>
     <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-13.avif" alt="Figure 11 right: Toehold 13 for miR-21"
-           data-caption="Figure 11 (right): Hybrids of Toehold 13 for miR-21">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-13.avif" alt="Toehold 13 for miR-21"
+           data-caption="Figure 11: graphs showcasing Hybrids of Toehold 10 (left) and Toehold 13 (right) for miR-21">
       <p class="fig-caption">Figure 11 (right): Toehold 13 for miR-21</p>
     </div>
   </div>
-
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-7.avif" alt="Figure 12 left: Toehold 7 for miR-21"
-           data-caption="Figure 12 (left): Hybrids of Toehold 7 for miR-21">
-      <p class="fig-caption">Figure 12 (left): Toehold 7 for miR-21</p>
-    </div>
-    <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-9.avif" alt="Figure 12 right: Toehold 9 for miR-21"
-           data-caption="Figure 12 (right): Hybrids of Toehold 9 for miR-21">
-      <p class="fig-caption">Figure 12 (right): Toehold 9 for miR-21</p>
-    </div>
-  </div>
+  <p class="fig-caption" style="text-align:center;">Figure 11: graphs showcasing Hybrids of Toehold 10 (left) and Toehold 13 (right) for miR-21</p>
 
   <h3>Learn: Picking candidates for further experimentation</h3>
   <ul>
-    <li>Acknowledged toehold switch candidates miR-192-6a and miR-192-7a are suitable for our project.</li>
-    <li>Further actions: cloning of toehold switches and validating with eGFP cell-free expression assay.</li>
+    <li>Acknowledged toehold switches candidates 6 and 7 for miR-192 detection and toehold switch candidates 7 and 9 for miR-21 detection are suitable for our project.</li>
+    <li>Further actions would involve cloning of toehold switches and validating our ideas with eGFP cell free expression assay.</li>
   </ul>
-  <p>
-    For miR-21, selection was based on: efficient binding to miR-21, stable bonds when unbound, low equilibrium
-    probability at the beginning of the loop, lower MFE of bound vs unbound toehold, and RBS located within the loop.
-    <strong>Toehold 7 and 9</strong> ranked highest.
-  </p>
 
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations.avif" alt="Figure 13 left: Complex formation under NUPACK"
-           data-caption="Figure 13 (left): Concentrations of complex formation under NUPACK simulation">
-      <p class="fig-caption">Figure 13 (left): Complex formation under NUPACK</p>
-    </div>
-    <div class="eng-img">
-      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-21-5p-7a.avif" alt="Figure 13 right: Complex formation under NUPACK"
-           data-caption="Figure 13 (right): Concentrations of complex formation under NUPACK simulation">
-      <p class="fig-caption">Figure 13 (right): Complex formation under NUPACK</p>
-    </div>
-  </div>
-
-  <p>
-    As seen from the above pictures, both toeholds, especially toehold 9, bind with miR-21 exceptionally well.
-    The efficient binding of both toehold and miRNA ensures that our kit won't miss out on much chemical signals from
-    our consumers and little miRNAs are left unbound.
-  </p>
-  <p>
-    Another property that we prioritised in our design is a stable bond when the toehold is unbound. Making our toehold
-    unlikely to self-linearize on its own without any miRNA signals and indicate a false positive.
-  </p>
-  <p>
-    Bonds holding the loop structure in the toehold also need a low equilibrium probability. This has 2 advantages.
-    For one, it leaves the loop able to open more readily, exposing the Ribosome Binding Site (RBS) to commence protein
-    synthesis for our colour change. We can observe this property in the pictures below as the light blue colours at the
-    beginning of each loop; light blue indicates a low equilibrium probability in NUPACK. In addition to the loop being
-    opened more readily, low equilibrium probability prevents the issue in which the bondings within the loop are too
-    strong for the toehold to linearise properly.
-  </p>
-
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="" alt="Figure 13b left: Hybrids of Toehold 7 for miR-21"
-           data-caption="Figure 13b (left): Hybrids of Toehold 7 for miR-21">
-      <p class="fig-caption">Figure 13b (left): Hybrids of Toehold 7 for miR-21</p>
-    </div>
-    <div class="eng-img">
-      <img src="" alt="Figure 13b right: Hybrids of Toehold 9 for miR-21"
-           data-caption="Figure 13b (right): Hybrids of Toehold 9 for miR-21">
-      <p class="fig-caption">Figure 13b (right): Hybrids of Toehold 9 for miR-21</p>
-    </div>
-  </div>
-
-  <p>
-    Our toeholds needed to have a lower minimum free energy (MFE) while bonded as opposed to being unbound since this
-    complies with thermodynamics and makes the bound state more favourable to form compared to the unbound state.
-  </p>
-  <p>
-    Compared with the other toehold switches, Toeholds 7 and 9 demonstrate more efficient miRNA binding, leaving
-    minimal unbound miRNA and resulting in a high concentration of the active toehold-miRNA complex. This efficiency
-    and precise activation are driven by the following structural and thermodynamic mechanisms:
-  </p>
+  <p>We based the choice on our toehold designs of 5 criteria:</p>
   <ul>
-    <li><strong>Thermodynamic Stability:</strong> The bound toehold-miRNA complex possesses a lower minimum free energy (MFE) than the unbound toehold switch, energetically favoring the bound state.</li>
-    <li><strong>RBS Sequestration:</strong> In the unbound state, the ribosome binding site (RBS) is sequestered within a loop structure rather than an exposed linear conformation. This minimizes unintended ribosome binding and background expression in the absence of the target miRNA.</li>
-    <li><strong>Structural Linearization:</strong> Once the miRNA target binds, the base pairs maintaining the secondary loop structures shift to a lower equilibrium probability. This destabilizes the loops, enabling the toehold switch to linearize and fully expose the RBS so the ribosome can initiate reporter protein synthesis.</li>
+    <li>Efficient and high concentration toehold switch binding to miRNA targets,</li>
+    <li>Stable closed toehold structure in unbound state, minimising spontaneous self-linearisation in the absence of miRNA target and the risk of false-positive signals,</li>
+    <li>Lower equilibrium probability of the bonds holding the toehold switch loop structures when bonded with miRNA targets, allowing the loop structures in the toehold switch to be readily linearised to trigger reporter protein synthesis,</li>
+    <li>Lower Minimum Free Energy of bound toehold with miRNA (HMFE) than unbounded toeholds (TMFE), allowing unbound toehold to be more readily transit to bound toehold state,</li>
+    <li>The Ribosome Binding Site (RBS) needs to be located within the loop structure ot toehold to reduce risk of ribosome binding to toehold in absence of miRNA targets.</li>
   </ul>
+  <p>
+    Bearing these principles in mind and analysis with NUPACK simulation, two toehold candidates emerged as the
+    strongest performers for each miRNA target: Toeholds 6 and 7 for miR-192, and Toeholds 7 and 9 for miR-21.
+  </p>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Structures of Toehold 6 (left) and Toehold 7 (right) when unbounded with miR-192"
+           data-caption="Figure 12: Structures of Toehold 6 (left) and Toehold 7 (right) when unbounded with miR-192.">
+      <p class="fig-caption">Figure 12 (left): Structures of Toehold 6 when unbounded with miR-192.</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Structures of Toehold 6 (left) and Toehold 7 (right) when unbounded with miR-192"
+           data-caption="Figure 12: Structures of Toehold 6 (left) and Toehold 7 (right) when unbounded with miR-192.">
+      <p class="fig-caption">Figure 12 (right): Structures of Toehold 7 when unbounded with miR-192.</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Hybrids of Toehold 6 (left) and Toehold 7 (right) for miR-192"
+           data-caption="Figure 13: Hybrids of Toehold 6 (left) and Toehold 7 (right) for miR-192.">
+      <p class="fig-caption">Figure 13 (left): Hybrids of Toehold 6 for miR-192.</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Hybrids of Toehold 6 (left) and Toehold 7 (right) for miR-192"
+           data-caption="Figure 13: Hybrids of Toehold 6 (left) and Toehold 7 (right) for miR-192.">
+      <p class="fig-caption">Figure 13 (right): Hybrids of Toehold 7 for miR-192.</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Structures of Toehold 7 (left) and Toehold 9 (right) when unbounded with miR-21"
+           data-caption="Figure 14: Structures of Toehold 7 (left) and Toehold 9 (right) when unbounded with miR-21.">
+      <p class="fig-caption">Figure 14 (left): Structures of Toehold 7 when unbounded with miR-21.</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Structures of Toehold 7 (left) and Toehold 9 (right) when unbounded with miR-21"
+           data-caption="Figure 14: Structures of Toehold 7 (left) and Toehold 9 (right) when unbounded with miR-21.">
+      <p class="fig-caption">Figure 14 (right): Structures of Toehold 9 when unbounded with miR-21.</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21"
+           data-caption="Figure 15: Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21.">
+      <p class="fig-caption">Figure 15 (left): Hybrids of Toehold 7 for miR-21.</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21"
+           data-caption="Figure 15: Hybrids of Toehold 7 (left) and Toehold 9 (right) for miR-21.">
+      <p class="fig-caption">Figure 15 (right): Hybrids of Toehold 9 for miR-21.</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations.avif" alt="Complex formation under NUPACK"
+           data-caption="Figure 16: Concentrations of complex formation toehold candidates 7 and 9 of miR-21-5p under NUPACK simulation.">
+      <p class="fig-caption">Figure 16: Concentrations of complex formation toehold candidates 7 and 9 of miR-21-5p under NUPACK simulation.</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-21-5p-7a.avif" alt="Complex formation under NUPACK"
+           data-caption="Figure 16: Concentrations of complex formation toehold candidates 7 and 9 of miR-21-5p under NUPACK simulation.">
+      <p class="fig-caption">Figure 16: Concentrations of complex formation toehold candidates 7 and 9 of miR-21-5p under NUPACK simulation.</p>
+    </div>
+  </div>
+
+  <p>
+    As shown in the NUPACK analysis in Figure 16 (the red bar graphs), compared with the other designs, Toeholds 7
+    and 9 for miR-21 produce a higher concentration of the active toehold&ndash;miRNA complex. This strong binding
+    ensures that very little miRNA remains unbound, maximising signal output and reducing the likelihood of false
+    negatives.
+  </p>
+  <p>
+    Toehold 7 and 9 for miR-21 are having high equilibrium probability in unbound state (Figure 14), showing that they
+    contain relatively stable internal bonds and will not be so readily linearised without a trigger miRNA target. In
+    addition, the base-pairing interactions within the loop region of Toeholds 7 and 9 in bounded state (Figure 15)
+    were designed to have a low equilibrium probability (indicated by the light-blue dots in the NUPACK diagrams).
+    Once the miRNA target binds, the base pairs that maintain the secondary loop structures shift to a lower
+    equilibrium probability. This destabilises the loops, allowing the toehold switch to linearise fully and expose
+    the RBS so that the ribosome can initiate reporter protein synthesis.
+  </p>
+  <p>
+    As shown in the above Figure 16, the selected toehold candidates also possess a lower minimum free energy while
+    bonded (HMFE) as opposed to being unbounded (TMFE), this complies with thermodynamics, energetically favoring the
+    bound state.
+  </p>
+  <p>
+    Finally, in the unbound state of both toehold 7 and 9 for miR-21, the ribosome binding site (RBS) is sequestered
+    within a loop structure rather than an exposed linear conformation. This minimizes unintended ribosome binding and
+    background expression in the absence of the target miRNA.
+  </p>
 </div>
 
 <!-- ===================== Cycle 2 ===================== -->
@@ -992,94 +1047,88 @@
   <h3>Design: Cloning rationale for eGFP</h3>
   <h4>Plasmid selection</h4>
   <p>
-    We selected plasmid pET-15b-EGFP. It contains a T7 promoter, which utilizes T7 RNA polymerase to drive strong and
-    inducible reactions and is superior to typical host bacterial enzymes. An eGFP reporter gene produces a sensitive
-    and quantifiable output, while a T7 terminator stops RNA production. The plasmid also contains an AmpR gene which
-    provides the bacteria with ampicillin resistance so that they may still survive on agar plates containing ampicillin.
+    We selected plasmid pET-15b-EGFP as our plasmids. On one hand, it contains a T7 promoter, which utilizes T7 RNA
+    polymerase which drives strong and inducible reactions and is superior to typical host bacterial enzymes. On the
+    other hand, an eGFP reporter gene is included to produce a sensitive and quantifiable output, while a T7
+    terminator is included to stop the RNA production. Besides, the plasmid also contains a AmpR gene which provides
+    the bacteria with ampicillin resistance such that it may still survive in the agar plates containing ampicillin.
   </p>
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="" alt="Figure 14 left: Overview of plasmid pET-14b-EGFP"
-           data-caption="Figure 14 (left): Overview of plasmid pET-14b-EGFP">
-      <p class="fig-caption">Figure 14 (left): Overview of plasmid pET-14b-EGFP</p>
-    </div>
-    <div class="eng-img">
-      <img src="" alt="Figure 14 right: Overview of plasmid pET-14b-EGFP"
-           data-caption="Figure 14 (right): Overview of plasmid pET-14b-EGFP">
-      <p class="fig-caption">Figure 14 (right): Overview of plasmid pET-14b-EGFP</p>
-    </div>
+  <div class="eng-img">
+    <img src="" alt="Overview of plasmid pET-15b-EGFP" data-caption="Figure 17: Overview of plasmid pET-15b-EGFP">
+    <p class="fig-caption">Figure 17: Overview of plasmid pET-15b-EGFP</p>
   </div>
 
   <h4>Cloning of plasmid (Digestion)</h4>
   <p>
-    We utilized restriction enzyme sites XbaI and NdeI. XbaI recognizes and cleaves 5&prime;-TCTAGA-3&prime;; NdeI
-    recognizes and cleaves 5&prime;-CATATG-3&prime;. Both sites are downstream of the T7 promoter and upstream of the
-    eGFP reporter, allowing the T7 promoter to synthesize our toehold switch, the eGFP reporter to be expressed, and
-    the T7 terminator to stop synthesis.
+    In the plasmid pET-15b-EGFP, we utilized two restriction enzyme sites XbaI and NdeI. The restriction enzyme XbaI
+    recognizes and cleaves the sequence 5&rsquo;TCTAGA3&rsquo;, while restriction enzyme NdeI recognizes and cleaves
+    the sequence 5&rsquo;CATATG 3&rsquo;. As both of these restriction sites are downstream to the T7 promoter and
+    upstream to the eGFP reporter, it allows the T7 promoter to synthesize our toehold switch, the eGFP reporter to be
+    expressed and the T7 terminator to stop synthesizing the toehold switch.
   </p>
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="" alt="Figure 15 left: Restriction map around T7 promoter and EGFP"
-           data-caption="Figure 15 (left): Restriction map around T7 promoter, insert site, and EGFP">
-      <p class="fig-caption">Figure 15 (left): Restriction map</p>
-    </div>
-    <div class="eng-img">
-      <img src="" alt="Figure 15 right: Restriction map around T7 promoter and EGFP"
-           data-caption="Figure 15 (right): Restriction map around T7 promoter, insert site, and EGFP">
-      <p class="fig-caption">Figure 15 (right): Restriction map</p>
-    </div>
+  <div class="eng-img">
+    <img src="" alt="Restriction map around the T7 promoter, insert site and eGFP" data-caption="Figure 18: Restriction map around the T7 promoter, insert site and eGFP">
+    <p class="fig-caption">Figure 18: Restriction map around the T7 promoter, insert site and eGFP</p>
   </div>
 
   <h3>Build: Cloning of Plasmid (Results)</h3>
-  <h4>Gel electrophoresis, purification and ligation</h4>
+  <h4>Cloning of plasmid (Gel electrophoresis, purification and ligation)</h4>
   <p>
-    After digestion, gel electrophoresis was used to separate the digestion byproducts from the digested plasmid.
-    We then purified the gel to remove any unnecessary waste. Once the gel was purified, we attempted ligation to
-    insert the toehold switch into the plasmid and conducted a transformation to insert the plasmids into
-    <em>E. coli</em> for duplication of plasmid samples.
+    After the digestion process, gel electrophoresis was utilized to separate the digestion byproducts out of the
+    digested plasmid. After that, we purified the gel to remove any unnecessary waste. Once the gel was purified, we
+    attempted ligation to insert the toehold switch into the plasmid and conducted a transformation to insert the
+    plasmids into <em>E.coli</em> for duplication of plasmid samples.
   </p>
-  <h4>Transformation and plating results</h4>
+
+  <h4>Cloning of plasmid of toehold switches (Transformation and plating results)</h4>
   <p>
     After ligation, we conducted transformation to duplicate our plasmid samples. First, we heat-shocked competent
     cells to temporarily induce cell membrane permeability. Then, after mixing the ligation samples, we plated the
-    resultant mixture onto the agar plates. For miR-192-5p, colonies were found on plates containing toehold 6 and
-    toehold 7.
+    resultant mixture onto the agar plates.
   </p>
+  <p>It was found that in 192-5p, colonies were found on both plates containing toehold 6 and toehold 7.</p>
+
   <div class="eng-img">
-    <img src="" alt="Figure 16: Transformation plates" data-caption="Figure 16: Transformation plates with controls and toehold colonies">
-    <p class="fig-caption">Figure 16: Transformation plates (positive / negative controls and transformed colonies)</p>
+    <img src="" alt="Transformation plates" data-caption="Figure 19: Transformation plates">
+    <p class="fig-caption">Figure 19: Transformation plates</p>
   </div>
 
   <h4>Picking colonies and miniprep</h4>
   <p>
     After picking colonies, we conducted miniprep to purify and extract the DNA plasmids from the colonies for plate
-    reading. However, the results were suboptimal as the concentration of the DNA plasmids was low. We suspected the
-    result may be due to:
+    reading. However, the results were suboptimal as the concentration of the DNA plasmids were at a low concentration.
   </p>
+  <p>We suspected that the result may be due to the following:</p>
   <ul>
-    <li>A lack of plasmid samples due to the use of small collection tubes.</li>
-    <li>The failure of the ligation process, i.e. the toehold switch failed to be inserted between restriction sites XbaI and NdeI.</li>
-    <li>The lack of incubation time of culture, resulting in suboptimal concentration.</li>
+    <li>A lack of plasmid samples due to the use of small collection tubes</li>
+    <li>The failure of the ligation process, i.e. the toehold switch failed to be inserted in between restriction sites XbaI and NdeI.</li>
+    <li>The lack of incubation time of culture may result in suboptimal concentration.</li>
   </ul>
-  <p>The experiment was then repeated to obtain better results. To improve the accuracy of our experiment, we conducted some modifications:</p>
+  <p>
+    The experiment was then repeated to obtain better results. To improve the accuracy of our experiment, we have
+    decided to conduct some modifications:
+  </p>
   <ul>
     <li>Using larger tubes to produce more plasmids.</li>
-    <li>Longer incubation time of culture, allowing the bacteria to divide and produce more plasmids.</li>
-    <li>Increasing the concentration of restriction enzymes XbaI and NdeI and ligase so the plasmid can be digested and the toehold switch inserted.</li>
+    <li>Longer incubation time of culture would allow the bacteria to divide itself and produce more plasmids.</li>
+    <li>Increase the concentration of restriction enzymes XbaI and NdeI and ligase such that the plasmid can be digested while the toehold switch could be inserted into the plasmid.</li>
   </ul>
-  <h4>Retransformation of DNA plasmids</h4>
+
+  <h4>Cloning of plasmid (Retransformation of DNA plasmids)</h4>
   <p>
-    We then retransformed some of the plasmid DNA from miniprep to duplicate our samples. After retransformation,
-    colonies were only found on toehold 6 samples. We then picked 2 colonies and conducted miniprep with the overnight
-    culture. The results of miniprep were promising as we obtained large concentrations and optimum purity (A260/280).
+    We then decided to retransform some of the plasmid DNA from miniprep to duplicate our samples. After
+    retransformation, colonies were only found on toehold 6 samples. We then picked 2 colonies and conducted miniprep
+    with the overnight culture. The results of miniprep were promising as we have obtained large concentrations and
+    optimum purity (A260/280).
   </p>
   <p>
-    After ligating the pET-15b-EGFP plasmid with Toehold Switch 6 and Toehold Switch 7, we transformed <em>E. coli</em>
-    with the recombinant plasmids: Toehold Switch 6 plasmids (T6 plasmids) and Toehold Switch 7 plasmids (T7 plasmids).
-    The bacteria were then cultured on agar plates containing LB medium and ampicillin. We also set up two controls:
-    a positive control with bacteria transformed with the pET-15b-EGFP plasmid (non-recombinant) and a negative control
-    with only bacteria.
+    After ligating the pET-15b-EGFP plasmid with Toehold Switch 6 and Toehold Switch 7, we transformed
+    <em>E. coli</em> with the recombinant plasmids: Toehold Switch 6 plasmids (T6 plasmids) and Toehold Switch 7
+    plasmids (T7 plasmids). The bacteria were then cultured on agar plates containing LB medium and ampicillin. We
+    also set up two controls: a positive control with bacteria transformed with the pET-15b-EGFP plasmid
+    (non-recombinant) and a negative control with only bacteria.
   </p>
+  <p>Results as follows:</p>
 
   <div class="table-scroll">
     <table class="eng-table">
@@ -1097,41 +1146,46 @@
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="" alt="Figure 17: Colonies marked" data-caption="Figure 17: Some colonies marked with red squares">
-      <p class="fig-caption">Figure 17: Some colonies marked with red squares</p>
+      <img src="" alt="Some colonies marked with red squares" data-caption="Figure 20: Some colonies marked with red squares">
+      <p class="fig-caption">Figure 20: Some colonies marked with red squares</p>
     </div>
     <div class="eng-img">
-      <img src="" alt="Figure 18: Original plate image" data-caption="Figure 18: Original plate image">
-      <p class="fig-caption">Figure 18: Original plate image</p>
+      <img src="" alt="Original image" data-caption="Figure 21: Original image">
+      <p class="fig-caption">Figure 21: Original image</p>
     </div>
   </div>
 
   <h3>Test: eGFP cell free expression assay</h3>
+  <h4>Mechanism of EGFP cell free expression</h4>
   <p>
-    The EGFP cell-free assay makes use of a fluorometer to detect the specific fluorescence inside the samples. To
-    initiate the reaction, the fluorometer exposes the sample to a specific wavelength so the electrons inside the
-    sample absorb the energy, which then emits waves with longer wavelengths and less energy. These waves can then
-    be detected by the fluorometer through a GFP filter.
+    The EGFP cell free expression makes use of a fluorometer to detect the specific fluorescence inside the samples.
+    To initiate the reaction, the fluorometer expresses a specific wavelength onto the sample such that the electrons
+    inside the sample absorb the energy, which will then emit waves with longer wavelengths and little energy. These
+    waves could then be detected by the fluorometer through a GFP filter.
+  </p>
+
+  <h4>Results of EGFP cell free expression</h4>
+  <p>
+    We had positive and negative sets for each toehold switch and control setups. Corresponding miRNA is added to the
+    positive sets and is absent in the negative sets. Plasmids pET-15b-EGFP with or without toehold switches are used.
+    We then used a microplate reader and fluorometer to measure the light intensity of the fluorescent. This experiment
+    was performed to ensure that the target miRNA would trigger the EGFP. However, with the fluorometer, minimal fold
+    change was observed.
   </p>
   <p>
-    We had positive and negative sets for each toehold switch and control setup. The corresponding miRNA was added to
-    the positive sets and was absent in the negative sets. Plasmids pET-15b-EGFP with or without toehold switches were
-    used. We then used a microplate reader and fluorometer to measure the light intensity of the fluorescence.
-    However, minimal fold change was observed.
+    Although we have repeated the experiment several times with the aim to increase the reliability of the experiment,
+    results show that there is a trend of increase, yet it did not achieve statistical significance in most samples.
   </p>
-  <p>
-    Although we repeated the experiment several times to increase reliability, results show a trend of increase that
-    did not achieve statistical significance in most samples. We suspect the results are due to:
-  </p>
+  <p>We suspect that the results are due to:</p>
   <ul>
-    <li>Pipetting errors, such as including bubbles inside the sample, which decreases fluorescence intensity.</li>
-    <li>A lack of trials, which lowers the reliability of the statistics.</li>
-    <li>The design of the toehold switches may not be optimal.</li>
+    <li>Pipetting errors such as including bubbles inside the sample when pipetting, which has led to a decrease in fluorescence intensity</li>
+    <li>Lack of trials would lead to decrease of the reliability of the statistics</li>
+    <li>Design of toehold switches may not be optimal</li>
   </ul>
 
-  <h3>Learn</h3>
+  <h3>Learn: Acknowledged minimal change and suggested further changes.</h3>
   <ul>
-    <li>Acknowledged that using EGFP would only give a minimal change in production in the presence of miRNA.</li>
+    <li>Acknowledged that using EGFP would only give minimal change in production with the presence of miRNA.</li>
     <li>Suggested using mCherry as the reporter protein to produce colorimetric results.</li>
   </ul>
 </div>
@@ -1142,13 +1196,13 @@
 
   <h3>Design: Cloning rationale of mCherry plasmid</h3>
   <p>
-    To improve the user experience and practical accessibility of our diagnostic kit, we hypothesised that altering
+    To improve the user experience and practical accessibility of our diagnostic kit, we hypothesized that altering
     our reporter protein would yield a more intuitive and user-friendly readout. The primary objective of this cycle
     was to redesign our plasmid architecture to incorporate mCherry as the designated reporter. The rationale driving
     this modification is that mCherry, upon adequate expression and cellular accumulation, generates a distinct
     colorimetric output that is visible under standard ambient lighting. By cloning the mCherry sequence into our
     system, we aimed to engineer a biological sensor capable of providing clear, naked-eye confirmation of miRNA
-    detection, completely bypassing the need for specialised laboratory hardware.
+    detection, completely bypassing the need for specialized laboratory hardware.
   </p>
 
   <h3>Build: Cloning results for mCherry Plasmid</h3>
@@ -1163,24 +1217,36 @@
     Through evaluation of our original toehold-switch design, we identified a practical limitation associated with
     using eGFP as the reporter. Although successful activation of the toehold switch can lead to eGFP production, the
     resulting fluorescence is not readily visible under normal lighting conditions and generally requires appropriate
-    excitation with a specific wavelength and fluorescence-detection equipment to observe. This means that successful
-    molecular detection does not necessarily translate into a result that can be easily interpreted by the user. From
-    this, we learned that the current method is effective at target recognition, but lacks a directly visible method
-    for signal visualization.
+    excitation with a specific wavelength and fluorescence-detection equipment to observe.
+  </p>
+  <p>
+    This means that successful molecular detection does not necessarily translate into a result that can be easily
+    interpreted by the user.
+  </p>
+  <p>
+    From this, we learned that the current method is effective at target recognition, but lacks a directly visible
+    method for signal visualization.
   </p>
   <h4>Insufficient sensitivity at low miRNA concentration</h4>
   <p>
-    mCherry was considered as an alternative to eGFP since sufficiently accumulated mCherry can produce a visible
-    colour under normal lighting conditions. However, achieving a clearly visible colour requires substantial reporter
-    accumulation. This exposes another hurdle: at low target miRNA concentrations, reporter production may be
-    insufficient to generate a perceivable output. This is particularly relevant to our aim of detecting disease at
-    the early-to-mid stage, where the abundance of the selected miRNA biomarkers may be relatively low. Therefore, we
-    identified signal amplification as an additional design requirement to improve detection sensitivity.
+    mCherry was considered to be an alternative to eGFP since sufficiently accumulated mCherry can produce a visible
+    colour under normal lighting conditions.
   </p>
-  <p><strong>Two design challenges identified:</strong></p>
+  <p>
+    However, achieving a clearly visible colour requires substantial reporter accumulation. This exposes another
+    hurdle.
+  </p>
+  <p>
+    At low target miRNA concentrations, reporter production may be insufficient to generate a perceivable output. This
+    is particularly relevant to our aim of detecting disease at the early-to-mid stage, where the abundance of the
+    selected miRNA biomarkers may be relatively low. Therefore, we identified signal amplification as an additional
+    design requirement to improve detection sensitivity.
+  </p>
+  <p><strong>Two identified design challenges</strong></p>
+  <p>Through this analysis, we recognised that an effective diagnostic system needs to satisfy two requirements:</p>
   <ol>
-    <li>A readout that can be easily observed.</li>
-    <li>Sufficient signal amplification at low target miRNA concentration.</li>
+    <li>a readout that can be easily observed</li>
+    <li>sufficient signal amplification at low target miRNA concentration</li>
   </ol>
 </div>
 
@@ -1193,239 +1259,337 @@
     After evaluating the limitations of reporter-based toehold switches, we explored Hybridization Chain Reaction
     (HCR) as an alternative miRNA detection method.
   </p>
+
   <h4>Mechanism of HCR</h4>
   <p>
     HCR is an enzyme-free signal amplification technique that relies on target-triggered hybridisation between
-    designed DNA hairpins, resulting in the formation of long nicked double-stranded DNA polymers. By using two
-    complementary hairpins, the opening of one hairpin exposes a sequence that can trigger the opening of the next,
-    allowing the reaction to continue in a chain. Through this cascading process, one target can initiate repeated
-    hairpin hybridisation, thereby amplifying the signal produced by the detection system.
-  </p>
-  <h4>Rationale for Selecting HCR</h4>
-  <p>
-    <strong>Directly visible colorimetric readout.</strong> HCR products can include G-rich sequences that form
-    G-quadruplex structures. These structures bind hemin and catalyse the oxidation of TMBS to generate a visible
-    colour change. Compared with the eGFP-based toehold assay, which requires excitation at a specific wavelength
-    and fluorescence-detection equipment, this colorimetric approach allows the result to be observed directly
-    under normal lighting conditions, aligning with our aim of developing a home test kit.
+    designed DNA hairpins, resulting in the formation of long nicked double-stranded DNA polymers.
   </p>
   <p>
-    <strong>Signal amplification for low-abundance miRNA.</strong> A small amount of target miRNA can initiate
-    cascading hybridisation of multiple hairpin probes, producing a much stronger signal from the initial target.
-    This allows low-abundance miRNA to be converted into a more visible readout, which is particularly important
-    for early-stage detection.
+    By using two complementary hairpins, the opening of one hairpin exposes a sequence that can trigger the opening of
+    the next, allowing the reaction to continue in a chain. Through this cascading process, one target can initiate
+    repeated hairpin hybridisation, thereby amplifying the signal produced by the detection system.
   </p>
-  <p>
-    <strong>Lower detection limits.</strong> Enhanced HCR methods, such as toehold-mediated exponential HCR, can
-    achieve detection limits as low as 92.7 fM, enabling sensitive detection of low-abundance miRNA biomarkers
-    associated with early diabetic nephropathy.
-  </p>
-  <p>
-    <strong>High specificity and low background.</strong> HCR uses multiple, specific hairpins, making it highly
-    effective at distinguishing single-base mismatches among miRNA sequences. This selectivity is crucial given
-    the high homology among miRNA families.
-  </p>
-  <p><strong>Limitations:</strong> slower reaction kinetics than enzyme-based amplification; background leakage
-  (hairpins may spontaneously open and produce false positives); limited multiplexing (cross-talk between
-  amplification pathways).</p>
 
-  <h3>Build 1: Constructing H1 and H2 hairpins + NUPACK analysis</h3>
+  <h4>Rationale for Selecting HCR as an alternative:</h4>
+
+  <p><strong>Directly Visible Colorimetric Readout</strong></p>
   <p>
-    When miRNA target (miR-21 / miR-192) is present, the H1 hairpin binds to the complementary miRNA target and
-    becomes linear, exposing its sequence complementary to H2. The H2 hairpin binds to the complementary H1
-    sequence and becomes linear. H1 and H2 binding goes on and on to form long H1–H2 complexes. A special
-    secondary structure called a G-quadruplex (G4) is formed in the H1–H2 complexes.
+    One advantage of HCR is that the amplified products can be combined with alternative signal-output mechanisms
+    rather than relying on fluorescent reporter proteins.
+  </p>
+  <p>
+    In our design, HCR produces long H1&ndash;H2 DNA complexes containing G-rich sequences that form G-quadruplex
+    structures. These G-quadruplex structures can bind to hemin and catalyse the oxidation of TMBS to generate a
+    visible colour change.
+  </p>
+  <p>
+    Compared with the eGFP-based toehold assay, which requires excitation at a specific wavelength and
+    fluorescence-detection equipment to observe the output, this colorimetric approach allows the result to be
+    observed directly under normal lighting conditions, aligning with our aim of developing a home test kit.
+  </p>
+
+  <p><strong>Signal amplification for low-abundance miRNA</strong></p>
+  <p>
+    Another advantage of HCR is its ability to amplify the detection signal through a cascading hybridisation
+    reaction, allowing a small amount of target miRNA to initiate repeated opening and binding of multiple hairpin
+    probes.
+  </p>
+  <p>
+    A single target miRNA initiates the formation of long H1&ndash;H2 DNA complexes through successive hairpin
+    hybridisation. This amplification process increases the amount of signal-generating product formed from a
+    relatively low concentration of target miRNA.
+  </p>
+  <p>
+    At the early stage of disease, the concentration of the target miRNA may still be relatively low. With a
+    mCherry-based toehold system, low target concentration may activate only a limited number of switches, resulting
+    in insufficient reporter production to generate a clearly visible colour.
+  </p>
+  <p>
+    HCR addresses this limitation through signal amplification. A small amount of target miRNA can initiate a
+    cascading hybridisation reaction involving multiple hairpin probes, producing a much stronger signal from the
+    initial target. This allows low-abundance miRNA to be converted into a more visible readout, which is particularly
+    important for early-stage detection.
+  </p>
+
+  <p><strong>Lower Detection Limits</strong></p>
+  <p>
+    Enhanced HCR methods, such as toehold-mediated exponential HCR, can achieve detection limits as low as 92.7 fM,
+    enabling sensitive detection of low-abundance miRNA biomarkers associated with early diabetic nephropathy.
+  </p>
+  <p>
+    <strong>High Specificity and Low Background:</strong> HCR uses multiple, specific hairpins, making it highly
+    effective at distinguishing single-base mismatches among miRNA sequences. This selectivity is crucial given the
+    high homology among miRNA families.
+  </p>
+
+  <p><strong>Limitations</strong></p>
+  <ol>
+    <li>Slow reaction kinetics: HCR generally proceeds more slowly than enzyme-based amplification methods</li>
+    <li>Background leakage: Hairpins may spontaneously open without the target initiator, producing false-positive signals and reducing sensitivity.</li>
+    <li>Limited multiplexing: Detecting multiple targets can lead to cross-talk between amplification pathways.</li>
+  </ol>
+
+  <h3>Build 1: Constructing H1 and H2 hairpins + NUPACK analysis/ Rationale of sensitivity testing of H1 and H2 hairpins.</h3>
+
+  <h4>Formation of H1-H2 complexes</h4>
+  <p>
+    When miRNA target (miR21/ miR192) is present, H1 hairpin binds to complementary miRNA target and becomes linear,
+    exposing its sequence complementary to H2. H2 hairpin binds to complementary H1 sequences and becomes linear.
+    H1 and H2 binding goes on and on to form long H1-H2 complexes. A special secondary structure called G-quadruplex
+    (G4) is formed in the H1-H2 complexes.
   </p>
 
   <h3>Test 1: Testing sensitivity of H1 and H2 hairpins with PAGE</h3>
+  <h4>Sensitivity of HCR hairpins</h4>
   <p>
-    To test the sensitivity of the HCR hairpins, we first conducted gel electrophoresis using agarose gel, with miRNA
-    concentrations ranging from 0 nM, 1 nM, 10 nM, 100 nM to 1 &mu;M. With the large difference in miRNA
-    concentrations in this experiment, we would be able to determine the range that has significant formation of
-    hybrids. However, after conducting gel electrophoresis, it was observed that all lanes had smearing. This
-    indicates that even in the setup with 0 nM miRNA concentration, the H1 and H2 hairpins may have bonded with
-    each other, giving an unobservable result.
+    To test for the sensitivity of HCR hairpins, we first conducted gel electrophoresis, using agarose gel. With
+    miRNA concentrations ranging from 0 nM, 1 nM, 10 nM, 100 nM, 1 &mu;M. With the large difference in miRNA
+    concentrations in this experiment, we would be able to determine the range that has a significant formation of
+    hybrids. However, after conducting gel electrophoresis, it is observed that all runways have smearings. This
+    indicates that even in the setup with 0 nM of miRNA concentration, the H1 and H2 bonds may have bonded with each
+    other and an unobservable result has been discovered.
   </p>
   <p>Possible explanations include:</p>
   <ul>
-    <li>The hairpin structures are too stable to be opened by the miRNA trigger.</li>
-    <li>As agarose gel has large pores, complexes may not be filtered out by the agarose gel, producing unobservable results.</li>
+    <li>The hairpin structures are too stable to be opened by the miRNA trigger</li>
+    <li>As agarose gel has large pores, complexes may not be able to be filtered out by the agarose gel. Therefore, an unobservable result is produced in lanes 5-8.</li>
   </ul>
   <p>
-    To address these issues, polyacrylamide gel electrophoresis (PAGE) was employed in subsequent experiments. PAGE
-    offers considerably smaller pore sizes than agarose gels and should more effectively separate small nucleotide
-    species and individual DNA strands, yielding more accurate and interpretable results.
+    To address these issues, polyacrylamide gel electrophoresis (PAGE) was employed in subsequent experiments, where
+    instead of agarose gel, PAGE offers considerably smaller pore sizes than agarose gels. This higher-resolution
+    matrix should more effectively separate small nucleotide species and individual DNA strands, yielding more
+    accurate and interpretable results.
   </p>
+  <h4>Polyacrylamide Gel electrophoresis (PAGE) for further testing of sensitivity.</h4>
 
-  <h3>Learn 1</h3>
+  <h3>Learn 1: Acknowledged that PAGE and Agarose gel may not be able to produce accurate results of sensitivity of hairpins.</h3>
   <ul>
-    <li>PAGE and agarose gel failed to produce an observable sensitivity result.</li>
-    <li>Considered other methods to detect hairpin sensitivity.</li>
+    <li>PAGE and agarose gel failed to produce an observable result.</li>
+    <li>Considered other methods to detect sensitivity of hairpins.</li>
   </ul>
 
-  <h3>Build 2: Building hairpins that contain InG4 sequences</h3>
+  <h3>Build 2: Building hairpins that contain InG4 sequences to detect upregulation changes.</h3>
   <p>
-    For the construction of H1 and H2 hairpins for the miRNAs, we took reference from the literature on a new way of
-    HCR &mdash; a double-loop hairpin, where InG4 sequences are located in the loops of the hairpins.
+    For the construction of H1 and H2 hairpins for the miRNAs, we would take reference to the literature published by
+    (XXX).
   </p>
-  <p><strong>Design criteria for HCR-G4 hairpins:</strong></p>
+  <p>
+    This literature highlights a new way of HCR&ndash;A double loop hairpin, where InG4 sequences are located in the
+    loops of the hairpins.
+  </p>
+
+  <h4>Design Criteria for HCR-G4 hairpins</h4>
   <ol>
-    <li>A high concentration of hybrids is formed, ensuring the HCR reaction has occurred successfully and the InG4
-      sequences are inside a stable complex such that they can dissociate from the hybrids to form G-quadruplexes.</li>
-    <li>Most InG4 sequences are located in the loops inside the hybrid. Once InG4 sequences are in the stems and
-      base-paired, the GGG bases would not form the G-quadruplex. Only when the InG4 sequences are located inside
-      the loops can they leave the long polymer and form G-quadruplexes.</li>
-    <li>Little H1–H2 complex is found without miRNA. If H1 and H2 bind each other in the closed state / without the
-      presence of miRNA, false positives may be produced.</li>
+    <li>A high concentration of hybrids formed. This ensures that the HCR reaction has occurred successfully, where the InG4 sequences are now inside a stable complex such that they are able to dissociate from the hybrids to form G-quadruplexes.</li>
+    <li>Most InG4 sequences are located in the loops inside the hybrid. Once the InG4 sequences are located inside the stems and are binded with another base. The GGG bases would not form the G-quadruplex as they are the ones to support the polymer formation. Only when the InG4 sequences are located inside the loops would they be able to leave the long polymer and form G-quadruplexes.</li>
+    <li>Little H1-H2 complexes are found. If H1 hairpin and H2 hairpin bind with each other in closed state/without the presence of miRNA, false positives may be produced as complexes are formed.</li>
   </ol>
+
+  <h4>Criteria that we would take reference to when picking candidates:</h4>
+  <p>
+    As we could take reference to the literature for the miR-21-5p hairpin, we have also constructed a miR-192-5p H1
+    and H2 hairpin.
+  </p>
   <p>
     First, to construct the H1 hairpin, a complementary stem of the miR-192-5p was built to allow the miRNA to bind
-    with the hairpin. Then, to build the H1–H2 binding site and the zipped-up stem for the hairpin, a part of the
-    miRNA was added to bind with the complementary stem, leaving an exposed part for the miRNA to bind with. In
+    with the hairpin. Then, to build the H1-H2 binding site and to build up the zipped up stem for the hairpin, a part
+    of the miRNA was added to bind with the complementary stem, leaving an exposed part for the miRNA to bind with. In
     between, a loop was built to insert the InG4 sequences into the hairpins for further action.
   </p>
   <p>
-    Then to construct the H2 hairpin, a complementary sequence to the H1–H2 binding site of H1 was built so H2 can
-    bind with the H1 hairpin in the open state. InG4 sequences are also included inside the loops to allow the G
-    bases to leave the large complex and form G-quadruplexes. Lastly, to build a H2–H1 binding site, a sequence
-    identical to miR-192-5p was added to the hairpin to allow H2 to bind with H1, cascading thousands of times and
+    Then to construct the H2 hairpin, a complementary sequence to the H1-H2 binding site of H1 was built to bind H2
+    with the H1 hairpin in open state. Then, InG4 sequences are also included inside the loops to allow the G bases to
+    leave the large complex and form G-quadruplexes. Lastly, to build a H2-H1 binding site, a sequence that is
+    identical to the miR-192-5p was added to the hairpin to allow H2 to bind with H1, cascading thousands of times and
     producing a very long polymer.
   </p>
+
+  <h4>Validating our samples with NUPACK</h4>
   <p>
-    <strong>Validating our samples with NUPACK.</strong> We used NUPACK to test many HCR hairpin designs, searching
-    for the best HCR design.
+    We have used NUPACK (a tool for testing different hairpin designs with customizable concentration). We tested a
+    lot of HCR hairpin designs to search for the best HCR design.
   </p>
 
   <div class="eng-img-row">
     <div class="eng-img">
-      <img src="" alt="Figure 19: H1 without miRNA" data-caption="Figure 19: MFE structure of H1 hairpin without miRNA">
-      <p class="fig-caption">Figure 19: MFE structure of H1 hairpin without the presence of miRNA</p>
+      <img src="" alt="MFE structure of H1 hairpin without the presence of miRNA" data-caption="Figure 22: MFE structure of H1 hairpin without the presence of miRNA (Left)">
+      <p class="fig-caption">Figure 22: MFE structure of H1 hairpin without the presence of miRNA (Left)</p>
     </div>
     <div class="eng-img">
-      <img src="" alt="Figure 20: H2 without miRNA" data-caption="Figure 20: MFE structure of H2 hairpin without miRNA">
-      <p class="fig-caption">Figure 20: MFE structure of H2 hairpin without the presence of miRNA</p>
-    </div>
-  </div>
-  <div class="eng-img-row">
-    <div class="eng-img">
-      <img src="" alt="Figure 21: H1 with miR-192" data-caption="Figure 21: MFE structure of H1 after binding miR-192-5p">
-      <p class="fig-caption">Figure 21: MFE structure of H1 hairpin after binding with miR-192-5p</p>
-    </div>
-    <div class="eng-img">
-      <img src="" alt="Figure 22: H1-H2 complex" data-caption="Figure 22: MFE structure of miR-192-5p-H1-H2 complex">
-      <p class="fig-caption">Figure 22: MFE structure of miR-192-5p-H1-H2 complex</p>
+      <img src="" alt="MFE structure of H2 hairpin without the presence of miRNA" data-caption="Figure 22: MFE structure of H2 hairpin without the presence of miRNA (Right)">
+      <p class="fig-caption">Figure 22: MFE structure of H2 hairpin without the presence of miRNA (Right)</p>
     </div>
   </div>
 
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="MFE structure of H1 hairpin after binding with miR-192-5p" data-caption="Figure 23: MFE structure of H1 hairpin after binding with miR-192-5p (Left)">
+      <p class="fig-caption">Figure 23: MFE structure of H1 hairpin after binding with miR-192-5p (Left)</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="MFE structure of miR-192-5p-H1-H2 complex" data-caption="Figure 23: MFE structure of miR-192-5p-H1-H2 complex (Right)">
+      <p class="fig-caption">Figure 23: MFE structure of miR-192-5p-H1-H2 complex (Right)</p>
+    </div>
+  </div>
+
+  <h3>Signal Output Performance Evaluation of HCR</h3>
   <h3>Test 2: Testing HCR hairpins with ThT fluorescence assay</h3>
   <p>
-    The G-quadruplexes formed by H1–H2 complexes alone are invisible to the naked eye and give no detectable signal
-    upon formation. Chemicals must be added to confirm the formation and generate detectable signals. G4-quadruplex
-    structures formed by DNA or RNA can specifically bind the light-up fluorescent dye Thioflavin T (ThT). Free ThT
-    in solution exhibits very low fluorescence. However, upon binding to G4 complexes, ThT undergoes a significant
-    increase in fluorescence emission compared with binding to other DNA/RNA forms (Xu et al., 2016). As a result,
-    ThT serves as a useful probe for distinguishing G4-quadruplexes from non-G4 structures.
+    The G4-quadruplexes formed by H1-H2 complexes alone are invisible to the naked eye and give no detectable signal
+    upon formation. Chemicals have to be further added to confirm the formation and generate detectable signals.
   </p>
+  <h4>Mechanism of signal output when adding ThT to HCR G4-quadruplexes</h4>
+  <p>
+    G4-quadruplex structures formed by DNA or RNA can specifically bind the light-up fluorescent dye Thioflavin T
+    (ThT). Free ThT in solution exhibits very low fluorescence. However, upon binding to G4 complexes, ThT undergoes a
+    significant increase in fluorescence emission compared with binding to other DNA/RNA forms (Xu et al., 2016). As a
+    result, ThT serves as a useful probe for distinguishing G4-quadruplexes from non-G4 structures. Consequently, upon
+    detection of an increased fluorescence signal from ThT, this enables us to confirm the presence of G4 structures
+    generated by HCR, thereby verifying the successful detection of the miRNA target that triggers G4 formation.
+  </p>
+
   <div class="eng-img">
-    <img src="" alt="Figure 23: ThT assay graphs" data-caption="Figure 23: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 (ThT)">
-    <p class="fig-caption">Figure 23: Graph of HCR ThT signal with miRNA-21 and miRNA-192</p>
+    <img src="" alt="Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192" data-caption="Figure 24: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192">
+    <p class="fig-caption">Figure 24: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192</p>
   </div>
+
   <p>
     In the ThT fluorescence HCR experiments, miR-21 reproduced the expected pattern from the literature: ThT alone is
-    weakly fluorescent, but binding to G4 structures gives a marked signal increase. Specifically, 100 pM, 10 nM and
+    weakly fluorescent, but binding to G4 structures gives a marked signal increase, specifically 100 pM, 10 nM and
     100 nM miR-21 all produced significantly higher fluorescence than the 0 pM control. On replicate G4/ThT runs
     analyzed by repeated-measures one-way ANOVA with Dunnett&rsquo;s post-hoc (n=4), the trend persisted, with 10 nM
     and 100 nM again significantly different from control, supporting that the H1/H2 polymerization and G4 quadruplex
-    formation are working as intended for miR-21. Meanwhile, miR-192 could not show the expected increasing trend;
+    formation are working as intended for miR-21. Meanwhile, miR-192 could not show the expected increasing trend,
     fluorescence intensity plateaued at roughly the same level across increasing miR-192 concentrations, with no
     significant correlation.
   </p>
 
-  <h3>Learn 2: Enhancing signal detection with Hemin-TMBS assay</h3>
+  <h3>Learn 2: Enhancing Signal Amplification and Convenience of Signal Detection by using Hemin-TMBS assay as alternative</h3>
   <p>
     After evaluating the ThT-coupled HCR system, we identified the following limitations that may reduce its
     suitability for a practical at-home diagnostic kit. To address this, we transitioned to the hemin/TMBS-coupled
     HCR assay as an alternative detection strategy.
   </p>
-  <p><strong>No requirement for a fluorescence reader.</strong> Fluorescence enhancement of ThT upon binding to
-  G-quadruplexes requires UV light excitation and a fluorescence reader to visualise the signal (Renaud de la Faverie
-  et al., 2014), which reduces practicality for an at-home test kit. In the hemin/TMBS system, the G-quadruplex/hemin
-  DNAzyme catalyses the oxidation of TMBS, producing a clear visible colour change that can be observed directly by
-  the naked eye (Li et al., 2009).</p>
-  <p><strong>Stronger signal amplification.</strong> ThT produces fluorescence upon binding G4-quadruplexes, but
-  each G4-quadruplex can only light up a limited number of ThT molecules (Renaud de la Faverie et al., 2014). In
-  contrast, the G4-quadruplex binds hemin to form a peroxidase-mimicking DNAzyme (Nasab et al., 2016). This enzyme
-  continuously oxidises TMBS in the presence of hydrogen peroxide (H<sub>2</sub>O<sub>2</sub>). Since the reaction
-  is catalytic, a single G4/hemin complex can repeatedly oxidise many TMBS molecules (Li et al., 2021), producing a
-  much higher effective signal output.</p>
-  <p><strong>Stabilisation of G4-quadruplexes.</strong> Hemin stabilises G4-quadruplex structures much better than
-  ThT because of how the two molecules fit onto the DNA (Renaud de la Faverie et al., 2014). ThT is much smaller and
-  only connects to a small part of the structure with weaker force (Nasab et al., 2016). In contrast, hemin has a
-  large, flat shape that matches the top of the G-quadruplex (Li et al., 2021). When hemin sticks to the DNA, it
-  covers a wide area and binds very tightly, locking the structure in place (Tao et al., 2024).</p>
+  <p><strong>No requirement for fluorescence reader</strong></p>
+  <p>
+    Fluorescence enhancement of ThT upon binding to G-quadruplexes requires UV light excitation and a fluorescence
+    reader to visualise the signal (Renaud de la Faverie et al., 2014), which reduces practicality for an at-home test
+    kit. To overcome this limitation, we selected the hemin and TMBS-coupled HCR system instead. In this method, the
+    G-quadruplex/hemin DNAzyme catalyses the oxidation of TMBS, producing a clear visible colour change that can be
+    observed directly by the naked eye (Li et al., 2009). This eliminates the need for any specialised equipment such
+    as a fluorescence reader or UV light source, making the test kit significantly more user-friendly, accessible, and
+    suitable for household use.
+  </p>
+  <p><strong>Stronger signal amplification</strong></p>
+  <p>
+    ThT produces fluorescence upon binding G4-quadruplexes, but each G4-quadruplex can only light up a limited number
+    of ThT molecules by locking its central bond in place (Renaud de la Faverie et al., 2014).
+  </p>
+  <p>
+    In contrast, the G4-quadruplex binds hemin to form a peroxidase-mimicking DNAzyme (Nasab et al., 2016). This
+    enzyme continuously oxidises TMBS in the presence of hydrogen peroxide (H<sub>2</sub>O<sub>2</sub>). Since the
+    reaction is catalytic, a single G4/hemin complex can repeatedly oxidise many TMBS molecules, generating a large
+    amount of coloured product from only a small number of G4 structures (Li et al., 2021). This catalytic turnover
+    produces a much higher effective signal output than the simple stoichiometric binding of ThT. This fundamental
+    difference in signal generation is the key reason hemin/TMBS systems deliver stronger and more easily detected
+    signals than ThT-based reporters. When the catalytic amplification of hemin/TMBS is combined with Hybridization
+    Chain Reaction (HCR), which already multiplies the number of G4 units, the overall sensitivity and practical
+    visibility of the signal are significantly enhanced (Colorimetric and photothermal dual-modal analysis of a
+    cancer-related gene based on G-quadruplex-hemin cascade signal amplification - new journal of chemistry (RSC
+    Publishing)).
+  </p>
+  <p><strong>Stabilisation on G4-quadruplexes</strong></p>
+  <p>
+    Hemin stabilizes G4-quadruplex structures much better than ThT because of how the two molecules fit onto the DNA
+    (Renaud de la Faverie et al., 2014). ThT is a much smaller molecule that only connects to a small part of the
+    structure with weaker force (Nasab et al., 2016). In contrast, hemin has a large, flat shape that matches the top
+    of the G-quadruplex (Li et al., 2021). When hemin sticks to the DNA, it covers a wide area and binds very tightly,
+    which locks the structure in place and makes it less easy to break apart. Because of this, hemin is far better at
+    pulling DNA into a stable G-quadruplex shape and keeping it secure (Tao et al., 2024).
+  </p>
+
+  <h4>Reference</h4>
+  <ul class="ref-list">
+    <li>Renaud de la Faverie, A., Gu&eacute;din, A., Bedrat, A., Yatsunyk, L. A., &amp; Mergny, J.-L. (2014). Thioflavin T as a fluorescence light-up probe for G4 formation. <em>Nucleic Acids Research, 42</em>(8). https://doi.org/10.1093/nar/gku111</li>
+    <li>Li, B., Du, Y., Li, T., &amp; Dong, S. (2009a). Investigation of 3,3&prime;,5,5&prime;-tetramethylbenzidine as colorimetric substrate for a peroxidatic DNAzyme. <em>Analytica Chimica Acta, 651</em>(2), 234&ndash;240. https://doi.org/10.1016/j.aca.2009.09.009</li>
+    <li>Tao, H., Chen, Y., Liu, J., Liu, J., Yang, Y., &amp; Hu, R. (2024). Colorimetric and photothermal dual-modal analysis of a cancer-related gene based on G-quadruplex-hemin cascade signal amplification. <em>New Journal of Chemistry, 48</em>(36), 15782&ndash;15789. https://doi.org/10.1039/d4nj02587c</li>
+    <li>Li, J., Wu, H., Yan, Y., Yuan, T., Shu, Y., Gao, X., Zhang, L., Li, S., Ding, S., &amp; Cheng, W. (2021b). Zippered G-quadruplex/hemin dnazyme: Exceptional catalyst for Universal Bioanalytical Applications. <em>Nucleic Acids Research, 49</em>(22), 13031&ndash;13044. https://doi.org/10.1093/nar/gkab1178</li>
+    <li>Ghahremani Nasab, M., Hassani, L., Mohammadi Nejad, S., &amp; Norouzi, D. (2016). Interaction of hemin with quadruplex DNA. <em>Journal of Biological Physics, 43</em>(1), 5&ndash;14. https://doi.org/10.1007/s10867-016-9430-7</li>
+    <li>Ghahremani Nasab, Maryam, et al. &ldquo;Interaction of hemin with quadruplex DNA.&rdquo; <em>Journal of Biological Physics</em>, vol. 43, no. 1, 17 Oct. 2016, pp. 5&ndash;14, https://doi.org/10.1007/s10867-016-9430-7.</li>
+    <li>Li, Jia, et al. &ldquo;Zippered G-quadruplex/hemin dnazyme: Exceptional catalyst for Universal Bioanalytical Applications.&rdquo; <em>Nucleic Acids Research</em>, vol. 49, no. 22, 8 Dec. 2021, pp. 13031&ndash;13044, https://doi.org/10.1093/nar/gkab1178.</li>
+  </ul>
 
   <h3>Test 3: Testing HCR hairpins with Hemin and TMBS assay</h3>
   <p>
-    First, hemin (an iron-containing compound) is added to the H1–H2 complexes. When hemin binds to G-quadruplexes,
-    this enables the G-quadruplexes to gain a similar function to enzymes, catalysing reactions involving colour
-    change. TMBS is a colourless substrate. When TMBS is added to the G-quadruplex/hemin (G4-hemin) complex, the
-    TMBS is oxidised and turns the mixture from colourless to a distinct blue colour. Finally, sulphuric acid
-    (H<sub>2</sub>SO<sub>4</sub>) is added to stop the reaction; the mixture turns from blue to yellow, allowing us
-    to measure absorbance at 450 nm.
+    First, hemin (an iron-containing compound) is added to the H1-H2 complexes. When hemin binds to G4-quadruplexes,
+    this enables the G4-quadruplexes to gain a similar function as enzymes, which catalyse reactions involving colour
+    change.
   </p>
+  <p>
+    TMBS is a colourless substrate. When TMBS is added to the G-quadruplex/hemin (G4-hemin) complex, the TMBS is being
+    oxidised and turns the mixture from colorless to a distinct blue colour. Finally, sulphuric acid
+    (H<sub>2</sub>SO<sub>4</sub>) is added to stop the reaction, the mixture turns from blue to yellow which we can
+    measure the absorbance reading at 450 nm.
+  </p>
+
   <div class="eng-img">
-    <img src="" alt="Figure 24: Hemin-TMBS plate" data-caption="Figure 24: Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations">
-    <p class="fig-caption">Figure 24: HCR reactions with miRNA-21 and miRNA-192 at varying concentrations</p>
+    <img src="" alt="Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations" data-caption="Figure 25: Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations">
+    <p class="fig-caption">Figure 25: Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations</p>
   </div>
   <div class="eng-img">
-    <img src="" alt="Figure 25: Hemin-TMBS graphs" data-caption="Figure 25: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192">
-    <p class="fig-caption">Figure 25: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192</p>
+    <img src="" alt="Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 at increasing concentrations" data-caption="Figure 26: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 at increasing concentrations.">
+    <p class="fig-caption">Figure 26: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 at increasing concentrations.</p>
   </div>
+
   <p>
     In the HCR assay with miR-21, the five wells containing H1, H2 and increasing concentrations of miR-21 all
     developed a stronger yellow colour compared with the control wells (blank, H1 alone, H2 alone, miRNA alone and
-    H1+H2). From 1 nM to 100 nM, a clear concentration-dependent increase in colour intensity was observed. This
-    demonstrates that higher concentrations of miR-21 triggered more extensive HCR, leading to greater formation of
-    G-quadruplexes available for the hemin/TMBS reaction and thus stronger colour output. For the HCR assay with
-    miR-192, the same concentration series (10 pM to 100 nM) produced a different pattern. The yellow colour
-    intensity increased from 10 pM to 100 pM, but then decreased up to 100 nM.
+    H1+H2). From 1 nM to 100 nM, a clear concentration-dependent increase in colour intensity was observed, as shown
+    in Figure 25 and Figure 26 (graph). This demonstrates that higher concentrations of miR-21 actually triggered more
+    extensive HCR, leading to greater formation of G-quadruplexes available for the hemin/TMB reaction and thus
+    stronger colour output.
   </p>
-
-  <h3>Learn 3: Self-amplification of HCR hairpin H1</h3>
   <p>
-    Notably, for miR-21, H1 alone, H2 alone and the initiator alone did not produce a visible colour change.
-    Nevertheless, for miR-192, H1 alone caused a comparable colour change. This observation suggests that the
-    miR-192 G4H1 alone might have undergone undesirable spontaneous self-amplification, leading to the formation of
-    G-quadruplex structures even in the absence of the miRNA target.
+    For the HCR assay with miR-192, the same concentration series (10 pM to 100 nM) produced a different pattern. The
+    yellow colour intensity increased from 10 pM to 100 pM, but then decreased up to 100 nM.
   </p>
-  <p><strong>Possible reasons for miR-192 G4H1 self-amplification:</strong></p>
-  <ul>
-    <li><strong>Intrinsic tendency of the G-rich sequence to form G-quadruplexes.</strong> Even when the H1 hairpin
-      is closed, partial unfolding can expose enough of the G-rich sequence for intramolecular or intermolecular G4
-      formation (Burge et al., 2006; Neidle &amp; Parkinson, 2003). Once a small number of G4 structures form, they
-      can bind hemin and generate colour, creating a visible background signal.</li>
-    <li><strong>Insufficient thermodynamic stability of the hairpin stem.</strong> The stem of the designed H1
-      hairpin may be too short or contain too few G–C base pairs, so the free-energy barrier for spontaneous
-      opening is low. Under the ionic conditions used for HCR and G4 stabilisation, the hairpin might open
-      transiently, allowing the G4 domain to fold without any target trigger (Wang et al., 2020; Ang &amp; Yung,
-      2016).</li>
-    <li><strong>H1–H1 intermolecular interactions.</strong> At the working concentration of H1, molecules may
-      interact with one another through complementary regions or G-rich stretches, leading to partial activation of
-      the cascade in the absence of miR-192 (Wang et al., 2020; Choi et al., 2014).</li>
-  </ul>
 
+  <h3>Learn 3: Acknowledged self-amplification of HCR hairpin H1.</h3>
+  <p>
+    Notably, as shown in Figure 25, for miR-21, H1 alone, H2 alone and the initiator alone did not produce a visible
+    colour change. Nevertheless, for miR-192, H1 alone caused a comparable colour change. This observation suggests
+    that the miR-192 G4H1 alone might have undergone undesirable spontaneous self-amplification, leading to the
+    formation of G-quadruplex structures even in the absence of the miRNA target.
+  </p>
+  <p><strong>Possible Reasons for miR-192 G4H1 Self-Amplification</strong></p>
+  <p><strong>Intrinsic tendency of the G-rich sequence to form G-quadruplexes</strong></p>
+  <p>
+    The G4-quadruplex-forming sequence in H1 is guanine-rich. Even when the H1 hairpin is closed, partial unfolding can
+    expose enough of the G-rich sequence for intramolecular or intermolecular G4 formation (Burge et al., 2006;
+    Neidle &amp; Parkinson, 2003). Once a small number of G4 structures form, they can bind hemin and generate colour,
+    creating a visible background signal.
+  </p>
+  <p><strong>Insufficient thermodynamic stability of the hairpin stem</strong></p>
+  <p>
+    The stem of the designed H1 hairpin may be too short or contain too few G&ndash;C base pairs, so the free-energy
+    barrier for spontaneous opening is low. Under the ionic conditions used for HCR and G4 stabilisation, the hairpin
+    might open transiently, allowing the G4 domain to fold without any target trigger (Wang et al., 2020; Ang &amp;
+    Yung, 2016).
+  </p>
+  <p><strong>H1&ndash;H1 intermolecular interactions</strong></p>
+  <p>
+    At the working concentration of H1, molecules may interact with one another through complementary regions or
+    G-rich stretches, leading to partial activation of the cascade in the absence of miR-192 (Wang et al., 2020; Choi
+    et al., 2014).
+  </p>
   <h4>References</h4>
   <ul class="ref-list">
-    <li>Ang, Y. S., &amp; Yung, L. Y. L. (2016). Rational design of hybridization chain reaction monomers for robust signal amplification. <em>Chemical Communications, 52</em>(22), 4219–4222. https://doi.org/10.1039/C5CC08907G</li>
-    <li>Burge, S., Parkinson, G. N., Hazel, P., Todd, A. K., &amp; Neidle, S. (2006). Quadruplex DNA: sequence, topology and structure. <em>Nucleic Acids Research, 34</em>(19), 5402–5415. https://doi.org/10.1093/nar/gkl655</li>
-    <li>Choi, H. M. T., Beck, V. A., &amp; Pierce, N. A. (2014). Multiplexed in situ hybridization using hybridization chain reaction. <em>ACS Nano, 8</em>(5), 4284–4294. https://doi.org/10.1021/nn405717p</li>
-    <li>Ghahremani Nasab, M., Hassani, L., Mohammadi Nejad, S., &amp; Norouzi, D. (2016). Interaction of hemin with quadruplex DNA. <em>Journal of Biological Physics, 43</em>(1), 5–14. https://doi.org/10.1007/s10867-016-9430-7</li>
-    <li>Li, B., Du, Y., Li, T., &amp; Dong, S. (2009). Investigation of 3,3&prime;,5,5&prime;-tetramethylbenzidine as colorimetric substrate for a peroxidatic DNAzyme. <em>Analytica Chimica Acta, 651</em>(2), 234–240. https://doi.org/10.1016/j.aca.2009.09.009</li>
-    <li>Li, J., Wu, H., Yan, Y., Yuan, T., Shu, Y., Gao, X., Zhang, L., Li, S., Ding, S., &amp; Cheng, W. (2021). Zippered G-quadruplex/hemin DNAzyme: Exceptional catalyst for universal bioanalytical applications. <em>Nucleic Acids Research, 49</em>(22), 13031–13044. https://doi.org/10.1093/nar/gkab1178</li>
-    <li>Neidle, S., &amp; Parkinson, G. N. (2003). The structure of telomeric DNA. <em>Current Opinion in Structural Biology, 13</em>(3), 275–283. https://doi.org/10.1016/S0959-440X(03)00072-1</li>
-    <li>Renaud de la Faverie, A., Guédin, A., Bedrat, A., Yatsunyk, L. A., &amp; Mergny, J.-L. (2014). Thioflavin T as a fluorescence light-up probe for G4 formation. <em>Nucleic Acids Research, 42</em>(8). https://doi.org/10.1093/nar/gku111</li>
-    <li>Tao, H., Chen, Y., Liu, J., Liu, J., Yang, Y., &amp; Hu, R. (2024). Colorimetric and photothermal dual-modal analysis of a cancer-related gene based on G-quadruplex-hemin cascade signal amplification. <em>New Journal of Chemistry, 48</em>(36), 15782–15789. https://doi.org/10.1039/d4nj02587c</li>
-    <li>Wang, J., et al. (2020). Elucidation of leak-resistance DNA hybridization chain reaction with universality and extensibility. <em>Nucleic Acids Research, 48</em>(5), 2220–2232. https://doi.org/10.1093/nar/gkaa016</li>
+    <li>Ang, Y. S., &amp; Yung, L. Y. L. (2016). Rational design of hybridization chain reaction monomers for robust signal amplification. <em>Chemical Communications, 52</em>(22), 4219&ndash;4222. https://doi.org/10.1039/C5CC08907G</li>
+    <li>Burge, S., Parkinson, G. N., Hazel, P., Todd, A. K., &amp; Neidle, S. (2006). Quadruplex DNA: sequence, topology and structure. <em>Nucleic Acids Research, 34</em>(19), 5402&ndash;5415. https://doi.org/10.1093/nar/gkl655</li>
+    <li>Choi, H. M. T., Beck, V. A., &amp; Pierce, N. A. (2014). Multiplexed in situ hybridization using hybridization chain reaction. <em>ACS Nano, 8</em>(5), 4284&ndash;4294. https://doi.org/10.1021/nn405717p</li>
+    <li>Neidle, S., &amp; Parkinson, G. N. (2003). The structure of telomeric DNA. <em>Current Opinion in Structural Biology, 13</em>(3), 275&ndash;283. https://doi.org/10.1016/S0959-440X(03)00072-1</li>
+    <li>Wang, J., et al. (2020). Elucidation of leak-resistance DNA hybridization chain reaction with universality and extensibility. <em>Nucleic Acids Research, 48</em>(5), 2220&ndash;2232. https://doi.org/10.1093/nar/gkaa016</li>
   </ul>
 </div>
 
@@ -1433,18 +1597,19 @@
 <div class="eng-section">
   <h2>Cycle 5: Modification on HCR G4 hairpins</h2>
 
-  <h3>Design and Build: Modifying G4 hairpins to prevent self-amplification</h3>
+  <h3>Design and Build: Modifying G4 hairpins to prevent self-amplification.</h3>
+  <p><strong>Strategies for modifying the HCR H1 hairpin for miR-192</strong></p>
   <p>
-    To suppress self-amplification and background leakage in our HCR system, we can engineer G4 hairpins with
-    enhanced stability in the closed state while preserving efficient miRNA-triggered opening in the open state.
-    Strategies for modifying the HCR H1 hairpin for miR-192:
+    To suppress self-amplification and background leakage in our HCR system, we can engineer G4 hairpins with enhanced
+    stability in the closed state while preserving efficient miRNA-triggered opening in the open state. We can extend
+    stem lengths by 2&ndash;4 base pairs to increase the thermodynamic barrier against spontaneous hairpin opening,
+    and introduce G&middot;C-rich clamps at stem termini to further stabilize these vulnerable regions without
+    blocking toehold access. InG4 sequences can be repositioned deeper within loop regions to prevent inter-hairpin
+    G-quadruplex formation that could nucleate unintended polymerization in the absence of target miRNA.
+    Additionally, toehold lengths should be optimized to 18&ndash;22 nucleotides increasing the overall free energy
+    barrier to ensure rapid, specific initiation only upon binding cognate miR-21-5p or miR-192-5p, minimizing
+    non-specific interactions.
   </p>
-  <ul>
-    <li>Extend stem lengths by 2–4 base pairs to increase the thermodynamic barrier against spontaneous hairpin opening.</li>
-    <li>Introduce G·C-rich clamps at stem termini to further stabilise these vulnerable regions without blocking toehold access.</li>
-    <li>Reposition InG4 sequences deeper within loop regions to prevent inter-hairpin G-quadruplex formation that could nucleate unintended polymerisation in the absence of target miRNA.</li>
-    <li>Optimise toehold lengths to 18–22 nucleotides, increasing the overall free-energy barrier to ensure rapid, specific initiation only upon binding cognate miR-21-5p or miR-192-5p, minimising non-specific interactions.</li>
-  </ul>
 
   <h3>Test: Testing modified G4 hairpins with Hemin+TMBS</h3>
   <p><!-- Add results when available --></p>

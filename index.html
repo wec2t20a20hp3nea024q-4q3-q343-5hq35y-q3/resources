@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://static.igem.wiki/teams/6214/wiki/wiki-features-image/team-logo-1-1.avif"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+    <link href="https://2026.igem.wiki/hongkong-hs/static/bootstrap.min.css" rel="stylesheet">
+    <link href="https://2026.igem.wiki/hongkong-hs/static/style.css" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %} | HongKong-HS - iGEM 2026</title>
+
+    <style>
+      html, body {
+        background-color: #F9F6EE;
+        overflow-x: clip;
+        max-width: 100%;
+      }
+
+      /* ===== Hero Banner ===== */
+      .bg-hero {
+        position: relative;
+        background-color: #F9F6EE;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bg-hero::before { display: none; }
+      .bg-hero .container {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .bg-hero h1 {
+        font-size: 3.4rem;
+        font-weight: 700;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        margin: 0;
+        color: #fff;
+      }
+
+      @media (min-width: 901px) {
+        .bg-hero {
+          min-height: 480px;
+          background-size: contain;
+        }
+      }
+      @media (max-width: 900px) {
+        .bg-hero { min-height: 320px; background-size: contain; }
+        .bg-hero h1 { font-size: 2.4rem; }
+      }
+      @media (max-width: 600px) {
+        .bg-hero {
+          min-height: 0;
+          height: auto;
+          aspect-ratio: 16 / 9;
+          background-size: contain;
+          background-position: center center;
+        }
+        .bg-hero h1 { font-size: 1.7rem; padding: 0 0.75rem; }
+      }
+      @media (max-width: 400px) {
+        .bg-hero { aspect-ratio: 16 / 10; }
+        .bg-hero h1 { font-size: 1.45rem; }
+      }
+
+      /* ===== Two-column layout: left TOC + main (PC + tablet + laptop) ===== */
+      .page-with-nav {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 3rem;
+        overflow-x: visible;
+      }
+      .page-with-nav.no-nav {
+        display: block;
+        max-width: 1140px;
+      }
+
+      .section-nav {
+        width: 220px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 88px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding: 0.4rem 0.2rem 1rem 0;
+        border-right: 2px solid #d6d3cd;
+        scrollbar-width: thin;
+        scrollbar-color: #404040 #F9F6EE;
+      }
+      .section-nav::-webkit-scrollbar { width: 6px; }
+      .section-nav::-webkit-scrollbar-track { background: #F9F6EE; }
+      .section-nav::-webkit-scrollbar-thumb {
+        background: #404040;
+        border-radius: 4px;
+      }
+
+      .section-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .section-nav > ul > li { margin: 0.15rem 0; }
+      .section-nav a {
+        display: block;
+        padding: 0.35rem 0.6rem;
+        color: #475569;
+        text-decoration: none;
+        font-size: 0.9rem;
+        line-height: 1.35;
+        border-left: 3px solid transparent;
+        border-radius: 0 6px 6px 0;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .section-nav a:hover {
+        color: #1e2937;
+        background: rgba(64, 64, 64, 0.08);
+      }
+      .section-nav a.active {
+        color: #404040;
+        font-weight: 700;
+        border-left-color: #404040;
+        background: rgba(64, 64, 64, 0.1);
+      }
+      .section-nav .nav-h3 a {
+        padding-left: 1.1rem;
+        font-size: 0.84rem;
+      }
+      .section-nav .nav-h4 a {
+        padding-left: 1.7rem;
+        font-size: 0.8rem;
+        color: #64748b;
+      }
+      .section-nav .nav-h4 a.active { color: #404040; }
+
+      .page-main {
+        flex: 1;
+        min-width: 0;
+        max-width: 100%;
+        overflow-x: visible;
+      }
+
+      .page-main table,
+      .page-main .results-table,
+      .page-main .hp-table,
+      .page-main .exp-table,
+      .page-main .eng-table,
+      .page-main .table-scroll {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Phone only: drawer + top-left button */
+      .section-nav-toggle {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 12px;
+        z-index: 9998;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2.5px solid #404040;
+        background: #F9F6EE;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        color: #404040;
+        padding: 0;
+      }
+      .section-nav-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.35);
+        z-index: 9997;
+      }
+
+      #back-to-top {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2.5px solid #404040;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+        overflow: hidden;
+      }
+      #back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      #back-to-top img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+
+      /* Tablet / small laptop: keep column, slightly narrower nav */
+      @media (max-width: 1100px) and (min-width: 701px) {
+        .page-with-nav {
+          gap: 1.2rem;
+          padding: 1.2rem 0.8rem 2.5rem;
+        }
+        .section-nav {
+          width: 180px;
+        }
+        .section-nav a { font-size: 0.85rem; }
+        .section-nav .nav-h3 a { font-size: 0.8rem; }
+        .section-nav .nav-h4 a { font-size: 0.76rem; }
+      }
+
+      /* Phone only (<701px): drawer layout */
+      @media (max-width: 700px) {
+        .page-with-nav {
+          display: block;
+          padding: 1rem 0.8rem 2.5rem;
+        }
+        .section-nav {
+          position: fixed;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: min(280px, 82vw);
+          max-height: 100vh;
+          z-index: 9998;
+          background: #F9F6EE;
+          border-right: 3px solid #404040;
+          padding: 4.5rem 0.8rem 1.5rem;
+          transform: translateX(-105%);
+          transition: transform 0.3s ease;
+          box-shadow: 4px 0 20px rgba(0,0,0,0.12);
+        }
+        .section-nav.open { transform: translateX(0); }
+        .section-nav-toggle { display: flex; }
+        body.nav-open .section-nav-backdrop { display: block; }
+        .page-main { width: 100%; }
+      }
+
+      @media (max-width: 500px) {
+        .section-nav-toggle {
+          top: 64px;
+          left: 10px;
+          width: 40px;
+          height: 40px;
+        }
+        #back-to-top {
+          width: 44px;
+          height: 44px;
+          bottom: 18px;
+          right: 18px;
+        }
+        #back-to-top img { width: 24px; height: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #F9F6EE; border-bottom: 1px solid #e5e2d9;">
+  <div class="container">
+
+    <!-- TEAM NAME -->
+    <a class="navbar-brand" href="{{ url_for('home') }}" style="color: #000000; font-weight: 700;">HongKong-HS</a>
+
+    <!-- SMALL SCREEN MENU ICON -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('home') }}" style="color: #000000;">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='team') }}" style="color: #000000;">Team</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
+            Project
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbar-project">
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiment</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='safety') }}" style="color: #000000;">Safety</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='human-practices') }}" style="color: #000000;">Human Practices</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='education') }}" style="color: #000000;">Education</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    {% block hero %}
+    <header class="bg-hero"
+            style="background-image: url('{% block hero_image %}https://static.igem.wiki/teams/6214/wiki/default-image.avif{% endblock %}');">
+      <div class="container">
+        <h1 class="text-white">{{ self.title() }}</h1>
+      </div>
+    </header>
+    {% endblock %}
+
+    <div class="page-with-nav no-nav" id="page-layout">
+      <aside class="section-nav" id="section-nav" aria-label="Page sections" hidden></aside>
+      <div class="page-main" id="page-main">
+
+
+<style>
+  .eng-section { margin-bottom: 3.5rem; }
+  .eng-section h2 {
+    font-size: 1.9rem; font-weight: 700; color: #1e2937;
+    margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 3px solid #404040;
+  }
+  .eng-section h3 {
+    font-size: 1.4rem; font-weight: 600; color: #334155;
+    margin-top: 2rem; margin-bottom: 0.9rem;
+  }
+  .eng-section h4 {
+    font-size: 1.15rem; font-weight: 600; color: #475569;
+    margin-top: 1.5rem; margin-bottom: 0.7rem;
+  }
+  .eng-section p { line-height: 1.75; color: #334155; margin-bottom: 1rem; }
+  .eng-section ul, .eng-section ol { margin-bottom: 1rem; padding-left: 1.4rem; }
+  .eng-section li { line-height: 1.7; color: #334155; margin-bottom: 0.4rem; }
+
+  .eng-table {
+    width: 100%; border-collapse: collapse; margin: 1.2rem 0 1.8rem;
+    background: white; font-size: 0.92rem;
+  }
+  .eng-table th, .eng-table td {
+    border: 2px solid #404040; padding: 0.55rem 0.7rem;
+    text-align: center; vertical-align: middle;
+  }
+  .eng-table th { background: #404040; color: white; font-weight: 600; }
+  .eng-table tr:nth-child(even) { background: #f8fafc; }
+  .eng-table td:first-child, .eng-table th:first-child { text-align: left; }
+
+  .table-scroll {
+    width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    margin: 1.2rem 0 1.8rem;
+  }
+  .table-scroll .eng-table { margin: 0; min-width: 560px; }
+
+  .eng-img { margin: 1.2rem 0; text-align: center; }
+  .eng-img img {
+    max-width: 420px; width: 100%; height: auto; border: 3px solid #404040;
+    display: inline-block; cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .eng-img img:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+  .eng-img-row {
+    display: flex; gap: 1.2rem; margin: 1.2rem 0; flex-wrap: wrap; justify-content: center;
+  }
+  .eng-img-row .eng-img { flex: 1 1 280px; max-width: 420px; margin: 0; }
+  .fig-caption {
+    font-size: 0.9rem; color: #64748b; margin-top: 0.5rem; font-style: italic;
+  }
+
+  #img-modal {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+    z-index: 10000; align-items: center; justify-content: center; padding: 1rem;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  #img-modal.show { opacity: 1; }
+  .img-modal-box {
+    background: #F9F6EE; border: 3px solid #404040; border-radius: 16px;
+    max-width: 900px; width: 100%; max-height: 90vh; overflow: auto;
+    padding: 1.5rem; position: relative; text-align: center;
+  }
+  .img-modal-close {
+    position: absolute; top: 8px; right: 12px; border: none; background: transparent;
+    font-size: 1.8rem; cursor: pointer; color: #404040; line-height: 1;
+  }
+  #modal-img { max-width: 100%; height: auto; border: 2px solid #404040; }
+  .img-modal-caption {
+    margin-top: 0.8rem; color: #334155; font-size: 0.95rem;
+  }
+</style>
+
+<!-- ===================== Cycle 1 ===================== -->
+<div class="eng-section">
+  <h2>Cycle 1: Using toehold switches to detect CKD</h2>
+
+  <h3>Design: Justifying the use of toehold switches + Choosing miRNAs</h3>
+
+  <h4>Inspiration for the Project</h4>
+  <p>
+    Chronic Kidney Disease (CKD) is a prevalent disease in Hong Kong affecting around 10% of our population.
+    The scale of this problem is ever growing. CKD cases in Hong Kong soared by over 180,000 from 2021 to 2025.
+    This sharp increase leads to three major issues: a heavy strain on dialysis units, significant financial burdens
+    for patients, and a high death rate. In 2024, kidney-related conditions were the 6th leading cause of death in
+    Hong Kong, with 1,700 deaths, and 70% of it is related to CKD. Early detection is crucial for saving lives and
+    alleviating pressure on the healthcare system.
+  </p>
+
+  <h4>What is miRNA?</h4>
+  <p>
+    miRNA (microRNA) is a type of ribonucleic acid found in plants and animals. It acts like a control switch which
+    binds to messenger RNA to turn genes off, blocking protein production. miRNA levels may be upregulated or
+    downregulated when a patient is infected with diseases, and may also contribute to conditions such as cancer and
+    heart problems.
+  </p>
+
+  <h4>Why did we choose miRNA as our detection target?</h4>
+  <p>
+    miRNAs are often upregulated or downregulated in diseased states and act as a reporter for specific diseases,
+    including but not limited to:
+  </p>
+  <ul>
+    <li>Cancers</li>
+    <li>Cardiovascular disease</li>
+    <li>Neurological diseases</li>
+    <li>Infectious diseases</li>
+  </ul>
+
+  <h4>Pros and Cons of miRNA as a Disease Reporter</h4>
+  <div class="table-scroll">
+    <table class="eng-table">
+      <thead>
+        <tr>
+          <th colspan="2">Pros</th>
+          <th colspan="2">Cons</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>High stability</strong></td>
+          <td>Enclosed in microvesicles or bound to proteins, miRNAs resist degradation by enzymes (RNases) in blood and urine.</td>
+          <td><strong>Complex signals</strong></td>
+          <td>One miRNA targets many genes, and one gene is controlled by many miRNAs, clouding disease-specific signs.</td>
+        </tr>
+        <tr>
+          <td><strong>Early warning</strong></td>
+          <td>Their levels often shift before standard clinical indicators, such as serum creatinine or significant albuminuria, show measurable changes.</td>
+          <td><strong>Outside interference</strong></td>
+          <td>Inflammation, other illnesses, and common drugs alter miRNA levels, causing false readings.</td>
+        </tr>
+        <tr>
+          <td><strong>Disease specificity</strong></td>
+          <td>Specific patterns of dysregulated miRNAs correspond directly to underlying pathological processes like renal fibrosis, inflammation, and diabetic nephropathy.</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Non-invasive access</strong></td>
+          <td>Urinary and circulating miRNAs can be sampled easily and repeatedly without requiring painful or risky kidney biopsies.</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Why did we consider a multi-miRNA system?</h4>
+  <p>
+    We acknowledged that using only one miRNA will not be sufficient to detect CKD. A multi-miRNA system uses several
+    miRNAs together, improving disease detection, boosting gene knockdown, and targeting complex biological pathways,
+    which is much better than using a single-miRNA panel, as miRNAs are not specific enough to detect only CKD.
+  </p>
+  <p>
+    Since CKD is not a single disease, but the final common pathway of several underlying conditions, no miRNA is
+    totally specific to CKD. Therefore, we adopted a multi-miRNA system to check for its most common pathways for CKD,
+    namely:
+  </p>
+  <ul>
+    <li>Hypertensive nephropathy</li>
+    <li>Diabetic nephropathy</li>
+  </ul>
+  <p>In this situation, using a multi-miRNA system increases reliability and accuracy for the detection of CKD.</p>
+
+  <h4>Which miRNAs did we choose?</h4>
+  <p>
+    In our original screening we found 5 miRNAs related to CKD: miR-21-5p, miR-192-5p, miR-204-5p, miR-214-3p and
+    miR-193a-3p. However, our target miRNA needed to meet two criteria:
+  </p>
+  <ul>
+    <li>Shows significant upregulation of concentration compared to healthy controls in the urine samples of CKD patients</li>
+    <li>Needs to be caught in early to mid stages of CKD</li>
+  </ul>
+  <p>
+    During the second stage of our literature review, we discovered that miR-204-5p and miR-214-3p appeared to be
+    downregulated instead of being upregulated, making it difficult to detect via our current toehold design. Among the
+    remaining 3 miRNAs, miR-193a-3p is found to be only upregulated by 1.4-fold. Compared to miR-21-5p's 2-5 times
+    increase and miR-192-5p's 3 times increase, our final choice landed on miR-21-5p and miR-192-5p.
+  </p>
+
+  <h4>Limitations of current medical detection methods (eGFR and uACR)</h4>
+  <ul>
+    <li><strong>Delayed detection:</strong> eGFR only measures the filtration rate rather than structural kidney damage. Significant kidney injury can occur long before the eGFR drops below normal levels.</li>
+    <li><strong>Misses early damage:</strong> Standard cutoffs classify uACR levels below 30 mg/g as completely normal. However, early kidney damage and cardiovascular risk can progress below this threshold.</li>
+  </ul>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/egfr-estimated-glomerular-filtration-rate.avif" alt="Figure 1: eGFR" data-caption="Figure 1: eGFR (estimated Glomerular Filtration Rate). Source: NIDDK">
+      <p class="fig-caption">Figure 1: eGFR (estimated Glomerular Filtration Rate). Source: NIDDK</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/uacr-urine-albumin-creatinine-ratio.avif" alt="Figure 2: uACR" data-caption="Figure 2: uACR (Urine albumin-creatinine ratio). Source: National Kidney Foundation">
+      <p class="fig-caption">Figure 2: uACR (Urine albumin-creatinine ratio). Source: NKF</p>
+    </div>
+  </div>
+
+  <h4>What is a Toehold Switch?</h4>
+  <p>
+    A toehold switch is a type of detection method for the upregulation of miRNA. Our team has used a toehold switch
+    mechanism to create a test kit for CKD.
+  </p>
+
+  <h4>Mechanism of Toehold Switches</h4>
+  <p>
+    Toehold switches are de-novo-designed synthetic riboregulators that activate gene expression in response to cognate
+    RNAs with designed sequences. The toehold switch has a ribosome-binding site (RBS) and a start codon hidden inside
+    the hairpin. When there is no trigger miRNA present, the ribosome cannot bind to the RBS, and hence no reporter
+    protein will be produced. When the specific trigger miRNA binds to the toehold at the 5' end, it opens the hairpin
+    by branch migration; therefore, ribosomes can bind to the RBS, starting translation and producing reporter proteins.
+  </p>
+
+  <h4>Rationale for Selecting Toehold Switches</h4>
+  <ol>
+    <li>High specificity: detects exact 22-nucleotide miRNA sequences</li>
+    <li>Non-invasive sampling: works with urine; blood draw not needed</li>
+    <li>Programmability: enabling precise gene regulation and simultaneous detection of multiple miRNA targets</li>
+    <li>Minimal crosstalk: each trigger usually interacts only with its matching switch</li>
+    <li>Low-cost format: can be deployed on paper test strips</li>
+  </ol>
+  <p><strong>Limitation:</strong> Weak signals at early disease stages; limited sensitivity for low-abundance miRNAs.</p>
+
+  <h3>Build: Constructing toehold switches by using miRADAR</h3>
+  <p>
+    miRADAR (from the 2024 Wageningen iGEM project) explores miRNAs as potential biomarkers. The system uses
+    RNA-responsive toehold switches to detect miRNAs and convert their presence into a measurable output. We
+    computationally designed toehold switches targeting associated miRNAs and experimentally evaluated their performance.
+  </p>
+
+  <h3>Test: Using NUPACK to analyse our toehold switches</h3>
+  <p>
+    For the dry lab component, we used miRADAR and NUPACK to generate and evaluate sample toehold switches for
+    miR-21-5p and miR-192-5p. Samples were validated in NUPACK at 37 &deg;C (RNA mode), with toehold concentration of
+    1 &mu;M and miRNA concentration of 3 &mu;M.
+  </p>
+  <p><strong>Criteria for choosing suitable toehold switches:</strong></p>
+  <ol>
+    <li>A high concentration of bound toeholds is formed.</li>
+    <li>No/little unintended secondary structures are formed in the bound toeholds.</li>
+    <li>HMFE vs TMFE: if TMFE is lower than HMFE, toeholds would prioritize binding with another toehold instead of forming hybrids.</li>
+  </ol>
+
+  <h4>miR-192 - Selecting Suitable Toehold Candidates</h4>
+  <p>Difference of HMFE and TMFE of miR-192 toehold candidates:</p>
+  <div class="table-scroll">
+    <table class="eng-table">
+      <thead>
+        <tr>
+          <th>Toehold Candidates</th>
+          <th>2</th><th>3</th><th>6</th><th>7</th><th>8</th><th>10</th><th>14</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Difference of HMFE and TMFE (kcal/mol)</td>
+          <td>11.6</td><td>10.5</td><td>18.5</td><td>16.6</td><td>10.2</td><td>16.8</td><td>20.9</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold2.avif" alt="Figure 3 left: Toehold 2 for miR-192-5p"
+           data-caption="Figure 3 (left): Bound toehold of Toehold 2 for miR-192-5p">
+      <p class="fig-caption">Figure 3 (left): Toehold 2 for miR-192-5p</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold3.avif" alt="Figure 3 right: Toehold 3 for miR-192-5p"
+           data-caption="Figure 3 (right): Bound toehold of Toehold 3 for miR-192-5p">
+      <p class="fig-caption">Figure 3 (right): Toehold 3 for miR-192-5p</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-6.avif" alt="Figure 4 left: Toehold 6 for miR-192"
+           data-caption="Figure 4 (left): Bound toehold of Toehold 6 for miR-192">
+      <p class="fig-caption">Figure 4 (left): Toehold 6 for miR-192</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-192-5p-toehold-7.avif" alt="Figure 4 right: Toehold 7 for miR-192"
+           data-caption="Figure 4 (right): Bound toehold of Toehold 7 for miR-192">
+      <p class="fig-caption">Figure 4 (right): Toehold 7 for miR-192</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold8.avif" alt="Figure 5 left: Toehold 8 for miR-192"
+           data-caption="Figure 5 (left): Bound toehold of Toehold 8 for miR-192">
+      <p class="fig-caption">Figure 5 (left): Toehold 8 for miR-192</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold10.avif" alt="Figure 5 right: Toehold 10 for miR-192"
+           data-caption="Figure 5 (right): Bound toehold of Toehold 10 for miR-192">
+      <p class="fig-caption">Figure 5 (right): Toehold 10 for miR-192</p>
+    </div>
+  </div>
+
+  <div class="eng-img">
+    <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-192-5p-toehold14.avif" alt="Figure 6: Toehold 14 for miR-192" data-caption="Figure 6: Bound toeholds of Toehold 14 for miR-192">
+    <p class="fig-caption">Figure 6: Bound toeholds of Toehold 14 for miR-192</p>
+  </div>
+
+  <p>After considering the above criteria, we selected <strong>Toehold 6 and Toehold 7</strong> for detection of miR-192-5p.</p>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-7a.avif" alt="Figure 7: Complex formation toehold 6 miR-192" data-caption="Figure 7: Concentrations of complex formation, toehold candidate 6 of miR-192-5p under NUPACK">
+      <p class="fig-caption">Figure 7: Complex formation of toehold candidate 6 of miR-192-5p (NUPACK)</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-192-5p-6a.avif" alt="Figure 8: Complex formation toehold 7 miR-192" data-caption="Figure 8: Concentrations of complex formation, toehold candidate 7 of miR-192-5p under NUPACK">
+      <p class="fig-caption">Figure 8: Complex formation of toehold candidate 7 of miR-192-5p (NUPACK)</p>
+    </div>
+  </div>
+
+  <h4>miR-21 - Selecting Suitable Toehold Candidates</h4>
+  <p>Difference of HMFE and TMFE of miR-21 toehold candidates:</p>
+  <div class="table-scroll">
+    <table class="eng-table">
+      <thead>
+        <tr>
+          <th>Toehold Candidates</th>
+          <th>1</th><th>2</th><th>3</th><th>5</th><th>7</th><th>9</th><th>10</th><th>13</th><th>16</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Difference of HMFE and TMFE (kcal/mol)</td>
+          <td>4.90</td><td>8.20</td><td>13.2</td><td>16.0</td><td>18.8</td><td>21.2</td><td>20.6</td><td>23.6</td><td>29.4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-1.avif" alt="Figure 9 left: Toehold 1 for miR-21"
+           data-caption="Figure 9 (left): Hybrids of Toehold 1 for miR-21">
+      <p class="fig-caption">Figure 9 (left): Toehold 1 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-2.avif" alt="Figure 9 right: Toehold 2 for miR-21"
+           data-caption="Figure 9 (right): Hybrids of Toehold 2 for miR-21">
+      <p class="fig-caption">Figure 9 (right): Toehold 2 for miR-21</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-3.avif" alt="Figure 10 left: Toehold 3 for miR-21"
+           data-caption="Figure 10 (left): Hybrids of Toehold 3 for miR-21">
+      <p class="fig-caption">Figure 10 (left): Toehold 3 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-5.avif" alt="Figure 10 right: Toehold 5 for miR-21"
+           data-caption="Figure 10 (right): Hybrids of Toehold 5 for miR-21">
+      <p class="fig-caption">Figure 10 (right): Toehold 5 for miR-21</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-10.avif" alt="Figure 11 left: Toehold 10 for miR-21"
+           data-caption="Figure 11 (left): Hybrids of Toehold 10 for miR-21">
+      <p class="fig-caption">Figure 11 (left): Toehold 10 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/mir-21-5p-toehold-13.avif" alt="Figure 11 right: Toehold 13 for miR-21"
+           data-caption="Figure 11 (right): Hybrids of Toehold 13 for miR-21">
+      <p class="fig-caption">Figure 11 (right): Toehold 13 for miR-21</p>
+    </div>
+  </div>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-7.avif" alt="Figure 12 left: Toehold 7 for miR-21"
+           data-caption="Figure 12 (left): Hybrids of Toehold 7 for miR-21">
+      <p class="fig-caption">Figure 12 (left): Toehold 7 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/labelled-mir-21-5p-toehold-9.avif" alt="Figure 12 right: Toehold 9 for miR-21"
+           data-caption="Figure 12 (right): Hybrids of Toehold 9 for miR-21">
+      <p class="fig-caption">Figure 12 (right): Toehold 9 for miR-21</p>
+    </div>
+  </div>
+
+  <h3>Learn: Picking candidates for further experimentation</h3>
+  <ul>
+    <li>Acknowledged toehold switch candidates miR-192-6a and miR-192-7a are suitable for our project.</li>
+    <li>Further actions: cloning of toehold switches and validating with eGFP cell-free expression assay.</li>
+  </ul>
+  <p>
+    For miR-21, selection was based on: efficient binding to miR-21, stable bonds when unbound, low equilibrium
+    probability at the beginning of the loop, lower MFE of bound vs unbound toehold, and RBS located within the loop.
+    <strong>Toehold 7 and 9</strong> ranked highest.
+  </p>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations.avif" alt="Figure 13 left: Complex formation under NUPACK"
+           data-caption="Figure 13 (left): Concentrations of complex formation under NUPACK simulation">
+      <p class="fig-caption">Figure 13 (left): Complex formation under NUPACK</p>
+    </div>
+    <div class="eng-img">
+      <img src="https://static.igem.wiki/teams/6214/wiki/project/engineering/equilibrium-complex-concentrations-21-5p-7a.avif" alt="Figure 13 right: Complex formation under NUPACK"
+           data-caption="Figure 13 (right): Concentrations of complex formation under NUPACK simulation">
+      <p class="fig-caption">Figure 13 (right): Complex formation under NUPACK</p>
+    </div>
+  </div>
+
+  <p>
+    As seen from the above pictures, both toeholds, especially toehold 9, bind with miR-21 exceptionally well.
+    The efficient binding of both toehold and miRNA ensures that our kit won't miss out on much chemical signals from
+    our consumers and little miRNAs are left unbound.
+  </p>
+  <p>
+    Another property that we prioritised in our design is a stable bond when the toehold is unbound. Making our toehold
+    unlikely to self-linearize on its own without any miRNA signals and indicate a false positive.
+  </p>
+  <p>
+    Bonds holding the loop structure in the toehold also need a low equilibrium probability. This has 2 advantages.
+    For one, it leaves the loop able to open more readily, exposing the Ribosome Binding Site (RBS) to commence protein
+    synthesis for our colour change. We can observe this property in the pictures below as the light blue colours at the
+    beginning of each loop; light blue indicates a low equilibrium probability in NUPACK. In addition to the loop being
+    opened more readily, low equilibrium probability prevents the issue in which the bondings within the loop are too
+    strong for the toehold to linearise properly.
+  </p>
+
+  <!-- Two additional hybrid images (Toehold 7 and 9) -->
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <!-- Put LEFT image link here (Toehold 7 hybrid / equilibrium view) -->
+      <img src="" alt="Figure 13b left: Hybrids of Toehold 7 for miR-21"
+           data-caption="Figure 13b (left): Hybrids of Toehold 7 for miR-21">
+      <p class="fig-caption">Figure 13b (left): Hybrids of Toehold 7 for miR-21</p>
+    </div>
+    <div class="eng-img">
+      <!-- Put RIGHT image link here (Toehold 9 hybrid / equilibrium view) -->
+      <img src="" alt="Figure 13b right: Hybrids of Toehold 9 for miR-21"
+           data-caption="Figure 13b (right): Hybrids of Toehold 9 for miR-21">
+      <p class="fig-caption">Figure 13b (right): Hybrids of Toehold 9 for miR-21</p>
+    </div>
+  </div>
+
+  <p>
+    Our toeholds needed to have a lower minimum free energy (MFE) while bonded as opposed to being unbound since this
+    complies with thermodynamics and makes the bound state more favourable to form compared to the unbound state.
+  </p>
+  <p>
+    Compared with the other toehold switches, Toeholds 7 and 9 demonstrate more efficient miRNA binding, leaving
+    minimal unbound miRNA and resulting in a high concentration of the active toehold-miRNA complex. This efficiency
+    and precise activation are driven by the following structural and thermodynamic mechanisms:
+  </p>
+  <ul>
+    <li><strong>Thermodynamic Stability:</strong> The bound toehold-miRNA complex possesses a lower minimum free energy (MFE) than the unbound toehold switch, energetically favoring the bound state.</li>
+    <li><strong>RBS Sequestration:</strong> In the unbound state, the ribosome binding site (RBS) is sequestered within a loop structure rather than an exposed linear conformation. This minimizes unintended ribosome binding and background expression in the absence of the target miRNA.</li>
+    <li><strong>Structural Linearization:</strong> Once the miRNA target binds, the base pairs maintaining the secondary loop structures shift to a lower equilibrium probability. This destabilizes the loops, enabling the toehold switch to linearize and fully expose the RBS so the ribosome can initiate reporter protein synthesis.</li>
+  </ul>
+</div>
+
+<!-- ===================== Cycle 2 ===================== -->
+<div class="eng-section">
+  <h2>Cycle 2: Experimenting toehold switches</h2>
+
+  <h3>Design: Cloning rationale for eGFP</h3>
+  <h4>Plasmid selection</h4>
+  <p>
+    We selected plasmid pET-15b-EGFP. It contains a T7 promoter (strong inducible expression via T7 RNA polymerase),
+    an eGFP reporter gene for a sensitive quantifiable output, a T7 terminator, and an AmpR gene for ampicillin
+    resistance on selective plates.
+  </p>
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Figure 14 left: Overview of plasmid pET-14b-EGFP"
+           data-caption="Figure 14 (left): Overview of plasmid pET-14b-EGFP">
+      <p class="fig-caption">Figure 14 (left): Overview of plasmid pET-14b-EGFP</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Figure 14 right: Overview of plasmid pET-14b-EGFP"
+           data-caption="Figure 14 (right): Overview of plasmid pET-14b-EGFP">
+      <p class="fig-caption">Figure 14 (right): Overview of plasmid pET-14b-EGFP</p>
+    </div>
+  </div>
+
+  <h4>Cloning of plasmid (Digestion)</h4>
+  <p>
+    We utilized restriction enzyme sites XbaI and NdeI. XbaI recognizes 5'-TCTAGA-3'; NdeI recognizes 5'-CATATG-3'.
+    Both sites are downstream of the T7 promoter and upstream of the eGFP reporter, allowing insertion of the toehold
+    switch between promoter and reporter.
+  </p>
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Figure 15 left: Restriction map around T7 promoter and EGFP"
+           data-caption="Figure 15 (left): Restriction map around T7 promoter, insert site, and EGFP">
+      <p class="fig-caption">Figure 15 (left): Restriction map</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Figure 15 right: Restriction map around T7 promoter and EGFP"
+           data-caption="Figure 15 (right): Restriction map around T7 promoter, insert site, and EGFP">
+      <p class="fig-caption">Figure 15 (right): Restriction map</p>
+    </div>
+  </div>
+
+  <h3>Build: Cloning of Plasmid (Results)</h3>
+  <p>
+    After digestion, gel electrophoresis separated products; gel purification removed waste; ligation inserted the
+    toehold switch; transformation introduced plasmids into <em>E. coli</em> for amplification.
+  </p>
+  <p>
+    For miR-192-5p, colonies were found on plates containing toehold 6 and toehold 7.
+  </p>
+  <div class="eng-img">
+    <img src="" alt="Figure 16: Transformation plates" data-caption="Figure 16: Transformation plates with controls and toehold colonies">
+    <p class="fig-caption">Figure 16: Transformation plates (positive / negative controls and transformed colonies)</p>
+  </div>
+
+  <h4>Picking colonies and miniprep</h4>
+  <p>
+    Initial miniprep concentrations were suboptimal. Suspected causes: small collection tubes, ligation failure, or
+    insufficient culture incubation. Modifications: larger tubes, longer incubation, and higher enzyme/ligase
+    concentrations. Retransformation yielded colonies for toehold 6; miniprep then gave high concentration and good
+    purity (A260/280).
+  </p>
+
+  <p>After ligating pET-15b-EGFP with Toehold Switch 6 and 7:</p>
+  <div class="table-scroll">
+    <table class="eng-table">
+      <thead>
+        <tr><th>Sample</th><th>Results</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Negative Control</td><td>No colonies were found</td></tr>
+        <tr><td>Positive Control</td><td>Colonies were found very packed</td></tr>
+        <tr><td>T6 plasmids + bacteria</td><td>Some colonies were found</td></tr>
+        <tr><td>T7 plasmids + bacteria</td><td>Some colonies were found</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Figure 17: Colonies marked" data-caption="Figure 17: Some colonies marked with red squares">
+      <p class="fig-caption">Figure 17: Some colonies marked with red squares</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Figure 18: Original plate image" data-caption="Figure 18: Original plate image">
+      <p class="fig-caption">Figure 18: Original plate image</p>
+    </div>
+  </div>
+
+  <h3>Test: eGFP cell free expression assay</h3>
+  <p>
+    The EGFP cell-free assay uses a fluorometer. Positive sets received corresponding miRNA; negative sets did not.
+    Minimal fold change was observed. A trend of increase appeared but did not achieve statistical significance in most
+    samples. Possible causes: pipetting errors (bubbles), limited trials, or suboptimal toehold design.
+  </p>
+
+  <h3>Learn</h3>
+  <ul>
+    <li>Acknowledged that eGFP gave only minimal change with miRNA present.</li>
+    <li>Suggested using mCherry as the reporter for colorimetric results.</li>
+  </ul>
+</div>
+
+<!-- ===================== Cycle 3 ===================== -->
+<div class="eng-section">
+  <h2>Cycle 3: Using mCherry to produce colorimetric result</h2>
+
+  <h3>Design: Cloning rationale of mCherry plasmid</h3>
+  <p>
+    To improve user experience, we hypothesized that changing the reporter would yield a more intuitive readout.
+    mCherry can generate a distinct colorimetric output under ambient lighting, enabling naked-eye confirmation without
+    specialized lab hardware.
+  </p>
+
+  <h3>Build: Cloning results for mCherry Plasmid</h3>
+  <p><!-- Add build results when available --></p>
+
+  <h3>Test: mCherry cell free expression assay</h3>
+  <p><!-- Add test results when available --></p>
+
+  <h3>Learn: From toehold switch to HCR</h3>
+  <h4>Lack of visible result from toehold switch</h4>
+  <p>
+    eGFP fluorescence is not readily visible under normal lighting and requires excitation and detection equipment.
+    Successful molecular detection does not necessarily translate into a user-readable result.
+  </p>
+  <h4>Insufficient sensitivity at low miRNA concentration</h4>
+  <p>
+    Visible mCherry colour needs substantial reporter accumulation. At low target miRNA levels (early-to-mid disease),
+    reporter production may be insufficient. Signal amplification became an additional design requirement.
+  </p>
+  <p><strong>Two design challenges identified:</strong></p>
+  <ol>
+    <li>A readout that can be easily observed</li>
+    <li>Sufficient signal amplification at low target miRNA concentration</li>
+  </ol>
+</div>
+
+<!-- ===================== Cycle 4 ===================== -->
+<div class="eng-section">
+  <h2>Cycle 4: From toehold switches to using HCR to detect miRNA</h2>
+
+  <h3>Design: Justifying the use of HCR</h3>
+  <p>
+    After evaluating limitations of reporter-based toehold switches, we explored Hybridization Chain Reaction (HCR)
+    as an alternative miRNA detection method.
+  </p>
+  <h4>Mechanism of HCR</h4>
+  <p>
+    HCR is an enzyme-free signal amplification technique that relies on target-triggered hybridisation between designed
+    DNA hairpins, forming long nicked double-stranded DNA polymers. One target can initiate repeated hairpin
+    hybridisation, amplifying the signal.
+  </p>
+  <h4>Rationale for Selecting HCR</h4>
+  <p><strong>Directly visible colorimetric readout:</strong> HCR products can include G-rich sequences that form
+  G-quadruplex structures, bind hemin, and catalyse TMBS oxidation to a visible colour change under normal lighting.</p>
+  <p><strong>Signal amplification for low-abundance miRNA:</strong> A small amount of target can initiate cascading
+  hybridisation of many hairpins, improving early-stage detection.</p>
+  <p><strong>Lower detection limits:</strong> Enhanced HCR methods can reach detection limits as low as 92.7 fM.</p>
+  <p><strong>High specificity and low background:</strong> Multiple specific hairpins help distinguish single-base mismatches.</p>
+  <p><strong>Limitations:</strong> slower kinetics than enzyme methods; background leakage; limited multiplexing.</p>
+
+  <h3>Build 1: Constructing H1 and H2 hairpins + NUPACK analysis</h3>
+  <p>
+    When miRNA target (miR-21 / miR-192) is present, H1 binds the target and opens, exposing a sequence complementary
+    to H2. H1-H2 binding continues to form long complexes. A G-quadruplex (G4) secondary structure forms in the complexes.
+  </p>
+
+  <h3>Test 1: Testing sensitivity of H1 and H2 hairpins with PAGE</h3>
+  <p>
+    Agarose gel electrophoresis with miRNA from 0 nM to 1 &mu;M showed smearing in all lanes, including 0 nM, suggesting
+    possible spontaneous H1-H2 binding or poor resolution of agarose pores. PAGE was planned for higher resolution.
+  </p>
+
+  <h3>Learn 1</h3>
+  <ul>
+    <li>PAGE and agarose gel did not produce clear observable sensitivity results.</li>
+    <li>Considered other methods to detect hairpin sensitivity.</li>
+  </ul>
+
+  <h3>Build 2: Building hairpins that contain InG4 sequences</h3>
+  <p>
+    We referenced literature describing double-loop HCR hairpins with InG4 sequences in the loops.
+  </p>
+  <p><strong>Design criteria for HCR-G4 hairpins:</strong></p>
+  <ol>
+    <li>High concentration of hybrids formed so InG4 can form G-quadruplexes.</li>
+    <li>Most InG4 sequences located in loops (not stems).</li>
+    <li>Little H1-H2 complex without miRNA (to avoid false positives).</li>
+  </ol>
+  <p>
+    H1 and H2 for miR-192-5p were constructed with complementary stems, H1-H2 binding sites, loop InG4 inserts, and
+    cascading binding sites. Designs were validated in NUPACK.
+  </p>
+
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Figure 19: H1 without miRNA" data-caption="Figure 19: MFE structure of H1 hairpin without miRNA">
+      <p class="fig-caption">Figure 19: MFE structure of H1 hairpin without the presence of miRNA</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Figure 20: H2 without miRNA" data-caption="Figure 20: MFE structure of H2 hairpin without miRNA">
+      <p class="fig-caption">Figure 20: MFE structure of H2 hairpin without the presence of miRNA</p>
+    </div>
+  </div>
+  <div class="eng-img-row">
+    <div class="eng-img">
+      <img src="" alt="Figure 21: H1 with miR-192" data-caption="Figure 21: MFE structure of H1 after binding miR-192-5p">
+      <p class="fig-caption">Figure 21: MFE structure of H1 hairpin after binding with miR-192-5p</p>
+    </div>
+    <div class="eng-img">
+      <img src="" alt="Figure 22: H1-H2 complex" data-caption="Figure 22: MFE structure of miR-192-5p-H1-H2 complex">
+      <p class="fig-caption">Figure 22: MFE structure of miR-192-5p-H1-H2 complex</p>
+    </div>
+  </div>
+
+  <h3>Test 2: Testing HCR hairpins with ThT fluorescence assay</h3>
+  <p>
+    G4 structures bind Thioflavin T (ThT); free ThT is weakly fluorescent, but G4-bound ThT shows strong emission,
+    confirming G4 formation after HCR.
+  </p>
+  <div class="eng-img">
+    <img src="" alt="Figure 23: ThT assay graphs" data-caption="Figure 23: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 (ThT)">
+    <p class="fig-caption">Figure 23: Graph of HCR ThT signal with miRNA-21 and miRNA-192</p>
+  </div>
+  <p>
+    For miR-21, 100 pM, 10 nM and 100 nM produced significantly higher fluorescence than the 0 pM control
+    (repeated-measures ANOVA with Dunnett post-hoc, n=4). For miR-192, fluorescence plateaued across concentrations
+    with no significant correlation.
+  </p>
+
+  <h3>Learn 2: Enhancing signal detection with Hemin-TMBS assay</h3>
+  <p>
+    ThT requires UV excitation and a fluorescence reader, which is impractical for a home kit. Hemin/TMBS was selected
+    instead: G4/hemin DNAzyme oxidises TMBS to a visible colour, with catalytic turnover and stronger signal than
+    stoichiometric ThT binding, plus better G4 stabilisation by hemin.
+  </p>
+
+  <h3>Test 3: Testing HCR hairpins with Hemin and TMBS assay</h3>
+  <p>
+    Hemin binds G4 to form a peroxidase-like DNAzyme. TMBS is oxidised from colourless to blue; H<sub>2</sub>SO<sub>4</sub>
+    stops the reaction (blue to yellow) for absorbance at 450 nm.
+  </p>
+  <div class="eng-img">
+    <img src="" alt="Figure 24: Hemin-TMBS plate" data-caption="Figure 24: Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations">
+    <p class="fig-caption">Figure 24: HCR reactions with miRNA-21 and miRNA-192 at varying concentrations</p>
+  </div>
+  <div class="eng-img">
+    <img src="" alt="Figure 25: Hemin-TMBS graphs" data-caption="Figure 25: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192">
+    <p class="fig-caption">Figure 25: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192</p>
+  </div>
+  <p>
+    For miR-21, wells with H1, H2 and increasing miR-21 developed stronger yellow colour than controls, with a
+    concentration-dependent increase from 1 nM to 100 nM. For miR-192, intensity increased from 10 pM to 100 pM then
+    decreased up to 100 nM.
+  </p>
+
+  <h3>Learn 3: Self-amplification of HCR hairpin H1</h3>
+  <p>
+    For miR-21, H1 alone, H2 alone and initiator alone did not produce visible colour. For miR-192, H1 alone caused
+    comparable colour change, suggesting spontaneous self-amplification of miR-192 G4H1.
+  </p>
+  <p><strong>Possible reasons:</strong></p>
+  <ul>
+    <li>Intrinsic tendency of G-rich sequence to form G-quadruplexes</li>
+    <li>Insufficient thermodynamic stability of the hairpin stem</li>
+    <li>H1-H1 intermolecular interactions at working concentration</li>
+  </ul>
+</div>
+
+<!-- ===================== Cycle 5 ===================== -->
+<div class="eng-section">
+  <h2>Cycle 5: Modification on HCR G4 hairpins</h2>
+
+  <h3>Design and Build: Modifying G4 hairpins to prevent self-amplification</h3>
+  <p>
+    Strategies for the miR-192 H1 hairpin: extend stem lengths by 2-4 base pairs; introduce G-C-rich clamps at stem
+    termini; reposition InG4 deeper in loops; optimise toehold lengths to 18-22 nucleotides to raise the barrier against
+    non-specific initiation.
+  </p>
+
+  <h3>Test: Testing modified G4 hairpins with Hemin+TMBS</h3>
+  <p><!-- Add results when available --></p>
+
+  <h3>Learn: Results</h3>
+  <p><!-- Add conclusions when available --></p>
+</div>
+
+<div id="img-modal">
+  <div class="img-modal-box">
+    <button type="button" class="img-modal-close" onclick="closeImgModal()">&times;</button>
+    <img id="modal-img" src="" alt="">
+    <p class="img-modal-caption" id="modal-caption"></p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.eng-img img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      if (!img.src || img.src.endsWith('/')) return;
+      var modal = document.getElementById('img-modal');
+      document.getElementById('modal-img').src = img.src;
+      document.getElementById('modal-caption').textContent = img.dataset.caption || img.alt;
+      modal.style.display = 'flex';
+      setTimeout(function () { modal.classList.add('show'); }, 10);
+    });
+  });
+  function closeImgModal() {
+    var modal = document.getElementById('img-modal');
+    modal.classList.remove('show');
+    setTimeout(function () { modal.style.display = 'none'; }, 300);
+  }
+  document.getElementById('img-modal').addEventListener('click', function (e) {
+    if (e.target === document.getElementById('img-modal')) closeImgModal();
+  });
+</script>
+
+      </div>
+    </div>
+
+    <footer class="pt-5 pb-5 footer py-5 mt-5" style="background-color: #F9F6EE; color: #1e2937; border-top: 1px solid #e5e2d9;">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-6 col-xs-12">
+        <h4 class="mb-3">Heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis</p>
+      </div>
+      <div class="col-lg-3 col-xs-12">
+        <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+        <ul class="m-2 p-2">
+          <li><a href="#" style="color: #1e2937;">Lorem ipsum</a></li>
+          <li><a href="#" style="color: #1e2937;">Nam mauris velit</a></li>
+          <li><a href="#" style="color: #1e2937;">Etiam vitae mauris</a></li>
+          <li><a href="#" style="color: #1e2937;">Fusce scelerisque</a></li>
+          <li><a href="#" style="color: #1e2937;">Sed faucibus</a></li>
+          <li><a href="#" style="color: #1e2937;">Mauris efficitur nulla</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-xs-12">
+        <h4 class="mt-lg-0 mt-sm-4 mb-3">Contact</h4>
+        <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+        <p class="mb-0">(541) 754-3010</p>
+        <p>info@hsdf.com</p>
+      </div>
+    </div>
+    <hr style="border-color: #d6d3c8;" />
+    <div class="row mt-4">
+      <div class="col">
+        <p class="mb-0"><small>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color: #1e2937;">Creative Commons Attribution 4.0 International license</a>.</small></p>
+        <p><small>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/hongkong-hs" style="color: #1e2937;">gitlab.igem.org/2026/hongkong-hs</a>.</small></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <button type="button" class="section-nav-toggle" id="section-nav-toggle" aria-label="Open section menu" hidden>
+      &#9776;
+    </button>
+    <div class="section-nav-backdrop" id="section-nav-backdrop"></div>
+
+    <button id="back-to-top" title="Back to top" aria-label="Back to top">
+      <img src="https://static.igem.wiki/teams/6214/wiki/wiki-features-image/go-to-top-arrow-image.avif" alt="Back to top">
+    </button>
+
+    <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) backToTopBtn.classList.add('show');
+        else backToTopBtn.classList.remove('show');
+      });
+      backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      (function () {
+        var allowed = [
+          'description', 'contribution', 'engineering', 'experiments',
+          'results', 'parts', 'education', 'human-practices', 'safety'
+        ];
+        var path = window.location.pathname.replace(/\/+$/, '');
+        var page = path.split('/').pop() || '';
+        if (allowed.indexOf(page) === -1) return;
+
+        var layout = document.getElementById('page-layout');
+        var nav = document.getElementById('section-nav');
+        var toggle = document.getElementById('section-nav-toggle');
+        var backdrop = document.getElementById('section-nav-backdrop');
+        var main = document.getElementById('page-main');
+        if (!layout || !nav || !main) return;
+
+        var headings = main.querySelectorAll('h2, h3, h4');
+        if (!headings.length) return;
+
+        layout.classList.remove('no-nav');
+        nav.hidden = false;
+        toggle.hidden = false;
+
+        var ul = document.createElement('ul');
+        var idCounts = {};
+
+        headings.forEach(function (h) {
+          var text = (h.textContent || '').trim();
+          if (!text) return;
+
+          if (!h.id) {
+            var base = text.toLowerCase()
+              .replace(/[^a-z0-9\s-]/g, '')
+              .replace(/\s+/g, '-')
+              .slice(0, 40) || 'section';
+            idCounts[base] = (idCounts[base] || 0) + 1;
+            h.id = idCounts[base] > 1 ? base + '-' + idCounts[base] : base;
+          }
+
+          var li = document.createElement('li');
+          li.className = 'nav-' + h.tagName.toLowerCase();
+          var a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = text;
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.getElementById(h.id);
+            if (target) {
+              var y = target.getBoundingClientRect().top + window.scrollY - 90;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+            nav.classList.remove('open');
+            document.body.classList.remove('nav-open');
+          });
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+
+        nav.appendChild(ul);
+
+        function updateActive() {
+          var links = nav.querySelectorAll('a');
+          var current = null;
+          var offset = 120;
+          headings.forEach(function (h) {
+            if (h.getBoundingClientRect().top <= offset) current = h;
+          });
+          links.forEach(function (a) {
+            a.classList.toggle('active', current && a.getAttribute('href') === '#' + current.id);
+          });
+        }
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+
+        toggle.addEventListener('click', function () {
+          nav.classList.toggle('open');
+          document.body.classList.toggle('nav-open');
+        });
+        backdrop.addEventListener('click', function () {
+          nav.classList.remove('open');
+          document.body.classList.remove('nav-open');
+        });
+      })();
+    </script>
+  </body>
+</html>

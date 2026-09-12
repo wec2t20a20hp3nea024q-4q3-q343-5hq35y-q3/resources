@@ -45,10 +45,7 @@
       }
 
       @media (min-width: 901px) {
-        .bg-hero {
-          min-height: 480px;
-          background-size: contain;
-        }
+        .bg-hero { min-height: 480px; background-size: contain; }
       }
       @media (max-width: 900px) {
         .bg-hero { min-height: 320px; background-size: contain; }
@@ -69,7 +66,7 @@
         .bg-hero h1 { font-size: 1.45rem; }
       }
 
-      /* ===== Two-column layout: left TOC + main (PC + tablet + laptop) ===== */
+      /* ===== Two-column layout ===== */
       .page-with-nav {
         display: flex;
         gap: 1.5rem;
@@ -79,10 +76,7 @@
         padding: 1.5rem 1rem 3rem;
         overflow-x: visible;
       }
-      .page-with-nav.no-nav {
-        display: block;
-        max-width: 1140px;
-      }
+      .page-with-nav.no-nav { display: block; max-width: 1140px; }
 
       .section-nav {
         width: 220px;
@@ -98,16 +92,9 @@
       }
       .section-nav::-webkit-scrollbar { width: 6px; }
       .section-nav::-webkit-scrollbar-track { background: #F9F6EE; }
-      .section-nav::-webkit-scrollbar-thumb {
-        background: #404040;
-        border-radius: 4px;
-      }
+      .section-nav::-webkit-scrollbar-thumb { background: #404040; border-radius: 4px; }
 
-      .section-nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+      .section-nav ul { list-style: none; margin: 0; padding: 0; }
       .section-nav > ul > li { margin: 0.15rem 0; }
       .section-nav a {
         display: block;
@@ -120,25 +107,15 @@
         border-radius: 0 6px 6px 0;
         transition: background 0.2s, color 0.2s, border-color 0.2s;
       }
-      .section-nav a:hover {
-        color: #1e2937;
-        background: rgba(64, 64, 64, 0.08);
-      }
+      .section-nav a:hover { color: #1e2937; background: rgba(64, 64, 64, 0.08); }
       .section-nav a.active {
         color: #404040;
         font-weight: 700;
         border-left-color: #404040;
         background: rgba(64, 64, 64, 0.1);
       }
-      .section-nav .nav-h3 a {
-        padding-left: 1.1rem;
-        font-size: 0.84rem;
-      }
-      .section-nav .nav-h4 a {
-        padding-left: 1.7rem;
-        font-size: 0.8rem;
-        color: #64748b;
-      }
+      .section-nav .nav-h3 a { padding-left: 1.1rem; font-size: 0.84rem; }
+      .section-nav .nav-h4 a { padding-left: 1.7rem; font-size: 0.8rem; color: #64748b; }
       .section-nav .nav-h4 a.active { color: #404040; }
 
       .page-main {
@@ -161,7 +138,6 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      /* Phone only: drawer + top-left button */
       .section-nav-toggle {
         display: none;
         position: fixed;
@@ -211,37 +187,19 @@
         padding: 0;
         overflow: hidden;
       }
-      #back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      #back-to-top img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-      }
+      #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+      #back-to-top img { width: 28px; height: 28px; object-fit: contain; }
 
-      /* Tablet / small laptop: keep column, slightly narrower nav */
       @media (max-width: 1100px) and (min-width: 701px) {
-        .page-with-nav {
-          gap: 1.2rem;
-          padding: 1.2rem 0.8rem 2.5rem;
-        }
-        .section-nav {
-          width: 180px;
-        }
+        .page-with-nav { gap: 1.2rem; padding: 1.2rem 0.8rem 2.5rem; }
+        .section-nav { width: 180px; }
         .section-nav a { font-size: 0.85rem; }
         .section-nav .nav-h3 a { font-size: 0.8rem; }
         .section-nav .nav-h4 a { font-size: 0.76rem; }
       }
 
-      /* Phone only (<701px): drawer layout */
       @media (max-width: 700px) {
-        .page-with-nav {
-          display: block;
-          padding: 1rem 0.8rem 2.5rem;
-        }
+        .page-with-nav { display: block; padding: 1rem 0.8rem 2.5rem; }
         .section-nav {
           position: fixed;
           left: 0;
@@ -264,18 +222,8 @@
       }
 
       @media (max-width: 500px) {
-        .section-nav-toggle {
-          top: 64px;
-          left: 10px;
-          width: 40px;
-          height: 40px;
-        }
-        #back-to-top {
-          width: 44px;
-          height: 44px;
-          bottom: 18px;
-          right: 18px;
-        }
+        .section-nav-toggle { top: 64px; left: 10px; width: 40px; height: 40px; }
+        #back-to-top { width: 44px; height: 44px; bottom: 18px; right: 18px; }
         #back-to-top img { width: 24px; height: 24px; }
       }
     </style>
@@ -283,30 +231,17 @@
   <body>
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #F9F6EE; border-bottom: 1px solid #e5e2d9;">
   <div class="container">
-
-    <!-- TEAM NAME -->
     <a class="navbar-brand" href="{{ url_for('home') }}" style="color: #000000; font-weight: 700;">HongKong-HS</a>
-
-    <!-- SMALL SCREEN MENU ICON -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('home') }}" style="color: #000000;">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('pages', page='team') }}" style="color: #000000;">Team</a>
-        </li>
-
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}" style="color: #000000;">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('pages', page='team') }}" style="color: #000000;">Team</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbar-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-            Project
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-project" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">Project</a>
           <ul class="dropdown-menu" aria-labelledby="navbar-project">
             <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a></li>
@@ -317,19 +252,9 @@
             <li><a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a></li>
           </ul>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('pages', page='safety') }}" style="color: #000000;">Safety</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('pages', page='human-practices') }}" style="color: #000000;">Human Practices</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('pages', page='education') }}" style="color: #000000;">Education</a>
-        </li>
-
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('pages', page='safety') }}" style="color: #000000;">Safety</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('pages', page='human-practices') }}" style="color: #000000;">Human Practices</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('pages', page='education') }}" style="color: #000000;">Education</a></li>
       </ul>
     </div>
   </div>
@@ -347,7 +272,6 @@
     <div class="page-with-nav no-nav" id="page-layout">
       <aside class="section-nav" id="section-nav" aria-label="Page sections" hidden></aside>
       <div class="page-main" id="page-main">
-
 
 <style>
   .eng-section { margin-bottom: 3.5rem; }
@@ -400,6 +324,105 @@
     font-size: 0.9rem; color: #64748b; margin-top: 0.5rem; font-style: italic;
   }
 
+  /* =============== HOTSPOT TIMELINE STYLES =============== */
+  .hotspot-figure { text-align: center; margin: 1.5rem 0; }
+
+  .hotspot-wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .hotspot-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 3px solid #404040;
+  }
+
+  /* ---------- Hotspot markers ---------- */
+  .hotspot {
+    position: absolute;
+    width: 26px; height: 26px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid #404040;
+    background: rgba(64, 64, 64, 0.22);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .hotspot::after {
+    content: "";
+    position: absolute; inset: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(64, 64, 64, 0.5);
+    animation: hotspot-pulse 2s ease-out infinite;
+  }
+  @keyframes hotspot-pulse {
+    0%   { transform: scale(0.85); opacity: 0.9; }
+    70%  { transform: scale(1.6);  opacity: 0;   }
+    100% { transform: scale(1.6);  opacity: 0;   }
+  }
+  .hotspot:hover,
+  .hotspot:focus-visible,
+  .hotspot.active {
+    background: #404040;
+    transform: translate(-50%, -50%) scale(1.18);
+    outline: none;
+  }
+  .hotspot:focus-visible { box-shadow: 0 0 0 3px #F9F6EE, 0 0 0 5px #404040; }
+  .hotspot.active::after { animation: none; opacity: 0; }
+
+  /* ---------- Tooltip ---------- */
+  .hotspot-tip {
+    position: absolute;
+    max-width: 300px;
+    background: #F9F6EE;
+    border: 3px solid #404040;
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem 0.9rem;
+    text-align: left;
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    pointer-events: auto;
+  }
+  .hotspot-tip.show { opacity: 1; transform: translateY(0); }
+
+  .hotspot-tip-title {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e2937;
+    padding-right: 1.2rem;
+  }
+  .hotspot-tip-body {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #334155;
+  }
+  .hotspot-tip-close {
+    position: absolute;
+    top: 4px; right: 8px;
+    border: none;
+    background: transparent;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #404040;
+    cursor: pointer;
+  }
+  .hotspot-tip-close:hover { color: #000; }
+
+  @media (max-width: 560px) {
+    .hotspot { width: 22px; height: 22px; }
+    .hotspot-tip { max-width: none; }
+  }
+
   #img-modal {
     display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65);
     z-index: 10000; align-items: center; justify-content: center; padding: 1rem;
@@ -416,152 +439,142 @@
     font-size: 1.8rem; cursor: pointer; color: #404040; line-height: 1;
   }
   #modal-img { max-width: 100%; height: auto; border: 2px solid #404040; }
-  .img-modal-caption {
-    margin-top: 0.8rem; color: #334155; font-size: 0.95rem;
-  }
-  .hotspot-figure { text-align: center; margin: 1.5rem 0; }
+  .img-modal-caption { margin-top: 0.8rem; color: #334155; font-size: 0.95rem; }
 
-.hotspot-wrap {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 800px;   /* your width limit */
-}
-
-.hotspot-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 3px solid #404040;
-}
-
-/* ---------- Hotspot markers ---------- */
-.hotspot {
-  position: absolute;
-  width: 34px; height: 34px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 2px solid #404040;
-  background: rgba(64, 64, 64, 0.25);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.hotspot::after {
-  content: "";
-  position: absolute; inset: -6px;
-  border-radius: 50%;
-  border: 2px solid rgba(64, 64, 64, 0.55);
-  animation: hotspot-pulse 2s ease-out infinite;
-}
-@keyframes hotspot-pulse {
-  0%   { transform: scale(0.85); opacity: 0.9; }
-  70%  { transform: scale(1.5);  opacity: 0;   }
-  100% { transform: scale(1.5);  opacity: 0;   }
-}
-.hotspot:hover,
-.hotspot:focus-visible,
-.hotspot.active {
-  background: #404040;
-  transform: translate(-50%, -50%) scale(1.12);
-  outline: none;
-}
-.hotspot:focus-visible { box-shadow: 0 0 0 3px #F9F6EE, 0 0 0 5px #404040; }
-.hotspot.active::after { animation: none; opacity: 0; }
-
-/* ---------- Tooltip ---------- */
-.hotspot-tip {
-  position: absolute;
-  max-width: 280px;
-  background: #F9F6EE;
-  border: 3px solid #404040;
-  border-radius: 12px;
-  padding: 0.9rem 1.1rem;
-  text-align: left;
-  z-index: 50;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-}
-.hotspot-tip.show { opacity: 1; transform: translateY(0); }
-
-.hotspot-tip-title {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1e2937;
-}
-.hotspot-tip-body {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: #334155;
-}
-.hotspot-tip-close {
-  position: absolute;
-  top: 4px; right: 8px;
-  border: none;
-  background: transparent;
-  font-size: 1.3rem;
-  line-height: 1;
-  color: #404040;
-  cursor: pointer;
-}
-.hotspot-tip-close:hover { color: #000; }
-
-/* ---------- Small screens: tooltip becomes a bottom banner ---------- */
-@media (max-width: 560px) {
-  .hotspot { width: 28px; height: 28px; }
-  .hotspot-tip { max-width: none; }
-}
+  .ref-list { font-size: 0.88rem; line-height: 1.6; color: #475569; }
+  .ref-list li { margin-bottom: 0.6rem; word-break: break-word; }
+  .ref-list a { color: #404040; }
 </style>
+
+<!-- ===================== TIMELINE FIGURE ===================== -->
 <div class="eng-section">
+  <h2>Engineering Cycle Timeline</h2>
+  <p>
+    Our project advanced through five engineering cycles, each following the
+    <strong>Design &rarr; Build &rarr; Test &rarr; Learn</strong> framework. Click any
+    numbered marker on the timeline below to see what happened at that stage.
+  </p>
+
   <div class="hotspot-figure">
-  <div class="hotspot-wrap" id="hotspotWrap">
-    <img
-      class="hotspot-img"
-      src="https://cdn.jsdelivr.net/gh/wec2t20a20hp3nea024q-4q3-q343-5hq35y-q3/resources@main/Timeline%20draft%20.png"
-      alt="Timeline draft"
-    />
+    <div class="hotspot-wrap" id="hotspotWrap">
+      <img
+        class="hotspot-img"
+        src="https://cdn.jsdelivr.net/gh/wec2t20a20hp3nea024q-4q3-q343-5hq35y-q3/resources@main/Timeline%20draft%20.png"
+        alt="Engineering cycle timeline"
+      />
 
-    <!-- ===== Hotspots: left / top are percentages of the image ===== -->
-    <button class="hotspot" style="left: 24%; top: 12%;"
-            data-title="Cycle 1 — Design"
-            data-text="Selected miR-21-5p and miR-192-5p as CKD biomarkers and designed toehold switches with miRADAR + NUPACK."
-            aria-label="Cycle 1 details"></button>
+      <!-- Cycle 1 -->
+      <button class="hotspot" style="left: 29.0%; top: 24.5%;"
+        data-title="Cycle 1 · Design"
+        data-text="Chose CKD as our target. Reviewed 5 candidate miRNAs and selected miR-21-5p and miR-192-5p as urinary biomarkers based on their upregulation in early-to-mid CKD."
+        aria-label="Cycle 1 Design"></button>
+      <button class="hotspot" style="left: 36.0%; top: 24.2%;"
+        data-title="Cycle 1 · Build"
+        data-text="Used miRADAR (2024 Wageningen iGEM) to computationally design toehold switch candidates for both miRNAs."
+        aria-label="Cycle 1 Build"></button>
+      <button class="hotspot" style="left: 39.0%; top: 38.1%;"
+        data-title="Cycle 1 · Test"
+        data-text="Validated each candidate in NUPACK at 37 °C (RNA mode, 1 μM toehold, 3 μM miRNA), checking bound-toehold concentration, unintended secondary structures and HMFE vs TMFE."
+        aria-label="Cycle 1 Test"></button>
+      <button class="hotspot" style="left: 46.1%; top: 37.1%;"
+        data-title="Cycle 1 · Learn"
+        data-text="Selected Toeholds 6 & 7 for miR-192-5p and Toeholds 7 & 9 for miR-21-5p. Next: clone the switches and validate with an eGFP cell-free assay."
+        aria-label="Cycle 1 Learn"></button>
 
-    <button class="hotspot" style="left: 74%; top: 30%;"
-            data-title="Cycle 2 — Build &amp; Test"
-            data-text="Cloned toehold 6 and 7 into pET-15b-EGFP and ran the cell-free eGFP assay. Only a minimal fold change was observed."
-            aria-label="Cycle 2 details"></button>
+      <!-- Cycle 2 -->
+      <button class="hotspot" style="left: 49.4%; top: 23.7%;"
+        data-title="Cycle 2 · Design"
+        data-text="Chose plasmid pET-15b-EGFP: T7 promoter for strong inducible expression, eGFP reporter, T7 terminator and AmpR for ampicillin selection."
+        aria-label="Cycle 2 Design"></button>
+      <button class="hotspot" style="left: 56.0%; top: 25.7%;"
+        data-title="Cycle 2 · Build"
+        data-text="Digested with XbaI (5'-TCTAGA-3') and NdeI (5'-CATATG-3'), gel-purified, ligated the toehold switch between promoter and reporter, then transformed into E. coli."
+        aria-label="Cycle 2 Build"></button>
+      <button class="hotspot" style="left: 59.4%; top: 37.8%;"
+        data-title="Cycle 2 · Test"
+        data-text="Colonies appeared for Toeholds 6 & 7. Initial miniprep was low, so we retransformed using larger tubes and longer incubation. Then ran the eGFP cell-free expression assay on a fluorometer."
+        aria-label="Cycle 2 Test"></button>
+      <button class="hotspot" style="left: 66.5%; top: 35.4%;"
+        data-title="Cycle 2 · Learn"
+        data-text="Only a minimal fold change was observed — eGFP fluorescence is not user-readable without equipment. Decision: move to a colorimetric reporter (mCherry)."
+        aria-label="Cycle 2 Learn"></button>
 
-    <button class="hotspot" style="left: 26%; top: 50%;"
-            data-title="Cycle 3 — Learn"
-            data-text="Switched to mCherry for a colorimetric readout, but low miRNA concentrations gave no visible colour change."
-            aria-label="Cycle 3 details"></button>
+      <!-- Cycle 3 -->
+      <button class="hotspot" style="left: 69.8%; top: 22.3%;"
+        data-title="Cycle 3 · Design"
+        data-text="Re-designed the plasmid to use mCherry, so that a positive sample would produce a colour visible under normal lighting — no specialised hardware required."
+        aria-label="Cycle 3 Design"></button>
+      <button class="hotspot" style="left: 76.3%; top: 24.7%;"
+        data-title="Cycle 3 · Build"
+        data-text="Cloned the mCherry plasmid using the same XbaI / NdeI insertion strategy between the T7 promoter and the reporter gene."
+        aria-label="Cycle 3 Build"></button>
+      <button class="hotspot" style="left: 79.0%; top: 37.6%;"
+        data-title="Cycle 3 · Test"
+        data-text="Ran the mCherry cell-free expression assay to check whether a colour change could be observed by eye."
+        aria-label="Cycle 3 Test"></button>
+      <button class="hotspot" style="left: 86.1%; top: 45.5%;"
+        data-title="Cycle 3 · Learn"
+        data-text="Two challenges identified: (1) a readout that can be easily observed, and (2) sufficient signal amplification at low miRNA concentrations. Pivot to Hybridization Chain Reaction (HCR)."
+        aria-label="Cycle 3 Learn"></button>
 
-    <button class="hotspot" style="left: 76%; top: 68%;"
-            data-title="Cycle 4 — HCR"
-            data-text="Moved to Hybridization Chain Reaction with InG4 hairpins, validated in NUPACK and tested by ThT and Hemin-TMBS assays."
-            aria-label="Cycle 4 details"></button>
+      <!-- Cycle 4 -->
+      <button class="hotspot" style="left: 84.5%; top: 83.1%;"
+        data-title="Cycle 4 · Design"
+        data-text="Adopted HCR — an enzyme-free signal-amplification method using two DNA hairpins (H1, H2) that polymerise into long nicked duplexes when the target miRNA is present."
+        aria-label="Cycle 4 Design"></button>
+      <button class="hotspot" style="left: 78.0%; top: 79.6%;"
+        data-title="Cycle 4 · Build"
+        data-text="Constructed H1 and H2 hairpins with G-rich InG4 sequences positioned in the loops. Validated all designs in NUPACK before ordering."
+        aria-label="Cycle 4 Build"></button>
+      <button class="hotspot" style="left: 74.5%; top: 65.8%;"
+        data-title="Cycle 4 · Test"
+        data-text="First tested sensitivity with agarose gel and PAGE (inconclusive). Then ran a Thioflavin T (ThT) fluorescence assay, followed by the Hemin–TMBS colorimetric assay."
+        aria-label="Cycle 4 Test"></button>
+      <button class="hotspot" style="left: 68.3%; top: 69.2%;"
+        data-title="Cycle 4 · Learn"
+        data-text="ThT worked well for miR-21 but not miR-192. Hemin–TMBS gave a stronger visible signal — but the miR-192 H1 hairpin self-amplified even without target. Needs redesign."
+        aria-label="Cycle 4 Learn"></button>
 
-    <button class="hotspot" style="left: 28%; top: 88%;"
-            data-title="Cycle 5 — Refinement"
-            data-text="Extended hairpin stems, added G-C clamps and repositioned InG4 loops to stop miR-192 H1 from self-amplifying."
-            aria-label="Cycle 5 details"></button>
+      <!-- Cycle 5 -->
+      <button class="hotspot" style="left: 64.9%; top: 82.1%;"
+        data-title="Cycle 5 · Design"
+        data-text="Redesigned the miR-192 G4 hairpins: extend stems by 2–4 bp, add G·C-rich clamps at stem termini, reposition InG4 deeper in the loops."
+        aria-label="Cycle 5 Design"></button>
+      <button class="hotspot" style="left: 58.5%; top: 79.9%;"
+        data-title="Cycle 5 · Build"
+        data-text="Optimised toehold lengths to 18–22 nucleotides to raise the thermodynamic barrier against non-specific initiation, then re-validated in NUPACK."
+        aria-label="Cycle 5 Build"></button>
+      <button class="hotspot" style="left: 55.0%; top: 66.0%;"
+        data-title="Cycle 5 · Test"
+        data-text="Testing the modified G4 hairpins with the Hemin + TMBS assay to confirm the self-amplification signal has been suppressed."
+        aria-label="Cycle 5 Test"></button>
+      <button class="hotspot" style="left: 48.6%; top: 69.2%;"
+        data-title="Cycle 5 · Learn"
+        data-text="Evaluating whether the stem extension and loop repositioning eliminated background self-amplification while retaining miRNA-triggered sensitivity."
+        aria-label="Cycle 5 Learn"></button>
 
-    <!-- ===== Tooltip (one shared box, repositioned per click) ===== -->
-    <div class="hotspot-tip" id="hotspotTip" role="dialog" aria-modal="false" hidden>
-      <button type="button" class="hotspot-tip-close" id="hotspotTipClose" aria-label="Close">&times;</button>
-      <h4 class="hotspot-tip-title"></h4>
-      <p class="hotspot-tip-body"></p>
+      <!-- Final validation -->
+      <button class="hotspot" style="left: 45.0%; top: 82.8%;"
+        data-title="Final Validation · Test"
+        data-text="Final run of the improved HCR hairpins against both miR-21 and miR-192 across a full concentration series."
+        aria-label="Final validation Test"></button>
+      <button class="hotspot" style="left: 38.5%; top: 81.8%;"
+        data-title="Final Validation · Learn"
+        data-text="Overall conclusions on HCR sensitivity, specificity and future work towards a paper-based at-home CKD test kit."
+        aria-label="Final validation Learn"></button>
+
+      <!-- Shared tooltip -->
+      <div class="hotspot-tip" id="hotspotTip" role="dialog" aria-modal="false" hidden>
+        <button type="button" class="hotspot-tip-close" id="hotspotTipClose" aria-label="Close">&times;</button>
+        <h4 class="hotspot-tip-title"></h4>
+        <p class="hotspot-tip-body"></p>
+      </div>
     </div>
-  </div>
 
-  <p class="fig-caption">Figure X: Engineering cycle timeline. Click a marker for details.</p>
+    <p class="fig-caption">Figure 0: Engineering cycle timeline. Click a marker for details.</p>
+  </div>
 </div>
-</div>
+
 <!-- ===================== Cycle 1 ===================== -->
 <div class="eng-section">
   <h2>Cycle 1: Using toehold switches to detect CKD</h2>
@@ -641,6 +654,7 @@
     We acknowledged that using only one miRNA will not be sufficient to detect CKD. A multi-miRNA system uses several
     miRNAs together, improving disease detection, boosting gene knockdown, and targeting complex biological pathways,
     which is much better than using a single-miRNA panel, as miRNAs are not specific enough to detect only CKD.
+    The accuracy of a single-miRNA panel would be far lower than a multi-miRNA system.
   </p>
   <p>
     Since CKD is not a single disease, but the final common pathway of several underlying conditions, no miRNA is
@@ -665,8 +679,8 @@
   <p>
     During the second stage of our literature review, we discovered that miR-204-5p and miR-214-3p appeared to be
     downregulated instead of being upregulated, making it difficult to detect via our current toehold design. Among the
-    remaining 3 miRNAs, miR-193a-3p is found to be only upregulated by 1.4-fold. Compared to miR-21-5p's 2-5 times
-    increase and miR-192-5p's 3 times increase, our final choice landed on miR-21-5p and miR-192-5p.
+    remaining 3 miRNAs, miR-193a-3p is found to be only upregulated by 1.4-fold. Compared to miR-21-5p's 2–5× increase
+    and miR-192-5p's 3× increase, our final choice landed on miR-21-5p and miR-192-5p.
   </p>
 
   <h4>Limitations of current medical detection methods (eGFR and uACR)</h4>
@@ -694,44 +708,50 @@
 
   <h4>Mechanism of Toehold Switches</h4>
   <p>
-    Toehold switches are de-novo-designed synthetic riboregulators that activate gene expression in response to cognate
-    RNAs with designed sequences. The toehold switch has a ribosome-binding site (RBS) and a start codon hidden inside
-    the hairpin. When there is no trigger miRNA present, the ribosome cannot bind to the RBS, and hence no reporter
-    protein will be produced. When the specific trigger miRNA binds to the toehold at the 5' end, it opens the hairpin
-    by branch migration; therefore, ribosomes can bind to the RBS, starting translation and producing reporter proteins.
+    Toehold switches are de-novo-designed synthetic riboregulators (custom-made RNA switches, from sketch, that turn
+    bacterial genes on/off) that activate gene expression in response to cognate RNAs with designed sequences. The
+    toehold switch has a ribosome-binding site (RBS) and a start codon hidden inside the hairpin. When there is no
+    trigger miRNA present, the ribosome cannot bind to the RBS, and hence no reporter protein will be produced. When
+    the specific trigger miRNA binds to the toehold at the 5&prime; end, it opens the hairpin by branch migration;
+    therefore, ribosomes can bind to the RBS, starting translation and producing reporter proteins.
   </p>
 
   <h4>Rationale for Selecting Toehold Switches</h4>
   <ol>
-    <li>High specificity: detects exact 22-nucleotide miRNA sequences</li>
-    <li>Non-invasive sampling: works with urine; blood draw not needed</li>
-    <li>Programmability: enabling precise gene regulation and simultaneous detection of multiple miRNA targets</li>
-    <li>Minimal crosstalk: each trigger usually interacts only with its matching switch</li>
-    <li>Low-cost format: can be deployed on paper test strips</li>
+    <li><strong>High specificity:</strong> detects exact 22-nucleotide miRNA sequences.</li>
+    <li><strong>Non-invasive sampling:</strong> works with urine; a blood draw is not needed.</li>
+    <li><strong>Programmability:</strong> enabling precise gene regulation and simultaneous detection of multiple miRNA targets.</li>
+    <li><strong>Minimal crosstalk:</strong> each trigger usually interacts only with its matching switch.</li>
+    <li><strong>Low-cost format:</strong> can be deployed on paper test strips.</li>
   </ol>
-  <p><strong>Limitation:</strong> Weak signals at early disease stages; limited sensitivity for low-abundance miRNAs.</p>
+  <p><strong>Limitation:</strong> weak signals at early disease stages; limited sensitivity for low-abundance miRNAs.</p>
 
   <h3>Build: Constructing toehold switches by using miRADAR</h3>
   <p>
     miRADAR (from the 2024 Wageningen iGEM project) explores miRNAs as potential biomarkers. The system uses
     RNA-responsive toehold switches to detect miRNAs and convert their presence into a measurable output. We
-    computationally designed toehold switches targeting associated miRNAs and experimentally evaluated their performance.
+    computationally designed toehold switches targeting associated miRNAs and experimentally evaluated their
+    performance. These experiments assessed whether computationally designed, miRNA-responsive toehold switches
+    could function as RNA sensors.
   </p>
 
   <h3>Test: Using NUPACK to analyse our toehold switches</h3>
   <p>
     For the dry lab component, we used miRADAR and NUPACK to generate and evaluate sample toehold switches for
-    miR-21-5p and miR-192-5p. Samples were validated in NUPACK at 37 &deg;C (RNA mode), with toehold concentration of
-    1 &mu;M and miRNA concentration of 3 &mu;M.
+    miR-21-5p and miR-192-5p. Samples were validated in NUPACK at 37&nbsp;&deg;C (RNA mode), with toehold concentration
+    of 1&nbsp;&mu;M and miRNA concentration of 3&nbsp;&mu;M.
   </p>
   <p><strong>Criteria for choosing suitable toehold switches:</strong></p>
   <ol>
-    <li>A high concentration of bound toeholds is formed.</li>
-    <li>No/little unintended secondary structures are formed in the bound toeholds.</li>
-    <li>HMFE vs TMFE: if TMFE is lower than HMFE, toeholds would prioritize binding with another toehold instead of forming hybrids.</li>
+    <li>A high concentration of bound toeholds is formed. This ensures that the miRNA can bind to the toehold switch
+      and unwind the hairpin stem to release the ribosome-binding site for the ribosome to bind and produce eGFP.</li>
+    <li>No / little unintended secondary structures are formed in the bound toeholds. Extra base-pairing after the RBS
+      could block the ribosome from reaching the coding sequence and cause false negatives.</li>
+    <li>HMFE vs TMFE: if TMFE is lower than HMFE, the toeholds would prioritise binding with another toehold switch
+      instead of forming hybrids with the miRNA.</li>
   </ol>
 
-  <h4>miR-192 - Selecting Suitable Toehold Candidates</h4>
+  <h4>miR-192 &mdash; Selecting Suitable Toehold Candidates</h4>
   <p>Difference of HMFE and TMFE of miR-192 toehold candidates:</p>
   <div class="table-scroll">
     <table class="eng-table">
@@ -807,7 +827,7 @@
     </div>
   </div>
 
-  <h4>miR-21 - Selecting Suitable Toehold Candidates</h4>
+  <h4>miR-21 &mdash; Selecting Suitable Toehold Candidates</h4>
   <p>Difference of HMFE and TMFE of miR-21 toehold candidates:</p>
   <div class="table-scroll">
     <table class="eng-table">
@@ -920,16 +940,13 @@
     strong for the toehold to linearise properly.
   </p>
 
-  <!-- Two additional hybrid images (Toehold 7 and 9) -->
   <div class="eng-img-row">
     <div class="eng-img">
-      <!-- Put LEFT image link here (Toehold 7 hybrid / equilibrium view) -->
       <img src="" alt="Figure 13b left: Hybrids of Toehold 7 for miR-21"
            data-caption="Figure 13b (left): Hybrids of Toehold 7 for miR-21">
       <p class="fig-caption">Figure 13b (left): Hybrids of Toehold 7 for miR-21</p>
     </div>
     <div class="eng-img">
-      <!-- Put RIGHT image link here (Toehold 9 hybrid / equilibrium view) -->
       <img src="" alt="Figure 13b right: Hybrids of Toehold 9 for miR-21"
            data-caption="Figure 13b (right): Hybrids of Toehold 9 for miR-21">
       <p class="fig-caption">Figure 13b (right): Hybrids of Toehold 9 for miR-21</p>
@@ -959,9 +976,10 @@
   <h3>Design: Cloning rationale for eGFP</h3>
   <h4>Plasmid selection</h4>
   <p>
-    We selected plasmid pET-15b-EGFP. It contains a T7 promoter (strong inducible expression via T7 RNA polymerase),
-    an eGFP reporter gene for a sensitive quantifiable output, a T7 terminator, and an AmpR gene for ampicillin
-    resistance on selective plates.
+    We selected plasmid pET-15b-EGFP. It contains a T7 promoter, which utilizes T7 RNA polymerase to drive strong and
+    inducible reactions and is superior to typical host bacterial enzymes. An eGFP reporter gene produces a sensitive
+    and quantifiable output, while a T7 terminator stops RNA production. The plasmid also contains an AmpR gene which
+    provides the bacteria with ampicillin resistance so that they may still survive on agar plates containing ampicillin.
   </p>
   <div class="eng-img-row">
     <div class="eng-img">
@@ -978,9 +996,10 @@
 
   <h4>Cloning of plasmid (Digestion)</h4>
   <p>
-    We utilized restriction enzyme sites XbaI and NdeI. XbaI recognizes 5'-TCTAGA-3'; NdeI recognizes 5'-CATATG-3'.
-    Both sites are downstream of the T7 promoter and upstream of the eGFP reporter, allowing insertion of the toehold
-    switch between promoter and reporter.
+    We utilized restriction enzyme sites XbaI and NdeI. XbaI recognizes and cleaves 5&prime;-TCTAGA-3&prime;; NdeI
+    recognizes and cleaves 5&prime;-CATATG-3&prime;. Both sites are downstream of the T7 promoter and upstream of the
+    eGFP reporter, allowing the T7 promoter to synthesize our toehold switch, the eGFP reporter to be expressed, and
+    the T7 terminator to stop synthesis.
   </p>
   <div class="eng-img-row">
     <div class="eng-img">
@@ -996,12 +1015,19 @@
   </div>
 
   <h3>Build: Cloning of Plasmid (Results)</h3>
+  <h4>Gel electrophoresis, purification and ligation</h4>
   <p>
-    After digestion, gel electrophoresis separated products; gel purification removed waste; ligation inserted the
-    toehold switch; transformation introduced plasmids into <em>E. coli</em> for amplification.
+    After digestion, gel electrophoresis was used to separate the digestion byproducts from the digested plasmid.
+    We then purified the gel to remove any unnecessary waste. Once the gel was purified, we attempted ligation to
+    insert the toehold switch into the plasmid and conducted a transformation to insert the plasmids into
+    <em>E. coli</em> for duplication of plasmid samples.
   </p>
+  <h4>Transformation and plating results</h4>
   <p>
-    For miR-192-5p, colonies were found on plates containing toehold 6 and toehold 7.
+    After ligation, we conducted transformation to duplicate our plasmid samples. First, we heat-shocked competent
+    cells to temporarily induce cell membrane permeability. Then, after mixing the ligation samples, we plated the
+    resultant mixture onto the agar plates. For miR-192-5p, colonies were found on plates containing toehold 6 and
+    toehold 7.
   </p>
   <div class="eng-img">
     <img src="" alt="Figure 16: Transformation plates" data-caption="Figure 16: Transformation plates with controls and toehold colonies">
@@ -1010,13 +1036,35 @@
 
   <h4>Picking colonies and miniprep</h4>
   <p>
-    Initial miniprep concentrations were suboptimal. Suspected causes: small collection tubes, ligation failure, or
-    insufficient culture incubation. Modifications: larger tubes, longer incubation, and higher enzyme/ligase
-    concentrations. Retransformation yielded colonies for toehold 6; miniprep then gave high concentration and good
-    purity (A260/280).
+    After picking colonies, we conducted miniprep to purify and extract the DNA plasmids from the colonies for plate
+    reading. However, the results were suboptimal as the concentration of the DNA plasmids was low. We suspected the
+    result may be due to:
+  </p>
+  <ul>
+    <li>A lack of plasmid samples due to the use of small collection tubes.</li>
+    <li>The failure of the ligation process, i.e. the toehold switch failed to be inserted between restriction sites XbaI and NdeI.</li>
+    <li>The lack of incubation time of culture, resulting in suboptimal concentration.</li>
+  </ul>
+  <p>The experiment was then repeated to obtain better results. To improve the accuracy of our experiment, we conducted some modifications:</p>
+  <ul>
+    <li>Using larger tubes to produce more plasmids.</li>
+    <li>Longer incubation time of culture, allowing the bacteria to divide and produce more plasmids.</li>
+    <li>Increasing the concentration of restriction enzymes XbaI and NdeI and ligase so the plasmid can be digested and the toehold switch inserted.</li>
+  </ul>
+  <h4>Retransformation of DNA plasmids</h4>
+  <p>
+    We then retransformed some of the plasmid DNA from miniprep to duplicate our samples. After retransformation,
+    colonies were only found on toehold 6 samples. We then picked 2 colonies and conducted miniprep with the overnight
+    culture. The results of miniprep were promising as we obtained large concentrations and optimum purity (A260/280).
+  </p>
+  <p>
+    After ligating the pET-15b-EGFP plasmid with Toehold Switch 6 and Toehold Switch 7, we transformed <em>E. coli</em>
+    with the recombinant plasmids: Toehold Switch 6 plasmids (T6 plasmids) and Toehold Switch 7 plasmids (T7 plasmids).
+    The bacteria were then cultured on agar plates containing LB medium and ampicillin. We also set up two controls:
+    a positive control with bacteria transformed with the pET-15b-EGFP plasmid (non-recombinant) and a negative control
+    with only bacteria.
   </p>
 
-  <p>After ligating pET-15b-EGFP with Toehold Switch 6 and 7:</p>
   <div class="table-scroll">
     <table class="eng-table">
       <thead>
@@ -1030,6 +1078,7 @@
       </tbody>
     </table>
   </div>
+
   <div class="eng-img-row">
     <div class="eng-img">
       <img src="" alt="Figure 17: Colonies marked" data-caption="Figure 17: Some colonies marked with red squares">
@@ -1043,15 +1092,31 @@
 
   <h3>Test: eGFP cell free expression assay</h3>
   <p>
-    The EGFP cell-free assay uses a fluorometer. Positive sets received corresponding miRNA; negative sets did not.
-    Minimal fold change was observed. A trend of increase appeared but did not achieve statistical significance in most
-    samples. Possible causes: pipetting errors (bubbles), limited trials, or suboptimal toehold design.
+    The EGFP cell-free assay makes use of a fluorometer to detect the specific fluorescence inside the samples. To
+    initiate the reaction, the fluorometer exposes the sample to a specific wavelength so the electrons inside the
+    sample absorb the energy, which then emits waves with longer wavelengths and less energy. These waves can then
+    be detected by the fluorometer through a GFP filter.
   </p>
+  <p>
+    We had positive and negative sets for each toehold switch and control setup. The corresponding miRNA was added to
+    the positive sets and was absent in the negative sets. Plasmids pET-15b-EGFP with or without toehold switches were
+    used. We then used a microplate reader and fluorometer to measure the light intensity of the fluorescence.
+    However, minimal fold change was observed.
+  </p>
+  <p>
+    Although we repeated the experiment several times to increase reliability, results show a trend of increase that
+    did not achieve statistical significance in most samples. We suspect the results are due to:
+  </p>
+  <ul>
+    <li>Pipetting errors, such as including bubbles inside the sample, which decreases fluorescence intensity.</li>
+    <li>A lack of trials, which lowers the reliability of the statistics.</li>
+    <li>The design of the toehold switches may not be optimal.</li>
+  </ul>
 
   <h3>Learn</h3>
   <ul>
-    <li>Acknowledged that eGFP gave only minimal change with miRNA present.</li>
-    <li>Suggested using mCherry as the reporter for colorimetric results.</li>
+    <li>Acknowledged that using EGFP would only give a minimal change in production in the presence of miRNA.</li>
+    <li>Suggested using mCherry as the reporter protein to produce colorimetric results.</li>
   </ul>
 </div>
 
@@ -1061,9 +1126,13 @@
 
   <h3>Design: Cloning rationale of mCherry plasmid</h3>
   <p>
-    To improve user experience, we hypothesized that changing the reporter would yield a more intuitive readout.
-    mCherry can generate a distinct colorimetric output under ambient lighting, enabling naked-eye confirmation without
-    specialized lab hardware.
+    To improve the user experience and practical accessibility of our diagnostic kit, we hypothesised that altering
+    our reporter protein would yield a more intuitive and user-friendly readout. The primary objective of this cycle
+    was to redesign our plasmid architecture to incorporate mCherry as the designated reporter. The rationale driving
+    this modification is that mCherry, upon adequate expression and cellular accumulation, generates a distinct
+    colorimetric output that is visible under standard ambient lighting. By cloning the mCherry sequence into our
+    system, we aimed to engineer a biological sensor capable of providing clear, naked-eye confirmation of miRNA
+    detection, completely bypassing the need for specialised laboratory hardware.
   </p>
 
   <h3>Build: Cloning results for mCherry Plasmid</h3>
@@ -1075,18 +1144,27 @@
   <h3>Learn: From toehold switch to HCR</h3>
   <h4>Lack of visible result from toehold switch</h4>
   <p>
-    eGFP fluorescence is not readily visible under normal lighting and requires excitation and detection equipment.
-    Successful molecular detection does not necessarily translate into a user-readable result.
+    Through evaluation of our original toehold-switch design, we identified a practical limitation associated with
+    using eGFP as the reporter. Although successful activation of the toehold switch can lead to eGFP production, the
+    resulting fluorescence is not readily visible under normal lighting conditions and generally requires appropriate
+    excitation with a specific wavelength and fluorescence-detection equipment to observe. This means that successful
+    molecular detection does not necessarily translate into a result that can be easily interpreted by the user. From
+    this, we learned that the current method is effective at target recognition, but lacks a directly visible method
+    for signal visualization.
   </p>
   <h4>Insufficient sensitivity at low miRNA concentration</h4>
   <p>
-    Visible mCherry colour needs substantial reporter accumulation. At low target miRNA levels (early-to-mid disease),
-    reporter production may be insufficient. Signal amplification became an additional design requirement.
+    mCherry was considered as an alternative to eGFP since sufficiently accumulated mCherry can produce a visible
+    colour under normal lighting conditions. However, achieving a clearly visible colour requires substantial reporter
+    accumulation. This exposes another hurdle: at low target miRNA concentrations, reporter production may be
+    insufficient to generate a perceivable output. This is particularly relevant to our aim of detecting disease at
+    the early-to-mid stage, where the abundance of the selected miRNA biomarkers may be relatively low. Therefore, we
+    identified signal amplification as an additional design requirement to improve detection sensitivity.
   </p>
   <p><strong>Two design challenges identified:</strong></p>
   <ol>
-    <li>A readout that can be easily observed</li>
-    <li>Sufficient signal amplification at low target miRNA concentration</li>
+    <li>A readout that can be easily observed.</li>
+    <li>Sufficient signal amplification at low target miRNA concentration.</li>
   </ol>
 </div>
 
@@ -1096,55 +1174,110 @@
 
   <h3>Design: Justifying the use of HCR</h3>
   <p>
-    After evaluating limitations of reporter-based toehold switches, we explored Hybridization Chain Reaction (HCR)
-    as an alternative miRNA detection method.
+    After evaluating the limitations of reporter-based toehold switches, we explored Hybridization Chain Reaction
+    (HCR) as an alternative miRNA detection method.
   </p>
   <h4>Mechanism of HCR</h4>
   <p>
-    HCR is an enzyme-free signal amplification technique that relies on target-triggered hybridisation between designed
-    DNA hairpins, forming long nicked double-stranded DNA polymers. One target can initiate repeated hairpin
-    hybridisation, amplifying the signal.
+    HCR is an enzyme-free signal amplification technique that relies on target-triggered hybridisation between
+    designed DNA hairpins, resulting in the formation of long nicked double-stranded DNA polymers. By using two
+    complementary hairpins, the opening of one hairpin exposes a sequence that can trigger the opening of the next,
+    allowing the reaction to continue in a chain. Through this cascading process, one target can initiate repeated
+    hairpin hybridisation, thereby amplifying the signal produced by the detection system.
   </p>
   <h4>Rationale for Selecting HCR</h4>
-  <p><strong>Directly visible colorimetric readout:</strong> HCR products can include G-rich sequences that form
-  G-quadruplex structures, bind hemin, and catalyse TMBS oxidation to a visible colour change under normal lighting.</p>
-  <p><strong>Signal amplification for low-abundance miRNA:</strong> A small amount of target can initiate cascading
-  hybridisation of many hairpins, improving early-stage detection.</p>
-  <p><strong>Lower detection limits:</strong> Enhanced HCR methods can reach detection limits as low as 92.7 fM.</p>
-  <p><strong>High specificity and low background:</strong> Multiple specific hairpins help distinguish single-base mismatches.</p>
-  <p><strong>Limitations:</strong> slower kinetics than enzyme methods; background leakage; limited multiplexing.</p>
+  <p>
+    <strong>Directly visible colorimetric readout.</strong> HCR products can include G-rich sequences that form
+    G-quadruplex structures. These structures bind hemin and catalyse the oxidation of TMBS to generate a visible
+    colour change. Compared with the eGFP-based toehold assay, which requires excitation at a specific wavelength
+    and fluorescence-detection equipment, this colorimetric approach allows the result to be observed directly
+    under normal lighting conditions, aligning with our aim of developing a home test kit.
+  </p>
+  <p>
+    <strong>Signal amplification for low-abundance miRNA.</strong> A small amount of target miRNA can initiate
+    cascading hybridisation of multiple hairpin probes, producing a much stronger signal from the initial target.
+    This allows low-abundance miRNA to be converted into a more visible readout, which is particularly important
+    for early-stage detection.
+  </p>
+  <p>
+    <strong>Lower detection limits.</strong> Enhanced HCR methods, such as toehold-mediated exponential HCR, can
+    achieve detection limits as low as 92.7 fM, enabling sensitive detection of low-abundance miRNA biomarkers
+    associated with early diabetic nephropathy.
+  </p>
+  <p>
+    <strong>High specificity and low background.</strong> HCR uses multiple, specific hairpins, making it highly
+    effective at distinguishing single-base mismatches among miRNA sequences. This selectivity is crucial given
+    the high homology among miRNA families.
+  </p>
+  <p><strong>Limitations:</strong> slower reaction kinetics than enzyme-based amplification; background leakage
+  (hairpins may spontaneously open and produce false positives); limited multiplexing (cross-talk between
+  amplification pathways).</p>
 
   <h3>Build 1: Constructing H1 and H2 hairpins + NUPACK analysis</h3>
   <p>
-    When miRNA target (miR-21 / miR-192) is present, H1 binds the target and opens, exposing a sequence complementary
-    to H2. H1-H2 binding continues to form long complexes. A G-quadruplex (G4) secondary structure forms in the complexes.
+    When miRNA target (miR-21 / miR-192) is present, the H1 hairpin binds to the complementary miRNA target and
+    becomes linear, exposing its sequence complementary to H2. The H2 hairpin binds to the complementary H1
+    sequence and becomes linear. H1 and H2 binding goes on and on to form long H1–H2 complexes. A special
+    secondary structure called a G-quadruplex (G4) is formed in the H1–H2 complexes.
   </p>
 
   <h3>Test 1: Testing sensitivity of H1 and H2 hairpins with PAGE</h3>
   <p>
-    Agarose gel electrophoresis with miRNA from 0 nM to 1 &mu;M showed smearing in all lanes, including 0 nM, suggesting
-    possible spontaneous H1-H2 binding or poor resolution of agarose pores. PAGE was planned for higher resolution.
+    To test the sensitivity of the HCR hairpins, we first conducted gel electrophoresis using agarose gel, with miRNA
+    concentrations ranging from 0 nM, 1 nM, 10 nM, 100 nM to 1 &mu;M. With the large difference in miRNA
+    concentrations in this experiment, we would be able to determine the range that has significant formation of
+    hybrids. However, after conducting gel electrophoresis, it was observed that all lanes had smearing. This
+    indicates that even in the setup with 0 nM miRNA concentration, the H1 and H2 hairpins may have bonded with
+    each other, giving an unobservable result.
+  </p>
+  <p>Possible explanations include:</p>
+  <ul>
+    <li>The hairpin structures are too stable to be opened by the miRNA trigger.</li>
+    <li>As agarose gel has large pores, complexes may not be filtered out by the agarose gel, producing unobservable results.</li>
+  </ul>
+  <p>
+    To address these issues, polyacrylamide gel electrophoresis (PAGE) was employed in subsequent experiments. PAGE
+    offers considerably smaller pore sizes than agarose gels and should more effectively separate small nucleotide
+    species and individual DNA strands, yielding more accurate and interpretable results.
   </p>
 
   <h3>Learn 1</h3>
   <ul>
-    <li>PAGE and agarose gel did not produce clear observable sensitivity results.</li>
+    <li>PAGE and agarose gel failed to produce an observable sensitivity result.</li>
     <li>Considered other methods to detect hairpin sensitivity.</li>
   </ul>
 
   <h3>Build 2: Building hairpins that contain InG4 sequences</h3>
   <p>
-    We referenced literature describing double-loop HCR hairpins with InG4 sequences in the loops.
+    For the construction of H1 and H2 hairpins for the miRNAs, we took reference from the literature on a new way of
+    HCR &mdash; a double-loop hairpin, where InG4 sequences are located in the loops of the hairpins.
   </p>
   <p><strong>Design criteria for HCR-G4 hairpins:</strong></p>
   <ol>
-    <li>High concentration of hybrids formed so InG4 can form G-quadruplexes.</li>
-    <li>Most InG4 sequences located in loops (not stems).</li>
-    <li>Little H1-H2 complex without miRNA (to avoid false positives).</li>
+    <li>A high concentration of hybrids is formed, ensuring the HCR reaction has occurred successfully and the InG4
+      sequences are inside a stable complex such that they can dissociate from the hybrids to form G-quadruplexes.</li>
+    <li>Most InG4 sequences are located in the loops inside the hybrid. Once InG4 sequences are in the stems and
+      base-paired, the GGG bases would not form the G-quadruplex. Only when the InG4 sequences are located inside
+      the loops can they leave the long polymer and form G-quadruplexes.</li>
+    <li>Little H1–H2 complex is found without miRNA. If H1 and H2 bind each other in the closed state / without the
+      presence of miRNA, false positives may be produced.</li>
   </ol>
   <p>
-    H1 and H2 for miR-192-5p were constructed with complementary stems, H1-H2 binding sites, loop InG4 inserts, and
-    cascading binding sites. Designs were validated in NUPACK.
+    First, to construct the H1 hairpin, a complementary stem of the miR-192-5p was built to allow the miRNA to bind
+    with the hairpin. Then, to build the H1–H2 binding site and the zipped-up stem for the hairpin, a part of the
+    miRNA was added to bind with the complementary stem, leaving an exposed part for the miRNA to bind with. In
+    between, a loop was built to insert the InG4 sequences into the hairpins for further action.
+  </p>
+  <p>
+    Then to construct the H2 hairpin, a complementary sequence to the H1–H2 binding site of H1 was built so H2 can
+    bind with the H1 hairpin in the open state. InG4 sequences are also included inside the loops to allow the G
+    bases to leave the large complex and form G-quadruplexes. Lastly, to build a H2–H1 binding site, a sequence
+    identical to miR-192-5p was added to the hairpin to allow H2 to bind with H1, cascading thousands of times and
+    producing a very long polymer.
+  </p>
+  <p>
+    <strong>Validating our samples with NUPACK.</strong> We used NUPACK to test many HCR hairpin designs, searching
+    for the best HCR design.
   </p>
 
   <div class="eng-img-row">
@@ -1170,30 +1303,59 @@
 
   <h3>Test 2: Testing HCR hairpins with ThT fluorescence assay</h3>
   <p>
-    G4 structures bind Thioflavin T (ThT); free ThT is weakly fluorescent, but G4-bound ThT shows strong emission,
-    confirming G4 formation after HCR.
+    The G-quadruplexes formed by H1–H2 complexes alone are invisible to the naked eye and give no detectable signal
+    upon formation. Chemicals must be added to confirm the formation and generate detectable signals. G4-quadruplex
+    structures formed by DNA or RNA can specifically bind the light-up fluorescent dye Thioflavin T (ThT). Free ThT
+    in solution exhibits very low fluorescence. However, upon binding to G4 complexes, ThT undergoes a significant
+    increase in fluorescence emission compared with binding to other DNA/RNA forms (Xu et al., 2016). As a result,
+    ThT serves as a useful probe for distinguishing G4-quadruplexes from non-G4 structures.
   </p>
   <div class="eng-img">
     <img src="" alt="Figure 23: ThT assay graphs" data-caption="Figure 23: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192 (ThT)">
     <p class="fig-caption">Figure 23: Graph of HCR ThT signal with miRNA-21 and miRNA-192</p>
   </div>
   <p>
-    For miR-21, 100 pM, 10 nM and 100 nM produced significantly higher fluorescence than the 0 pM control
-    (repeated-measures ANOVA with Dunnett post-hoc, n=4). For miR-192, fluorescence plateaued across concentrations
-    with no significant correlation.
+    In the ThT fluorescence HCR experiments, miR-21 reproduced the expected pattern from the literature: ThT alone is
+    weakly fluorescent, but binding to G4 structures gives a marked signal increase. Specifically, 100 pM, 10 nM and
+    100 nM miR-21 all produced significantly higher fluorescence than the 0 pM control. On replicate G4/ThT runs
+    analyzed by repeated-measures one-way ANOVA with Dunnett&rsquo;s post-hoc (n=4), the trend persisted, with 10 nM
+    and 100 nM again significantly different from control, supporting that the H1/H2 polymerization and G4 quadruplex
+    formation are working as intended for miR-21. Meanwhile, miR-192 could not show the expected increasing trend;
+    fluorescence intensity plateaued at roughly the same level across increasing miR-192 concentrations, with no
+    significant correlation.
   </p>
 
   <h3>Learn 2: Enhancing signal detection with Hemin-TMBS assay</h3>
   <p>
-    ThT requires UV excitation and a fluorescence reader, which is impractical for a home kit. Hemin/TMBS was selected
-    instead: G4/hemin DNAzyme oxidises TMBS to a visible colour, with catalytic turnover and stronger signal than
-    stoichiometric ThT binding, plus better G4 stabilisation by hemin.
+    After evaluating the ThT-coupled HCR system, we identified the following limitations that may reduce its
+    suitability for a practical at-home diagnostic kit. To address this, we transitioned to the hemin/TMBS-coupled
+    HCR assay as an alternative detection strategy.
   </p>
+  <p><strong>No requirement for a fluorescence reader.</strong> Fluorescence enhancement of ThT upon binding to
+  G-quadruplexes requires UV light excitation and a fluorescence reader to visualise the signal (Renaud de la Faverie
+  et al., 2014), which reduces practicality for an at-home test kit. In the hemin/TMBS system, the G-quadruplex/hemin
+  DNAzyme catalyses the oxidation of TMBS, producing a clear visible colour change that can be observed directly by
+  the naked eye (Li et al., 2009).</p>
+  <p><strong>Stronger signal amplification.</strong> ThT produces fluorescence upon binding G4-quadruplexes, but
+  each G4-quadruplex can only light up a limited number of ThT molecules (Renaud de la Faverie et al., 2014). In
+  contrast, the G4-quadruplex binds hemin to form a peroxidase-mimicking DNAzyme (Nasab et al., 2016). This enzyme
+  continuously oxidises TMBS in the presence of hydrogen peroxide (H<sub>2</sub>O<sub>2</sub>). Since the reaction
+  is catalytic, a single G4/hemin complex can repeatedly oxidise many TMBS molecules (Li et al., 2021), producing a
+  much higher effective signal output.</p>
+  <p><strong>Stabilisation of G4-quadruplexes.</strong> Hemin stabilises G4-quadruplex structures much better than
+  ThT because of how the two molecules fit onto the DNA (Renaud de la Faverie et al., 2014). ThT is much smaller and
+  only connects to a small part of the structure with weaker force (Nasab et al., 2016). In contrast, hemin has a
+  large, flat shape that matches the top of the G-quadruplex (Li et al., 2021). When hemin sticks to the DNA, it
+  covers a wide area and binds very tightly, locking the structure in place (Tao et al., 2024).</p>
 
   <h3>Test 3: Testing HCR hairpins with Hemin and TMBS assay</h3>
   <p>
-    Hemin binds G4 to form a peroxidase-like DNAzyme. TMBS is oxidised from colourless to blue; H<sub>2</sub>SO<sub>4</sub>
-    stops the reaction (blue to yellow) for absorbance at 450 nm.
+    First, hemin (an iron-containing compound) is added to the H1–H2 complexes. When hemin binds to G-quadruplexes,
+    this enables the G-quadruplexes to gain a similar function to enzymes, catalysing reactions involving colour
+    change. TMBS is a colourless substrate. When TMBS is added to the G-quadruplex/hemin (G4-hemin) complex, the
+    TMBS is oxidised and turns the mixture from colourless to a distinct blue colour. Finally, sulphuric acid
+    (H<sub>2</sub>SO<sub>4</sub>) is added to stop the reaction; the mixture turns from blue to yellow, allowing us
+    to measure absorbance at 450 nm.
   </p>
   <div class="eng-img">
     <img src="" alt="Figure 24: Hemin-TMBS plate" data-caption="Figure 24: Results of HCR reactions with miRNA-21 and miRNA-192 at varying concentrations">
@@ -1204,21 +1366,50 @@
     <p class="fig-caption">Figure 25: Graph of color intensity of HCR reactions with miRNA-21 and miRNA-192</p>
   </div>
   <p>
-    For miR-21, wells with H1, H2 and increasing miR-21 developed stronger yellow colour than controls, with a
-    concentration-dependent increase from 1 nM to 100 nM. For miR-192, intensity increased from 10 pM to 100 pM then
-    decreased up to 100 nM.
+    In the HCR assay with miR-21, the five wells containing H1, H2 and increasing concentrations of miR-21 all
+    developed a stronger yellow colour compared with the control wells (blank, H1 alone, H2 alone, miRNA alone and
+    H1+H2). From 1 nM to 100 nM, a clear concentration-dependent increase in colour intensity was observed. This
+    demonstrates that higher concentrations of miR-21 triggered more extensive HCR, leading to greater formation of
+    G-quadruplexes available for the hemin/TMBS reaction and thus stronger colour output. For the HCR assay with
+    miR-192, the same concentration series (10 pM to 100 nM) produced a different pattern. The yellow colour
+    intensity increased from 10 pM to 100 pM, but then decreased up to 100 nM.
   </p>
 
   <h3>Learn 3: Self-amplification of HCR hairpin H1</h3>
   <p>
-    For miR-21, H1 alone, H2 alone and initiator alone did not produce visible colour. For miR-192, H1 alone caused
-    comparable colour change, suggesting spontaneous self-amplification of miR-192 G4H1.
+    Notably, for miR-21, H1 alone, H2 alone and the initiator alone did not produce a visible colour change.
+    Nevertheless, for miR-192, H1 alone caused a comparable colour change. This observation suggests that the
+    miR-192 G4H1 alone might have undergone undesirable spontaneous self-amplification, leading to the formation of
+    G-quadruplex structures even in the absence of the miRNA target.
   </p>
-  <p><strong>Possible reasons:</strong></p>
+  <p><strong>Possible reasons for miR-192 G4H1 self-amplification:</strong></p>
   <ul>
-    <li>Intrinsic tendency of G-rich sequence to form G-quadruplexes</li>
-    <li>Insufficient thermodynamic stability of the hairpin stem</li>
-    <li>H1-H1 intermolecular interactions at working concentration</li>
+    <li><strong>Intrinsic tendency of the G-rich sequence to form G-quadruplexes.</strong> Even when the H1 hairpin
+      is closed, partial unfolding can expose enough of the G-rich sequence for intramolecular or intermolecular G4
+      formation (Burge et al., 2006; Neidle &amp; Parkinson, 2003). Once a small number of G4 structures form, they
+      can bind hemin and generate colour, creating a visible background signal.</li>
+    <li><strong>Insufficient thermodynamic stability of the hairpin stem.</strong> The stem of the designed H1
+      hairpin may be too short or contain too few G–C base pairs, so the free-energy barrier for spontaneous
+      opening is low. Under the ionic conditions used for HCR and G4 stabilisation, the hairpin might open
+      transiently, allowing the G4 domain to fold without any target trigger (Wang et al., 2020; Ang &amp; Yung,
+      2016).</li>
+    <li><strong>H1–H1 intermolecular interactions.</strong> At the working concentration of H1, molecules may
+      interact with one another through complementary regions or G-rich stretches, leading to partial activation of
+      the cascade in the absence of miR-192 (Wang et al., 2020; Choi et al., 2014).</li>
+  </ul>
+
+  <h4>References</h4>
+  <ul class="ref-list">
+    <li>Ang, Y. S., &amp; Yung, L. Y. L. (2016). Rational design of hybridization chain reaction monomers for robust signal amplification. <em>Chemical Communications, 52</em>(22), 4219–4222. https://doi.org/10.1039/C5CC08907G</li>
+    <li>Burge, S., Parkinson, G. N., Hazel, P., Todd, A. K., &amp; Neidle, S. (2006). Quadruplex DNA: sequence, topology and structure. <em>Nucleic Acids Research, 34</em>(19), 5402–5415. https://doi.org/10.1093/nar/gkl655</li>
+    <li>Choi, H. M. T., Beck, V. A., &amp; Pierce, N. A. (2014). Multiplexed in situ hybridization using hybridization chain reaction. <em>ACS Nano, 8</em>(5), 4284–4294. https://doi.org/10.1021/nn405717p</li>
+    <li>Ghahremani Nasab, M., Hassani, L., Mohammadi Nejad, S., &amp; Norouzi, D. (2016). Interaction of hemin with quadruplex DNA. <em>Journal of Biological Physics, 43</em>(1), 5–14. https://doi.org/10.1007/s10867-016-9430-7</li>
+    <li>Li, B., Du, Y., Li, T., &amp; Dong, S. (2009). Investigation of 3,3&prime;,5,5&prime;-tetramethylbenzidine as colorimetric substrate for a peroxidatic DNAzyme. <em>Analytica Chimica Acta, 651</em>(2), 234–240. https://doi.org/10.1016/j.aca.2009.09.009</li>
+    <li>Li, J., Wu, H., Yan, Y., Yuan, T., Shu, Y., Gao, X., Zhang, L., Li, S., Ding, S., &amp; Cheng, W. (2021). Zippered G-quadruplex/hemin DNAzyme: Exceptional catalyst for universal bioanalytical applications. <em>Nucleic Acids Research, 49</em>(22), 13031–13044. https://doi.org/10.1093/nar/gkab1178</li>
+    <li>Neidle, S., &amp; Parkinson, G. N. (2003). The structure of telomeric DNA. <em>Current Opinion in Structural Biology, 13</em>(3), 275–283. https://doi.org/10.1016/S0959-440X(03)00072-1</li>
+    <li>Renaud de la Faverie, A., Guédin, A., Bedrat, A., Yatsunyk, L. A., &amp; Mergny, J.-L. (2014). Thioflavin T as a fluorescence light-up probe for G4 formation. <em>Nucleic Acids Research, 42</em>(8). https://doi.org/10.1093/nar/gku111</li>
+    <li>Tao, H., Chen, Y., Liu, J., Liu, J., Yang, Y., &amp; Hu, R. (2024). Colorimetric and photothermal dual-modal analysis of a cancer-related gene based on G-quadruplex-hemin cascade signal amplification. <em>New Journal of Chemistry, 48</em>(36), 15782–15789. https://doi.org/10.1039/d4nj02587c</li>
+    <li>Wang, J., et al. (2020). Elucidation of leak-resistance DNA hybridization chain reaction with universality and extensibility. <em>Nucleic Acids Research, 48</em>(5), 2220–2232. https://doi.org/10.1093/nar/gkaa016</li>
   </ul>
 </div>
 
@@ -1228,10 +1419,16 @@
 
   <h3>Design and Build: Modifying G4 hairpins to prevent self-amplification</h3>
   <p>
-    Strategies for the miR-192 H1 hairpin: extend stem lengths by 2-4 base pairs; introduce G-C-rich clamps at stem
-    termini; reposition InG4 deeper in loops; optimise toehold lengths to 18-22 nucleotides to raise the barrier against
-    non-specific initiation.
+    To suppress self-amplification and background leakage in our HCR system, we can engineer G4 hairpins with
+    enhanced stability in the closed state while preserving efficient miRNA-triggered opening in the open state.
+    Strategies for modifying the HCR H1 hairpin for miR-192:
   </p>
+  <ul>
+    <li>Extend stem lengths by 2–4 base pairs to increase the thermodynamic barrier against spontaneous hairpin opening.</li>
+    <li>Introduce G·C-rich clamps at stem termini to further stabilise these vulnerable regions without blocking toehold access.</li>
+    <li>Reposition InG4 sequences deeper within loop regions to prevent inter-hairpin G-quadruplex formation that could nucleate unintended polymerisation in the absence of target miRNA.</li>
+    <li>Optimise toehold lengths to 18–22 nucleotides, increasing the overall free-energy barrier to ensure rapid, specific initiation only upon binding cognate miR-21-5p or miR-192-5p, minimising non-specific interactions.</li>
+  </ul>
 
   <h3>Test: Testing modified G4 hairpins with Hemin+TMBS</h3>
   <p><!-- Add results when available --></p>
@@ -1300,7 +1497,7 @@
     <hr style="border-color: #d6d3c8;" />
     <div class="row mt-4">
       <div class="col">
-        <p class="mb-0"><small>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color: #1e2937;">Creative Commons Attribution 4.0 International license</a>.</small></p>
+        <p class="mb-0"><small>&copy; 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color: #1e2937;">Creative Commons Attribution 4.0 International license</a>.</small></p>
         <p><small>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/hongkong-hs" style="color: #1e2937;">gitlab.igem.org/2026/hongkong-hs</a>.</small></p>
       </div>
     </div>
@@ -1319,9 +1516,7 @@
     <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
 
     <script>
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
+      if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
       window.scrollTo(0, 0);
 
       const backToTopBtn = document.getElementById('back-to-top');
@@ -1334,10 +1529,7 @@
       });
 
       (function () {
-        var allowed = [
-          'description', 'contribution', 'engineering', 'experiments',
-          'results', 'parts', 'education', 'human-practices', 'safety'
-        ];
+        var allowed = ['description','contribution','engineering','experiments','results','parts','education','human-practices','safety'];
         var path = window.location.pathname.replace(/\/+$/, '');
         var page = path.split('/').pop() || '';
         if (allowed.indexOf(page) === -1) return;
@@ -1362,16 +1554,11 @@
         headings.forEach(function (h) {
           var text = (h.textContent || '').trim();
           if (!text) return;
-
           if (!h.id) {
-            var base = text.toLowerCase()
-              .replace(/[^a-z0-9\s-]/g, '')
-              .replace(/\s+/g, '-')
-              .slice(0, 40) || 'section';
+            var base = text.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').slice(0, 40) || 'section';
             idCounts[base] = (idCounts[base] || 0) + 1;
             h.id = idCounts[base] > 1 ? base + '-' + idCounts[base] : base;
           }
-
           var li = document.createElement('li');
           li.className = 'nav-' + h.tagName.toLowerCase();
           var a = document.createElement('a');
@@ -1390,7 +1577,6 @@
           li.appendChild(a);
           ul.appendChild(li);
         });
-
         nav.appendChild(ul);
 
         function updateActive() {
@@ -1417,118 +1603,87 @@
         });
       })();
     </script>
+
     <script>
-(function () {
-  const wrap  = document.getElementById('hotspotWrap');
-  const tip   = document.getElementById('hotspotTip');
-  const tipT  = tip.querySelector('.hotspot-tip-title');
-  const tipB  = tip.querySelector('.hotspot-tip-body');
-  const closeBtn = document.getElementById('hotspotTipClose');
-  const spots = wrap.querySelectorAll('.hotspot');
-  let current = null;
+    (function () {
+      const wrap  = document.getElementById('hotspotWrap');
+      if (!wrap) return;
+      const tip   = document.getElementById('hotspotTip');
+      const tipT  = tip.querySelector('.hotspot-tip-title');
+      const tipB  = tip.querySelector('.hotspot-tip-body');
+      const closeBtn = document.getElementById('hotspotTipClose');
+      const spots = wrap.querySelectorAll('.hotspot');
+      let current = null;
 
-  function openTip(spot) {
-    // Fill content
-    tipT.innerHTML = spot.dataset.title || '';
-    tipB.textContent = spot.dataset.text || '';
+      function openTip(spot) {
+        tipT.innerHTML = spot.dataset.title || '';
+        tipB.textContent = spot.dataset.text || '';
 
-    // Mark active
-    spots.forEach(s => s.classList.remove('active'));
-    spot.classList.add('active');
-    spot.setAttribute('aria-expanded', 'true');
-    current = spot;
+        spots.forEach(s => s.classList.remove('active'));
+        spot.classList.add('active');
+        spot.setAttribute('aria-expanded', 'true');
+        current = spot;
 
-    // Show + measure
-    tip.hidden = false;
-    tip.style.width = '';
-    const wrapW = wrap.clientWidth;
-    const narrow = wrapW < 560;
+        tip.hidden = false;
+        tip.style.width = '';
+        const wrapW = wrap.clientWidth;
+        const narrow = wrapW < 560;
+        if (narrow) tip.style.width = (wrapW - 16) + 'px';
 
-    if (narrow) {
-      tip.style.width = (wrapW - 16) + 'px';
-    }
+        const tipW = tip.offsetWidth;
+        const tipH = tip.offsetHeight;
 
-    const tipW = tip.offsetWidth;
-    const tipH = tip.offsetHeight;
+        const wrapRect = wrap.getBoundingClientRect();
+        const sRect    = spot.getBoundingClientRect();
 
-    const wrapRect = wrap.getBoundingClientRect();
-    const sRect    = spot.getBoundingClientRect();
+        const cx = sRect.left - wrapRect.left + sRect.width  / 2;
+        const cy = sRect.top  - wrapRect.top  + sRect.height / 2;
 
-    // Hotspot centre, relative to the image wrapper
-    const cx = sRect.left - wrapRect.left + sRect.width  / 2;
-    const cy = sRect.top  - wrapRect.top  + sRect.height / 2;
+        let left, top;
+        if (narrow) {
+          left = 8;
+          top = Math.min(Math.max(8, cy - tipH - 24), wrapRect.height - tipH - 8);
+          if (top < 8) top = Math.min(cy + 24, wrapRect.height - tipH - 8);
+        } else {
+          left = cx + 26;
+          if (left + tipW > wrapRect.width - 8) left = cx - tipW - 26;
+          if (left < 8) left = 8;
+          top = cy - tipH / 2;
+          if (top < 8) top = 8;
+          if (top + tipH > wrapRect.height - 8) top = wrapRect.height - tipH - 8;
+        }
 
-    let left, top;
-
-    if (narrow) {
-      // Bottom-banner style on phones
-      left = 8;
-      top  = Math.min(
-        Math.max(8, cy - tipH - 24),
-        wrapRect.height - tipH - 8
-      );
-      if (top < 8) top = Math.min(cy + 24, wrapRect.height - tipH - 8);
-    } else {
-      // Prefer the right of the marker, flip left if it would overflow
-      left = cx + 26;
-      if (left + tipW > wrapRect.width - 8) left = cx - tipW - 26;
-      if (left < 8) left = 8;
-
-      top = cy - tipH / 2;
-      if (top < 8) top = 8;
-      if (top + tipH > wrapRect.height - 8) top = wrapRect.height - tipH - 8;
-    }
-
-    tip.style.left = left + 'px';
-    tip.style.top  = top  + 'px';
-
-    requestAnimationFrame(() => tip.classList.add('show'));
-  }
-
-  function closeTip() {
-    tip.classList.remove('show');
-    if (current) {
-      current.classList.remove('active');
-      current.setAttribute('aria-expanded', 'false');
-      current = null;
-    }
-    setTimeout(() => { if (!current) tip.hidden = true; }, 220);
-  }
-
-  // Click on a marker
-  spots.forEach(spot => {
-    spot.setAttribute('aria-expanded', 'false');
-    spot.addEventListener('click', e => {
-      e.stopPropagation();
-      if (current === spot && tip.classList.contains('show')) {
-        closeTip();            // click again to dismiss
-      } else {
-        openTip(spot);
+        tip.style.left = left + 'px';
+        tip.style.top  = top  + 'px';
+        requestAnimationFrame(() => tip.classList.add('show'));
       }
-    });
-  });
 
-  // Close button
-  closeBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    closeTip();
-  });
+      function closeTip() {
+        tip.classList.remove('show');
+        if (current) {
+          current.classList.remove('active');
+          current.setAttribute('aria-expanded', 'false');
+          current = null;
+        }
+        setTimeout(() => { if (!current) tip.hidden = true; }, 220);
+      }
 
-  // Click anywhere else closes the tooltip
-  document.addEventListener('click', e => {
-    if (!tip.hidden && !tip.contains(e.target) && !e.target.classList.contains('hotspot')) {
-      closeTip();
-    }
-  });
+      spots.forEach(spot => {
+        spot.setAttribute('aria-expanded', 'false');
+        spot.addEventListener('click', e => {
+          e.stopPropagation();
+          if (current === spot && tip.classList.contains('show')) closeTip();
+          else openTip(spot);
+        });
+      });
 
-  // Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeTip();
-  });
-
-  // Reposition-sensitive: close on resize
-  window.addEventListener('resize', () => { if (!tip.hidden) closeTip(); });
-})();
-</script>
+      closeBtn.addEventListener('click', e => { e.stopPropagation(); closeTip(); });
+      document.addEventListener('click', e => {
+        if (!tip.hidden && !tip.contains(e.target) && !e.target.classList.contains('hotspot')) closeTip();
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTip(); });
+      window.addEventListener('resize', () => { if (!tip.hidden) closeTip(); });
+    })();
+    </script>
   </body>
 </html>

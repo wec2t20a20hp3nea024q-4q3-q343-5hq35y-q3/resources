@@ -419,8 +419,149 @@
   .img-modal-caption {
     margin-top: 0.8rem; color: #334155; font-size: 0.95rem;
   }
-</style>
+  .hotspot-figure { text-align: center; margin: 1.5rem 0; }
 
+.hotspot-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;   /* your width limit */
+}
+
+.hotspot-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid #404040;
+}
+
+/* ---------- Hotspot markers ---------- */
+.hotspot {
+  position: absolute;
+  width: 34px; height: 34px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #404040;
+  background: rgba(64, 64, 64, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.hotspot::after {
+  content: "";
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(64, 64, 64, 0.55);
+  animation: hotspot-pulse 2s ease-out infinite;
+}
+@keyframes hotspot-pulse {
+  0%   { transform: scale(0.85); opacity: 0.9; }
+  70%  { transform: scale(1.5);  opacity: 0;   }
+  100% { transform: scale(1.5);  opacity: 0;   }
+}
+.hotspot:hover,
+.hotspot:focus-visible,
+.hotspot.active {
+  background: #404040;
+  transform: translate(-50%, -50%) scale(1.12);
+  outline: none;
+}
+.hotspot:focus-visible { box-shadow: 0 0 0 3px #F9F6EE, 0 0 0 5px #404040; }
+.hotspot.active::after { animation: none; opacity: 0; }
+
+/* ---------- Tooltip ---------- */
+.hotspot-tip {
+  position: absolute;
+  max-width: 280px;
+  background: #F9F6EE;
+  border: 3px solid #404040;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+.hotspot-tip.show { opacity: 1; transform: translateY(0); }
+
+.hotspot-tip-title {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e2937;
+}
+.hotspot-tip-body {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #334155;
+}
+.hotspot-tip-close {
+  position: absolute;
+  top: 4px; right: 8px;
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #404040;
+  cursor: pointer;
+}
+.hotspot-tip-close:hover { color: #000; }
+
+/* ---------- Small screens: tooltip becomes a bottom banner ---------- */
+@media (max-width: 560px) {
+  .hotspot { width: 28px; height: 28px; }
+  .hotspot-tip { max-width: none; }
+}
+</style>
+<div class="eng-section">
+  <div class="hotspot-figure">
+  <div class="hotspot-wrap" id="hotspotWrap">
+    <img
+      class="hotspot-img"
+      src="https://cdn.jsdelivr.net/gh/wec2t20a20hp3nea024q-4q3-q343-5hq35y-q3/resources@main/Timeline%20draft%20.png"
+      alt="Timeline draft"
+    />
+
+    <!-- ===== Hotspots: left / top are percentages of the image ===== -->
+    <button class="hotspot" style="left: 24%; top: 12%;"
+            data-title="Cycle 1 — Design"
+            data-text="Selected miR-21-5p and miR-192-5p as CKD biomarkers and designed toehold switches with miRADAR + NUPACK."
+            aria-label="Cycle 1 details"></button>
+
+    <button class="hotspot" style="left: 74%; top: 30%;"
+            data-title="Cycle 2 — Build &amp; Test"
+            data-text="Cloned toehold 6 and 7 into pET-15b-EGFP and ran the cell-free eGFP assay. Only a minimal fold change was observed."
+            aria-label="Cycle 2 details"></button>
+
+    <button class="hotspot" style="left: 26%; top: 50%;"
+            data-title="Cycle 3 — Learn"
+            data-text="Switched to mCherry for a colorimetric readout, but low miRNA concentrations gave no visible colour change."
+            aria-label="Cycle 3 details"></button>
+
+    <button class="hotspot" style="left: 76%; top: 68%;"
+            data-title="Cycle 4 — HCR"
+            data-text="Moved to Hybridization Chain Reaction with InG4 hairpins, validated in NUPACK and tested by ThT and Hemin-TMBS assays."
+            aria-label="Cycle 4 details"></button>
+
+    <button class="hotspot" style="left: 28%; top: 88%;"
+            data-title="Cycle 5 — Refinement"
+            data-text="Extended hairpin stems, added G-C clamps and repositioned InG4 loops to stop miR-192 H1 from self-amplifying."
+            aria-label="Cycle 5 details"></button>
+
+    <!-- ===== Tooltip (one shared box, repositioned per click) ===== -->
+    <div class="hotspot-tip" id="hotspotTip" role="dialog" aria-modal="false" hidden>
+      <button type="button" class="hotspot-tip-close" id="hotspotTipClose" aria-label="Close">&times;</button>
+      <h4 class="hotspot-tip-title"></h4>
+      <p class="hotspot-tip-body"></p>
+    </div>
+  </div>
+
+  <p class="fig-caption">Figure X: Engineering cycle timeline. Click a marker for details.</p>
+</div>
+</div>
 <!-- ===================== Cycle 1 ===================== -->
 <div class="eng-section">
   <h2>Cycle 1: Using toehold switches to detect CKD</h2>
@@ -1276,5 +1417,118 @@
         });
       })();
     </script>
+    <script>
+(function () {
+  const wrap  = document.getElementById('hotspotWrap');
+  const tip   = document.getElementById('hotspotTip');
+  const tipT  = tip.querySelector('.hotspot-tip-title');
+  const tipB  = tip.querySelector('.hotspot-tip-body');
+  const closeBtn = document.getElementById('hotspotTipClose');
+  const spots = wrap.querySelectorAll('.hotspot');
+  let current = null;
+
+  function openTip(spot) {
+    // Fill content
+    tipT.innerHTML = spot.dataset.title || '';
+    tipB.textContent = spot.dataset.text || '';
+
+    // Mark active
+    spots.forEach(s => s.classList.remove('active'));
+    spot.classList.add('active');
+    spot.setAttribute('aria-expanded', 'true');
+    current = spot;
+
+    // Show + measure
+    tip.hidden = false;
+    tip.style.width = '';
+    const wrapW = wrap.clientWidth;
+    const narrow = wrapW < 560;
+
+    if (narrow) {
+      tip.style.width = (wrapW - 16) + 'px';
+    }
+
+    const tipW = tip.offsetWidth;
+    const tipH = tip.offsetHeight;
+
+    const wrapRect = wrap.getBoundingClientRect();
+    const sRect    = spot.getBoundingClientRect();
+
+    // Hotspot centre, relative to the image wrapper
+    const cx = sRect.left - wrapRect.left + sRect.width  / 2;
+    const cy = sRect.top  - wrapRect.top  + sRect.height / 2;
+
+    let left, top;
+
+    if (narrow) {
+      // Bottom-banner style on phones
+      left = 8;
+      top  = Math.min(
+        Math.max(8, cy - tipH - 24),
+        wrapRect.height - tipH - 8
+      );
+      if (top < 8) top = Math.min(cy + 24, wrapRect.height - tipH - 8);
+    } else {
+      // Prefer the right of the marker, flip left if it would overflow
+      left = cx + 26;
+      if (left + tipW > wrapRect.width - 8) left = cx - tipW - 26;
+      if (left < 8) left = 8;
+
+      top = cy - tipH / 2;
+      if (top < 8) top = 8;
+      if (top + tipH > wrapRect.height - 8) top = wrapRect.height - tipH - 8;
+    }
+
+    tip.style.left = left + 'px';
+    tip.style.top  = top  + 'px';
+
+    requestAnimationFrame(() => tip.classList.add('show'));
+  }
+
+  function closeTip() {
+    tip.classList.remove('show');
+    if (current) {
+      current.classList.remove('active');
+      current.setAttribute('aria-expanded', 'false');
+      current = null;
+    }
+    setTimeout(() => { if (!current) tip.hidden = true; }, 220);
+  }
+
+  // Click on a marker
+  spots.forEach(spot => {
+    spot.setAttribute('aria-expanded', 'false');
+    spot.addEventListener('click', e => {
+      e.stopPropagation();
+      if (current === spot && tip.classList.contains('show')) {
+        closeTip();            // click again to dismiss
+      } else {
+        openTip(spot);
+      }
+    });
+  });
+
+  // Close button
+  closeBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    closeTip();
+  });
+
+  // Click anywhere else closes the tooltip
+  document.addEventListener('click', e => {
+    if (!tip.hidden && !tip.contains(e.target) && !e.target.classList.contains('hotspot')) {
+      closeTip();
+    }
+  });
+
+  // Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeTip();
+  });
+
+  // Reposition-sensitive: close on resize
+  window.addEventListener('resize', () => { if (!tip.hidden) closeTip(); });
+})();
+</script>
   </body>
 </html>
